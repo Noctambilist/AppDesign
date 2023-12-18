@@ -10,6 +10,7 @@ let aliveDetector2 = setInterval(function () {
     ts4.innerHTML = '请输入正确的手机号！';
     ts4.style.color = 'red';
   }
+  //1
   else if (!(/^1[0-9]{10}$/.test(Number(sjhm2.value))) && sjhm2.value !== '' && flagOfSpecial === false) {
     ts4.innerHTML = 'Enter the correct phone number!';
     ts4.style.color = 'red';
