@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.box {
+    width: 350px;
+    height: 700px;
+    margin: 0 auto;
+    overflow: auto;/*超出内容会自动生成滚动条*/
+    background-color: #EEF6FF;
+}
+
+.box1{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;/* 垂直居中 */
+    overflow: hidden;
+    line-height: 1;/*控制行间距*/
+    position:sticky;/*粘性定位做导航栏*/
+    top: 0px;
+    z-index: 10;/*设置图层优先级*/
+    background-color:#EEF6FF;
+}
+
+.box1-1{
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+}
+.box1-2{
+    flex: 3;
+    height: 100%;
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    font-size: 24px;
+}
+.box1-3{
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+}
+
+.box2{
+    width: 90%;
+    min-height: 200px;
+    margin:5%;
+    overflow: hidden;
+    background-color:#fff;
+    border-radius: 12px 12px 20px 20px;/*避免空格换行缝隙影响布局*/
+    font-size: 0px;
+}
+input[type="radio"]{/*项目符号不可见*/
+    display: none;}
+
+label.colBtn,
+label.payBtn{/*选项未被选中时的样式*/
+    display: inline-block;
+    background-color:#f5f5f6;
+    font-size: 18px;
+    color: rgba(37,38,43,0.36);
+    padding: 16px;
+    text-align: center;
+    width: 50%;/*切换按钮水平占比*/
+    cursor: pointer;
+}
+.colBtn{
+    border-top-left-radius: 12px;
+}
+.payBtn{
+    border-top-right-radius: 12px;
+}
+#collection:checked+.colBtn,/*设置选中事件,选项被选中后的样式*/
+#payment:checked+.payBtn{/*由于checked只能套给input元素,所以用了+选择了藏在input后面的子元素进行操作*/
+    background-color: #fff;
+    color: #000;/*标签字体颜色*/
+    cursor: default;/*光标移上去不变样式*/
+}
+
+
+/*设置选项被选中后对应的表单切换动画*/
+#collection:checked~#form-bar{
+    transform: translateX(0);/*水平移动的位置坐标*/
+}
+#payment:checked~#form-bar{
+    transform: translateX(-315px);/*水平移动的位置坐标*/
+}
+
+#form-bar{
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.175,0.885,0.32,1.275);/*贝塞尔曲线动画*/
+}
+form{
+    flex-shrink: 0;/*该项目不应该在空间不足时缩小*/
+    width: 100%;
+    height: 300px;
+    position:relative;/*相对位置来进行切换*/
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center;     /* 垂直居中 */
+}
