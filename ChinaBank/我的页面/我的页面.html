@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的</title>
+    <link rel="stylesheet" href="./我的页面.css">
+    <link href='http://at.alicdn.com/t/c/font_4144272_3vtq4renm6e.css' rel='stylesheet'>
+</head>
+
+<!-- 主题色为#6A88F7 -->
+<!-- 底色为#EEF6FF -->
+
+<body>
+    <div class="box">
+        <div class="box1"><!-- 顶部导航栏 -->
+            <box class="box1-1">
+                <img src="./images/退出.png" alt="显示错误" width="30">
+                <label for="text-exit">
+                    <p class="text-exit">退出</p>
+                </label>
+            </box>
+            <box class="box1-2">
+                <div class="icon">
+                    <img class="icon-sou" src="./images/搜索.png" alt="显示错误" width="25">
+                </div>
+                <div class="textInput">
+                    <input class="inp" type="text" placeholder="搜索">
+                    <div class="clear"><img src="./images/关闭.png" alt="显示错误" width="20"></div>
+                </div>
+            </box>
+            <box class="box1-3">
+                <img src="./images/客服.png" alt="显示错误" width="30">
+                <label for="text-exit">
+                    <p class="text-exit">客服</p>
+                </label>
+            </box>
+        </div>
+        <div class="box2"><!-- 欢迎卡片 -->
+            <div class="box2-1">
+                <img src="./images/中国银行.png" alt="显示错误" width="80" height="80">
+            </div>
+            <div class="box2-2">
+                <h3>您好,尊敬的用户</h3>
+                <p>当前时间:2023/12/19 16:44:51</p>
+            </div>
+        </div>
+        <div class="box3"><!-- 我的资产 -->
+            <div class="box3-1">
+                <div class="box3-1-1">
+                    <h3>我的资产</h3>
+                    <img src="https://s11.ax1x.com/2023/12/16/pi4rgXt.png" class="eyeClose" width="30" height="30">
+                    <img src="https://s11.ax1x.com/2023/12/16/pi4rc6I.png" class="eyeOpen" width="30" height="30">
+                </div>
+                <div class="box3-1-2">
+                    <p>2023/12/19 16:44:51</p>
+                    <img src="./images/刷新.png" class="refresh" width="20" height="20">
+                </div>
+            </div>
+            <div class="box3-2">
+                <p>资产 ></p>
+                <img src="./images/人民币符号.png" alt="" width="20">
+                <p>123456</p>
+            </div>
+        </div>
+        <div class="box4"><!-- 本月收支 -->
+            <div class="box4-1">
+                <h3>本月收支</h3>
+            </div>
+            <div class="box4-2">
+                <div class="box4-2-1">
+                    <p>收入</p>
+                    <p>支出</p>
+                </div>
+                <div class="box4-2-2">
+                    <div class="box4-2-2-1">
+                        <img src="./images/人民币符号.png" alt="" width="20" height="20">
+                        <p>123456</p>
+                    </div>
+                    <div class="box4-2-2-2">
+                        <img class="aaa" src="./images/人民币符号.png" alt="" width="20" height="20">
+                        <p class="aaa">123456</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box5">
+
+        </div>
+        <div class="box6">
+            <ul class="nav">
+                <span class="nav-indicator"></span>
+                <li>
+                    <a href="#">
+                        <i class="iconfont icon-envelope"></i>
+                        <span class="title">首页</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="iconfont icon-home"></i>
+                        <span class="title">个人中心</span>
+                    </a>
+                </li>
+            </ul>
+    
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="filter-svg">
+                <defs>
+                    <filter id="goo">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+                            result="goo" />
+                        <feBlend in="SourceGraphic" in2="goo" />
+                    </filter>
+                </defs>
+            </svg>
+        </div>
+    </div>
+    <script src="./底部栏.js"></script>
+</body>
+</html>

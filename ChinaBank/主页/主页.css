@@ -484,7 +484,7 @@ body{
     /* 弹性布局  使垂直的ul变成横向的 */
     display: flex;
     background-color: var(--bg-nav);
-    height: 80px;
+    height: 50px;
 
     /* 定义滤镜 */
     filter: url("#goo");
@@ -535,7 +535,7 @@ body{
 
 .nav .nav-indicator{
     width: 90px;
-    height: 90px;
+    height: 85px;
     border-radius: 50%;
     background-color: var(--bg-nav);
     /* 绝对定位 */

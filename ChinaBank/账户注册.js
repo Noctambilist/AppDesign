@@ -7,6 +7,8 @@ const password2 = document.querySelector('.q-form .pw2');//确认密码
 const sign = document.querySelector('.q-form .login-btn');//注册按钮
 const yj1 = document.querySelector('.q-form .yanjing1');//睁眼
 const yj2 = document.querySelector('.q-form .yanjing2');//闭眼
+const modalDom = document.querySelector('.realname');
+const modal = new bootstrap.Modal(modalDom);
 
 yj1.addEventListener('click', () => {
   yj1.style.display = 'none';
@@ -113,57 +115,45 @@ let aliveDetector1 = setInterval(function () {
   }
 }, 50)
 
+
+
+
+
+
+
+
 sign.addEventListener('click', (e) => {
-  /**********************************
-                  拿数据
-  **********************************/
-  // function validatePassword(password) {
-  //   var minLength = 8;
-  //   var minCharTypes = 2;
-
-  //   if (password.length < minLength || countCharTypes(password) < minCharTypes) {
-  //     alert("密码长度大于等于8且包含至少2种字符");
-  //     return true;
-  //   }
-  //   return false;
-  // }
-
-  // function countCharTypes(password) {
-  //   var charTypes = 0;
-  //   var regexArr = [/([a-z])/, /([A-Z])/, /([0-9])/, /([^a-zA-Z0-9])/];
-
-  //   for (var i = 0; i < regexArr.length; i++) {
-  //     if (regexArr[i].test(password)) {
-  //       charTypes++;
-  //     }
-  //   }
-
-  //   return charTypes;
-  // }
 
 
-  // if (validatePassword(pw1.value)) {
-  //   return;
-  // }
+  modal.show()
+
+})
 
 
+
+document.querySelector('.save-btn').addEventListener('click', () => {
+  const username = document.querySelector('.txt003').value
+  const ID = document.querySelector('.txt004').value
   axios({
     url: 'http://hmajax.itheima.net/api/register',
     method: 'post',
     data: {
+
       username: sjhm1.value,
       password: password1.value
+
     }
   }).then(result => {
     // 成功
-    console.log(result)
-    console.log(result.data.message)
-    alert(result.data.message)
-  }).catch(error => {
-    // 失败
-    // 处理错误信息
-    console.log(error)
-    console.log(error.response.data.message)
-    alert(error.response.data.message)
+    if (result.data.code==200) {
+      console.log(result)
+      alert(result.data.message)
+
+    } else {
+      alert(result.data.message)  
+    }
   })
+
+  // 2. 隐藏弹框
+  modal.hide()
 })

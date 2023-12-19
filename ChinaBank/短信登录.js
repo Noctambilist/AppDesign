@@ -6,7 +6,7 @@ const yzm = document.querySelector('.m-form .tttt');//验证码输入框
 const login = document.querySelector('.m-form .login-btn');//登录按钮
 const ts = document.querySelector('.m-form .hidden-text');//正则验证
 const yhxz = document.querySelector('.m-form #sure');//用户须知按钮
-var tokenKey = 0;
+
 
 let varify;
 let flag = false;
@@ -15,7 +15,7 @@ let yzmflag = false;
 //login.disabled = true;
 //test
 //11
-//12
+//12345
 
 let aliveDetector = setInterval(function () {
   if (yhxz.checked === true) {
@@ -138,24 +138,74 @@ login.addEventListener('click', (e) => {
   }
   else if (yzm.value == varify && flag === true && flagOfSpecial === true) {
     login.disabled = false;
-    tokenKey = 1;
-    alert('登录成功');
+
+
+
+
+
+
+
+
+    axios({
+      url: 'http://hmajax.itheima.net/api/login',
+      method: 'POST',
+      data: {
+        phoneNumber: sjhm.value,
+      }
+    }).then(result => {
+      if (result.data.code==200) {
+        console.log(result)
+        localStorage.setItem('token',result.data.data.token)
+        alert(result.data.message)
+        location.href = './主页/主页.html';
+      } else {
+        alert(result.data.message)
+        console.log(result)
+      }
+      
+    })//后端
+
+
+
+
+
+
+
+
+
 
     /*********************************************************
                                 接跳转！
     *********************************************************/
-    location.href = './主页/主页.html';
+
 
   }
   else if (yzm.value == varify && flag === true && flagOfSpecial === false) {
-    login.disabled = false;
-    alert('Login Successful');
-    alert('登录成功');
+    
+    
+    
+    
+    axios({
+      url: 'http://hmajax.itheima.net/api/login',
+      method: 'POST',
+      data: {
+        username: sjhm.value,
 
-    /*********************************************************
-                                接跳转！
-    *********************************************************/
-    location.href = './主页/主页.html';
+      }
+    }).then(result => {
+      if (result.data.code==200) {
+        localStorage.setItem('token',result.data.data.token)
+        alert(result.data.message)
+        location.href = './主页/主页.html';
+      } else {
+        alert(result.data.message)
+      }
+      
+    })//后端
+
+
+
+
 
   }
   else if (yzm.value != varify && yzm.value != '' && flagOfSpecial === true) {
