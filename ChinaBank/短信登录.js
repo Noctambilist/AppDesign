@@ -15,7 +15,7 @@ let yzmflag = false;
 //login.disabled = true;
 //test
 //11
-//123
+//1234
 
 let aliveDetector = setInterval(function () {
   if (yhxz.checked === true) {
