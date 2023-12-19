@@ -46,21 +46,33 @@ yj4.addEventListener('click', () => {
 })
 
 login1.addEventListener('click', (e) => {
+  
+  
   axios({
-    url: 'http://hmajax.itheima.net/api/login',
+    url: '',
     method: 'POST',
     data: {
-      username: sjhm2.value,
-      password: sjmm2.value
+      phoneNumber: sjhm2.value,
+      userPassword: sjmm2.value
     }
   }).then(result => {
-    console.log(result)
-    console.log(result.data.message)
-    alert(result.data.message)
-  }).catch(error => {
-    console.log(error)
-    console.log(error.response.data.message)
-    alert(error.response.data.message)
+    if (result.data.code==200) {
+      localStorage.setItem('token',result.data.data.token)
+      console.log(result)
+      console.log(result.data.message)
+      alert(result.data.message)
+      location.href = './主页/主页.html';
+    } else {
+      console.log(error)
+      console.log(error.response.data.message)
+      alert(error.response.data.message)
+    }
   })
+
+
+
+
+
+
 }
 )
