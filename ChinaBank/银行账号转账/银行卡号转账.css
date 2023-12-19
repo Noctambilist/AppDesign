@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.box {
+    width: 350px;
+    height: 700px;
+    margin: 0 auto;
+    overflow: auto;/*超出内容会自动生成滚动条*/
+    background-color:aquamarine;
+}
+
+
+
+.box1{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;/* 垂直居中 */
+    overflow: hidden;
+    line-height: 1;/*控制行间距*/
+    position:sticky;/*粘性定位做导航栏*/
+    top: 0px;
+    z-index: 10;/*设置图层优先级*/
+    background-color:#EEF6FF;
+}
+.box1-1{
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+}
+.box1-2{
+    flex: 3;
+    height: 100%;
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    font-size: 24px;
+}
+.box1-3{
+    flex: 1;
+}
+
+
+
+.box2{
+    margin: 5%;
+    width: 90%;
+    height: 180px;
+    padding-left: 3%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+.box2-1,.box2-2,.box2-3{
+    flex: 2;
+    display: flex;
+    align-items: center;
+}
+.box2-2,.box2-3{
+    justify-content: space-between;
+}
+.box2-4{
+    flex: 1;
+    font-size: 14px;
+    font: 200;
+    display: flex;
+    align-items: center;
+}
+.box2-4 a{
+    text-decoration: none;
+    color: #6A88F7;
+    transition: font-size 0.25s ease;
+}
+.box2-4 a:hover{
+    font-size: 16px;
+}
+
+.payee,.actID,.actNum{
+    width: 70%;
+    border:none;
+    outline:none;
+    font-size: 18px;
+    transition: border-bottom 0.5s ease-in-out;
+}
+.payee:focus,.actID:focus,.actNum:focus{
+    border-bottom: solid 1px;
+}
+input::placeholder {
+    color: rgba(75, 75, 75,0.4); 
+    font-size: 16px; 
+}
+
+
+
+.box3{
+    margin: 5%;
+    width: 90%;
+    height: 180px;
+    padding-left: 3%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+.box3-1,.box3-2,.box3-3{
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+.box3-2{
+    justify-content: space-between;
+}
+.actNum{
+    width: 85%;
+    font-size: 30px;
+}
+.box3-3{
+    justify-content: space-between;
+    margin-right: 10%;
+    font-size: 18px;
+}
+select{
+    width: 60%;
+    height: 60%;
+    /* border: none; */
+    border-radius: 10px;
+    border-style:dotted;
+    padding-left: 5%;
+    outline: none;
+    font-size: 16px;
+}
+
+.box4{
+    margin: 0 5%;
+}
+
+.tranfer {
+    width: 100%;
+    height: 48px;
+    margin-top: 5%;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(129.12deg, #446dff, rgba(99, 125, 255, .75));
+    color: #fff;
+    font-size: 20px;
+    opacity: 0.5; /* 初始时按钮是半透明的 */
+    transition: opacity 0.3s; /* 设置透明度的过渡效果 */
+}
+/*这里要加一个js事件检测到本文框内容格式正确后改变按钮的透明度*/
+/*button.style.opacity = '1';*/
