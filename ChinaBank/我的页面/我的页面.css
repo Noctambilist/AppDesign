@@ -1,0 +1,231 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.box {
+    width: 350px;
+    height: 700px;
+    margin: 0 auto;
+    overflow: auto;/*超出内容会自动生成滚动条*/
+    background-color:aquamarine;
+}
+
+
+
+.box1{
+
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;/* 垂直居中 */
+    overflow: hidden;
+    line-height: 1;/*控制行间距*/
+    position:sticky;/*粘性定位做导航栏*/
+    top: 0px;
+    z-index: 10;/*设置图层优先级*/
+    background-color:#EEF6FF;
+}
+
+.box1-1{
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    flex-direction: column;
+}
+
+.box1-2{
+    flex: 3;
+    height: 50px;
+    display: flex;
+    align-items: center; /* 垂直居中 */
+    font-size: 24px;
+    background-color: #fff;
+    box-shadow:
+        0 0 10px rgba(0, 0, 0, 0.4);
+    /*在元素周围添加一个模糊度为10像素的阴影，阴影的颜色为半透明的黑色（透明度为0.4）*/
+    border-radius: 60px;
+    /*圆角*/
+    position: relative;
+    overflow: hidden;
+}
+.icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.textInput {
+    width: 160px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(151, 151, 224)
+}
+.textInput input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 18px;
+}
+.clear {
+    position: absolute;
+    right: 22%;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box1-3{
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    flex-direction: column;
+}
+
+
+
+.box2{
+    width: 94%;
+    height: 120px;
+    margin: 3%;
+    background-color: #fff;
+    display: flex;
+    border-radius: 5px;
+}
+.box2-1{
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center; /* 垂直居中 */
+}
+.box2-2{
+    flex: 3;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 2;
+}
+.box2-2 p{
+    font-size: 14px;
+}
+
+
+
+.box3{
+    width: 100%;
+    height: 140px;
+    margin-top: 10%; 
+    background-color:aqua;
+    display: flex;
+    flex-direction: column;
+}
+
+.box3-1{
+    flex: 2;
+    display: flex;
+}
+.box3-1-1{
+    display: flex;
+    flex: 2;
+    align-items: center;
+    justify-content: center;
+}
+.eyeClose{
+    display: block;
+}
+.eyeOpen{
+    display: none;
+}
+.box3-1-2{
+    flex: 3;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+
+.box3-2{
+    flex: 5;
+    width: 94%;
+    margin: 0 3%;
+    padding-left: 5%;
+    border-radius: 20px;
+    background-color: yellow;
+    line-height: 2.7;
+}
+.box3-2 :nth-child(3){
+    display: inline-block; /* 设置为行内块级元素 */
+    vertical-align: top; /* 垂直对齐方式为顶部对齐 */
+}
+
+
+
+.box4{
+    width: 100%;
+    height: 140px;
+    background-color:aqua;
+    display: flex;
+    flex-direction: column;
+}
+.box4-1{
+    flex: 2;
+    display: flex;
+    width: 110px;
+    align-items: center;
+    justify-content: center;
+}
+.box4-2{
+    flex: 5;
+    width: 94%;
+    margin: 0 3%;
+    padding: 0 5%;
+    border-radius: 20px;
+    background-color: yellow;
+    line-height: 2.7;
+    display: flex;
+    flex-direction: column;
+}
+.box4-2-1{
+    flex: 1;
+    display: flex;
+    justify-content: space-between; /* 使两个p标签在水平方向上分散对齐 */
+}
+.box4-2-2{
+    flex: 1;
+    display: flex;
+}
+.box4-2-2-1{
+    flex: 1;
+    display: flex;
+    
+}
+.box4-2-2-2{
+    flex: 1;
+    display: flex;
+    justify-content: right;
+}
