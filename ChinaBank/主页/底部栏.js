@@ -18,3 +18,10 @@ nav.querySelectorAll('li a').forEach((a, i) => {
 })
 
 document.querySelector(".nav li a").click();
+
+const wode = document.querySelector(`.nav li:nth-child(3) a`);
+wode.addEventListener('click', () => {
+    setTimeout(() => {
+        location.href = "../我的页面/我的页面.html";
+    }, 500)
+})
