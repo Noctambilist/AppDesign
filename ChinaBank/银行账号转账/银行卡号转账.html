@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>银行卡号转账</title>
+    <link rel="stylesheet" href="./银行卡号转账.css">
+</head>
+
+<!-- 主题色为#6A88F7 -->
+<!-- 底色为#EEF6FF -->
+
+<body>
+    <div class="box">
+        <div class="box1">
+            <div class="box1-1">
+                <img src="./images/返回.png" alt="显示错误" width="45">
+            </div>
+            <div class="box1-2">
+                <p>银行卡号转账</p>
+            </div>
+            <div class="box1-3"></div>
+        </div>
+        <div class="box2">
+            <div class="box2-1">
+                <h3>转给</h3>
+            </div>
+            <div class="box2-2">
+                <p>收款人</p>
+                <input class="payee" type="text" placeholder="请输入收款人姓名">
+            </div>
+            <div class="box2-3">
+                <p>收款卡号</p>
+                <input class="actID" type="text" placeholder="请输入收款账号">
+            </div>
+            <div class="box2-4">
+                <p>不记得对方账号? 试试<a href="#">手机号转账</a></p>
+            </div>
+        </div>
+        <div class="box3">
+            <div class="box3-1">
+                <h3>转账金额</h3>
+            </div>
+            <div class="box3-2">
+                <img src="./images/人民币符号.png" alt="" width="30">
+                <input class="actNum" type="text" placeholder="请输入转账金额">
+            </div>
+            <div class="box3-3">
+                <p>付款账户</p>
+                <select name="account">
+                    <option value="0">中国银行</option>
+                    <option value="1">中国交通银行</option>
+                    <option value="2">美国银行</option>
+                </select>
+            </div>
+        </div>
+        <div class="box4">
+            <button type="button" class="tranfer">转账</button>
+        </div>
+    </div>
+</body>
+</html>
