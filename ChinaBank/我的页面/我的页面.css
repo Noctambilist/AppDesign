@@ -11,7 +11,10 @@ body{
     justify-content: center;
     height: 100vh;
 }
-
+::-webkit-scrollbar {
+    /* 滚动条消失 */
+    display: none;
+}
 .box {
     width: 350px;
     height: 700px;
@@ -19,7 +22,6 @@ body{
     overflow: auto;/*超出内容会自动生成滚动条*/
     background-color:aquamarine;
 }
-
 
 
 .box1{
@@ -228,4 +230,119 @@ body{
     flex: 1;
     display: flex;
     justify-content: right;
+}
+
+.box6{
+    width: 100%;
+    height: 50px;
+    background-color: #005ebd;
+    margin-top: 300px;
+    position: sticky;
+    bottom: 0px;
+    z-index: 10;/*设置图层优先级*/
+}
+/* 规定全局颜色  可以使用var调用 */
+:root{
+    --bg-body:#dff9f6;
+    --bg-nav:#220455;
+    --color-nav:#644c89;
+    --color-nav-active:#fff;
+}
+
+/* 初始化 */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+#filter-svg{
+    /* 设置元素不可见 */
+    display: none;
+}
+
+.nav{
+    /* 相对定位 */
+    position: relative;
+    /* 设置列表格式为none 也就是没有格式 */
+    list-style-type: none;
+    /* 弹性布局  使垂直的ul变成横向的 */
+    display: flex;
+    background-color: var(--bg-nav);
+    height: 50px;
+
+    /* 定义滤镜 */
+    filter: url("#goo");
+}
+
+.nav li a{
+    /* 去除下划线 */
+    text-decoration: none;
+    color: var(--color-nav);
+    width: 175px;
+    height: 100%;
+    /* 转为行内元素 */
+    display: inline-grid;
+    /* 垂直居中 */
+    place-items: center;
+    font-size: 30px;
+    z-index: 1;
+    /* 相对定位 */
+    position: relative;
+    /* 溢出隐藏 */
+    overflow: hidden;
+    
+}
+
+.nav li a .title{
+    /* 设置元素不可见  */
+    display: none;
+}
+
+.nav li a:hover{
+    color: var(--bg-body);
+}
+
+/* 使用js的 */
+.nav li a.nav-item-active{
+    color: var(--color-nav-active);
+    /* 上下移动 */
+    transform: translateY(-20%);
+    font-size: 45px;
+    /* 放慢速度  使用贝塞尔曲线 */
+    transition: transform 0.5s cubic-bezier(0.175,0.885,0.32,1.275);
+}
+
+.nav li a.nav-item-active .title{
+        display: block;
+        font-size: 16px;
+}
+
+.nav .nav-indicator{
+    width: 90px;
+    height: 85px;
+    border-radius: 50%;
+    background-color: var(--bg-nav);
+    /* 绝对定位 */
+    position: absolute;
+    top: -35px;
+    left: calc(300px -45px);/*初始位置*/
+    z-index: 1;
+    /* 贝塞尔曲线 */
+    transition: left 0.5s cubic-bezier(0.175,0.885,0.32,1.275);
+}
+
+
+@keyframes zoom{
+    0%{
+        width: 0;
+        height: 0;
+        opacity: 0.2;
+    }
+    100%{
+        width: 1500px;
+        height: 1500px;
+        opacity: 0;
+    }
 }
