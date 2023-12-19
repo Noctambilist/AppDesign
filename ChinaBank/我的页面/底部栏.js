@@ -14,7 +14,12 @@ nav.querySelectorAll('li a').forEach((a, i) => {
 
         nav_indicator.style.left = `calc(${(i * 175) + 90}px - 45px)`
     }
-    //a.click();
+    a.click();
 })
 
-document.querySelector(".nav li a").click();
+const shouye = document.querySelector(".nav li a");
+shouye.addEventListener('click', () => {
+    setTimeout(() => {
+        location.href = "../主页/主页.html";
+    }, 500)
+})
