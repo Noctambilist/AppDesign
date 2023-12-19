@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我的</title>
     <link rel="stylesheet" href="./我的页面.css">
+    <link href='http://at.alicdn.com/t/c/font_4144272_3vtq4renm6e.css' rel='stylesheet'>
 </head>
 
 <!-- 主题色为#6A88F7 -->
@@ -83,6 +84,38 @@
                 </div>
             </div>
         </div>
+        <div class="box5">
+
+        </div>
+        <div class="box6">
+            <ul class="nav">
+                <span class="nav-indicator"></span>
+                <li>
+                    <a href="#">
+                        <i class="iconfont icon-envelope"></i>
+                        <span class="title">首页</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="iconfont icon-home"></i>
+                        <span class="title">个人中心</span>
+                    </a>
+                </li>
+            </ul>
+    
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="filter-svg">
+                <defs>
+                    <filter id="goo">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+                            result="goo" />
+                        <feBlend in="SourceGraphic" in2="goo" />
+                    </filter>
+                </defs>
+            </svg>
+        </div>
     </div>
+    <script src="./底部栏.js"></script>
 </body>
 </html>
