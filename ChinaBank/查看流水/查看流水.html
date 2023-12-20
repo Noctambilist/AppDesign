@@ -40,58 +40,83 @@
                 </tr>
             </table>
         </div>
-        <div class="box3">
-            <div class="box3-1">
-                <h3>时间:</h3>
-                <input type="text" placeholder="年" disabled>
 
+
+        <div class="box3"><!-- 筛选界面 -->
+            <div class="box3-1"><!-- 筛选时间范围 -->
+                <div class="box3-1-1">
+                    <h3>时间:</h3>
+                </div>
+                <div class="box3-1-2">
+                    <div class="box3-1-2-1">
+                        <input type="text" id="year" readonly><br>
+                        <input type="text" id="month" readonly><br>
+                        <input type="text" id="day" readonly><br>
+                        <button onclick="showDatePicker()">开始日期</button>
+                        <div id="datePicker">
+                            <input type="date" id="date">
+                            <button onclick="setDate()">确定</button>
+                        </div>
+                    </div>
+                    <div class="box3-1-2-2">
+                        <p>——</p>
+                    </div>
+                    <div class="box3-1-2-3">
+                        <input type="text" id="year" readonly><br>
+                        <input type="text" id="month" readonly><br>
+                        <input type="text" id="day" readonly><br>
+                        <button onclick="showDatePicker()">结束日期</button>
+                        <div id="datePicker">
+                            <input type="date" id="date">
+                            <button onclick="setDate()">确定</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="box3-2">
-                <h3>类型:</h3>
-                <input type="radio" name="transferType" value="">转入
-                <input type="radio" name="transferType" value="">转出
+            <div class="box3-2"><!-- 筛选类型 -->
+                <div class="box3-2-1">
+                    <h3>类型:</h3>
+                </div>
+                <div class="box3-2-2">
+                    <input type="radio" name="transferType" id="selAll" value="" checked>
+                    <label for="selAll">全选</label>
+                    <input type="radio" name="transferType" id="transferIn" value="">
+                    <label for="transferIn">转入</label>
+                    <input type="radio" name="transferType" id="transferOut" value="">
+                    <label for="transferOut">转出</label>
+                </div>
             </div>
-            <!-- 
-<script>
-window.onload = function() {
-  var radios = document.getElementsByName('filter');
-  for(var i = 0; i < radios.length; i++) {
-    radios[i].onclick = function() {
-      var current = this;
-      this.checked = false;
-      if(this.wasChecked) {
-        this.checked = false;
-        this.wasChecked = false;
-      } else {
-        this.checked = true;
-        this.wasChecked = true;
-      }
-      for(var i = 0; i < radios.length; i++) {
-        if(radios[i] !== current) {
-          radios[i].wasChecked = false;
-        }
-      }
-    }
-  }
-}
-</script>
-
-<body>
-
-<h2>筛选选项</h2>
-<form>
-  <input type="radio" id="optionA" name="filter" value="A">
-  <label for="optionA">选项A</label><br>
-  <input type="radio" id="optionB" name="filter" value="B">
-  <label for="optionB">选项B</label><br>
-</form>
-
-</body> -->
-            <div class="box3-3">
-                <h3>银行卡:</h3>
+            
+            <div class="box3-3"><!-- 筛选银行账户 -->
+                <div class="box3-3-1">
+                    <h3>银行卡:</h3>
+                </div>
+                <div class="box3-3-2">
+                    <select name="account">
+                        <option value="0">中国银行</option>
+                        <option value="1">中国交通银行</option>
+                        <option value="2">美国银行</option>
+                    </select>
+                </div>
             </div>
-            <div class="box3-4">
-                <h3>金额:</h3>
+            <div class="box3-4"><!-- 筛选金额范围 -->
+                <div class="box3-4-1">
+                    <h3>金额:</h3>
+                </div>
+                <div class="box3-4-2">
+                    <div class="box3-4-2-1">
+                        <input type="text">
+                    </div>
+                    <div class="box3-4-2-2">
+                        <p>——</p>
+                    </div>
+                    <div class="box3-4-2-3">
+                        <input type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="box3-5"><!-- 确定按钮 -->
+                <button type="button" class="tranfer">确定</button>
             </div>
         </div>
     </div>
