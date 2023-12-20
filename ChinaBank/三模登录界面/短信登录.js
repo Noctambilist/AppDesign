@@ -196,7 +196,7 @@ login.addEventListener('click', (e) => {
       if (result.data.code == 200) {
         localStorage.setItem('token', result.data.data.token)
         alert(result.data.message)
-        location.href = './主页/主页.html';
+        location.href = '../主页/主页.html';
       } else {
         alert(result.data.message)
       }
