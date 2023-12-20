@@ -95,6 +95,20 @@ body{
     outline: none;
     font-size: 18px;
 }
+#dropdown {
+    display: none;
+    width: 200px;
+}
+
+#dropdown div {
+    background-color: #f8f8f8;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#dropdown div:hover {
+    background-color: #e0e0e0;
+}
 .clear {
     position: absolute;
     right: 22%;
