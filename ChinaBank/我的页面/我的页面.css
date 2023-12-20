@@ -27,33 +27,40 @@ body {
     background-color: aquamarine;
 }
 
-.box1{
+.box1 {
     width: 100%;
     height: 80px;
     display: flex;
-    align-items: center;/* 垂直居中 */
+    align-items: center;
+    /* 垂直居中 */
     overflow: hidden;
-    line-height: 1;/*控制行间距*/
-    position:sticky;/*粘性定位做导航栏*/
+    line-height: 1;
+    /*控制行间距*/
+    position: sticky;
+    /*粘性定位做导航栏*/
     top: 0px;
-    z-index: 10;/*设置图层优先级*/
-    background-color:#EEF6FF;
+    z-index: 10;
+    /*设置图层优先级*/
+    background-color: #EEF6FF;
 }
 
-.box1-1{
+.box1-1 {
     flex: 1;
     height: 100%;
     display: flex;
-    justify-content: center; /* 水平居中 */
-    align-items: center; /* 垂直居中 */
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
     flex-direction: column;
 }
 
-.box1-2{
+.box1-2 {
     flex: 3;
     height: 50px;
     display: flex;
-    align-items: center; /* 垂直居中 */
+    align-items: center;
+    /* 垂直居中 */
     font-size: 24px;
     background-color: #fff;
     box-shadow:
@@ -64,6 +71,7 @@ body {
     position: relative;
     overflow: hidden;
 }
+
 .icon {
     width: 60px;
     height: 60px;
@@ -72,6 +80,7 @@ body {
     align-items: center;
     cursor: pointer;
 }
+
 .textInput {
     width: 160px;
     height: 100%;
@@ -83,6 +92,7 @@ body {
     align-items: center;
     background-color: rgb(151, 151, 224)
 }
+
 .textInput input {
     width: 100%;
     height: 100%;
@@ -90,6 +100,7 @@ body {
     outline: none;
     font-size: 18px;
 }
+
 #dropdown {
     display: none;
     width: 200px;
@@ -104,6 +115,7 @@ body {
 #dropdown div:hover {
     background-color: #e0e0e0;
 }
+
 .clear {
     position: absolute;
     right: 22%;
@@ -115,12 +127,14 @@ body {
     align-items: center;
 }
 
-.box1-3{
+.box1-3 {
     flex: 1;
     height: 100%;
     display: flex;
-    justify-content: center; /* 水平居中 */
-    align-items: center; /* 垂直居中 */
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
     flex-direction: column;
 }
 
@@ -355,13 +369,13 @@ body {
 }
 
 .nav .nav-indicator {
-    width: 90px;
-    height: 85px;
+    width: 75px;
+    height: 65px;
     border-radius: 50%;
     background-color: var(--bg-nav);
     /* 绝对定位 */
     position: absolute;
-    top: -35px;
+    top: -22px;
     left: calc(300px -45px);
     /*初始位置*/
     z-index: 1;
