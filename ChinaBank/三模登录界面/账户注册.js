@@ -116,17 +116,8 @@ let aliveDetector1 = setInterval(function () {
 }, 50)
 
 
-
-
-
-
-
-
 sign.addEventListener('click', (e) => {
-
-
   modal.show()
-
 })
 
 
@@ -154,6 +145,5 @@ document.querySelector('.save-btn').addEventListener('click', () => {
     }
   })
 
-  // 2. 隐藏弹框
   modal.hide()
 })
