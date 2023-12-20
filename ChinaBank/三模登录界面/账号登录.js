@@ -46,8 +46,8 @@ yj4.addEventListener('click', () => {
 })
 
 login1.addEventListener('click', (e) => {
-  
-  
+
+
   axios({
     url: '',
     method: 'POST',
@@ -56,12 +56,12 @@ login1.addEventListener('click', (e) => {
       userPassword: sjmm2.value
     }
   }).then(result => {
-    if (result.data.code==200) {
-      localStorage.setItem('token',result.data.data.token)
+    if (result.data.code == 200) {
+      localStorage.setItem('token', result.data.data.token)
       console.log(result)
       console.log(result.data.message)
       alert(result.data.message)
-      location.href = './主页/主页.html';
+      location.href = '../主页/主页.html';
     } else {
       console.log(error)
       console.log(error.response.data.message)

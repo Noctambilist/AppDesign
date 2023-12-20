@@ -145,12 +145,12 @@ document.querySelector('.save-btn').addEventListener('click', () => {
     }
   }).then(result => {
     // 成功
-    if (result.data.code==200) {
+    if (result.data.code == 200) {
       console.log(result)
       alert(result.data.message)
 
     } else {
-      alert(result.data.message)  
+      alert(result.data.message)
     }
   })
 
