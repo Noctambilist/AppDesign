@@ -157,6 +157,9 @@ login.addEventListener('click', (e) => {
         console.log(result)
         localStorage.setItem('token',result.data.data.token)
         alert(result.data.message)
+        /*********************************************************
+                                接跳转！
+    *********************************************************/
         location.href = './主页/主页.html';
       } else {
         alert(result.data.message)
@@ -174,9 +177,7 @@ login.addEventListener('click', (e) => {
 
 
 
-    /*********************************************************
-                                接跳转！
-    *********************************************************/
+    
 
 
   }
@@ -196,6 +197,9 @@ login.addEventListener('click', (e) => {
       if (result.data.code==200) {
         localStorage.setItem('token',result.data.data.token)
         alert(result.data.message)
+        /*********************************************************
+                                接跳转！
+    *********************************************************/
         location.href = './主页/主页.html';
       } else {
         alert(result.data.message)
