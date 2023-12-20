@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    #datePicker {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  年: <input type="text" id="year" readonly><br>
+  月: <input type="text" id="month" readonly><br>
+  日: <input type="text" id="day" readonly><br>
+  <button onclick="showDatePicker()">选择日期</button>
+
+  <div id="datePicker">
+    <input type="date" id="date">
+    <button onclick="setDate()">确定</button>
+  </div>
+
+  <script>
+    function showDatePicker() {
+      var today = new Date();
+      var dd = String(today.getDate()).padStart(2, '0');
+      var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+      var yyyy = today.getFullYear();
+
+      today = yyyy + '-' + mm + '-' + dd;
+      document.getElementById('date').max = today;
+      document.getElementById('datePicker').style.display = 'block';
+    }
+
+    function setDate() {
+      var date = new Date(document.getElementById('date').value);
+      document.getElementById('year').value = date.getFullYear();
+      document.getElementById('month').value = date.getMonth() + 1;
+      document.getElementById('day').value = date.getDate();
+      document.getElementById('datePicker').style.display = 'none';
+    }
+  </script>
+
+</body>
+
+</html>
