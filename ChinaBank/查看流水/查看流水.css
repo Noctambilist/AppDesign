@@ -255,3 +255,18 @@ input[type="radio"]:checked + label:before {
     opacity: 0.5; /* 初始时按钮是半透明的 */
     transition: opacity 0.3s; /* 设置透明度的过渡效果 */
 }
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.box3 {
+    animation: slideUp 1s ease-out;
+}
