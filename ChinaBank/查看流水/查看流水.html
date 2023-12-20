@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>查看流水</title>
+    <link rel="stylesheet" href="./查看流水.css">
+</head>
+
+<!-- 主题色为#6A88F7 -->
+<!-- 底色为#EEF6FF -->
+
+<body>
+    <div class="box">
+        <div class="box1">
+            <div class="box1-1">
+                <img src="./images/返回.png" alt="显示错误" width="45">
+            </div>
+            <div class="box1-2">
+                <p>查看流水</p>
+            </div>
+            <div class="box1-3">
+                <img src="./images/筛选.png" alt="" width="45">
+            </div>
+        </div>
+        <div class="box2">
+            <table class="table">
+                <caption>流水记录</caption>
+                <tr>
+                    <th>时间</th>
+                    <th>类型</th>
+                    <th>银行卡</th>
+                    <th>金额</th>
+                </tr>
+                <tr>
+                    <td>23:27</td>
+                    <td>转出</td>
+                    <td>(1234)</td>
+                    <td>200.00</td>
+                </tr>
+            </table>
+        </div>
+        <div class="box3">
+            <div class="box3-1">
+                <h3>时间:</h3>
+                <input type="text" placeholder="年" disabled>
+
+            </div>
+            <div class="box3-2">
+                <h3>类型:</h3>
+                <input type="radio" name="transferType" value="">转入
+                <input type="radio" name="transferType" value="">转出
+            </div>
+            <!-- 
+<script>
+window.onload = function() {
+  var radios = document.getElementsByName('filter');
+  for(var i = 0; i < radios.length; i++) {
+    radios[i].onclick = function() {
+      var current = this;
+      this.checked = false;
+      if(this.wasChecked) {
+        this.checked = false;
+        this.wasChecked = false;
+      } else {
+        this.checked = true;
+        this.wasChecked = true;
+      }
+      for(var i = 0; i < radios.length; i++) {
+        if(radios[i] !== current) {
+          radios[i].wasChecked = false;
+        }
+      }
+    }
+  }
+}
+</script>
+
+<body>
+
+<h2>筛选选项</h2>
+<form>
+  <input type="radio" id="optionA" name="filter" value="A">
+  <label for="optionA">选项A</label><br>
+  <input type="radio" id="optionB" name="filter" value="B">
+  <label for="optionB">选项B</label><br>
+</form>
+
+</body> -->
+            <div class="box3-3">
+                <h3>银行卡:</h3>
+            </div>
+            <div class="box3-4">
+                <h3>金额:</h3>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
