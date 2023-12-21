@@ -58,8 +58,6 @@ login1.addEventListener('click', (e) => {
   }).then(result => {
     if (result.data.code==200) {
       localStorage.setItem('token',result.data.data.token)
-      console.log(result)
-      console.log(result.data.message)
       alert(result.data.message)
       location.href = './主页/主页.html';
     } else {
