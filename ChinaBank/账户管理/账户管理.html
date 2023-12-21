@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>账户管理</title>
     <link rel="stylesheet" href="./账户管理.css">
+    <link rel="stylesheet" href="./swiper-bundle.min.css">
 </head>
 
 <!-- 主题色为#6A88F7 -->
@@ -35,7 +36,7 @@
                 </div>
             </div>
             <div class="box2-2">
-                <h1>100.00</h1>
+                <h1>1145141919810</h1>
             </div>
             <div class="box2-3">
                 <div class="box2-3-1">
@@ -47,8 +48,17 @@
             </div>
         </div>
         <div class="box3">
-            <div class="box3-1">放银行卡的</div>
-            <div class="box3-2">
+            <div class="swiper mySwiper box3-1">
+                <div class="swiper-wrapper">
+                    <!-- 到时候文字和按钮样式需要分别设定！ -->
+                    <div class="swiper-slide">卡号 1 <button>交易明细</button> <button>转账</button> 账面余额</div>
+                    <div class="swiper-slide">卡号 2 <button>交易明细</button> <button>转账</button> 账面余额</div>
+                    <div class="swiper-slide">卡号 3 <button>交易明细</button> <button>转账</button> 账面余额</div>
+                    <div class="swiper-slide">卡号 4 <button>交易明细</button> <button>转账</button> 账面余额</div>
+                </div>
+            </div>
+
+            <!-- <div class="box3-2">
                 <div class="box3-2-1">
                     <p>账面余额</p>
                 </div>
@@ -60,15 +70,15 @@
                         <p>100.00</p>
                     </div>
                 </div>
-            </div>
-            <div class="box3-3">
+            </div> -->
+            <!-- <div class="box3-3">
                 <div class="box3-3-1">
                     <button type="button" class="box3-3-1-1">交易明细</button>
                 </div>
                 <div class="box3-3-2">
                     <button type="button" class="box3-3-2-1">转账</button>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="box4">
             <button type="button" class="box4-1">
@@ -77,6 +87,9 @@
             </button>
         </div>
     </div>
+
+    <script src="./swiper-bundle.min.js"></script>
+    <script src="./银行卡组.js"></script>
 </body>
 
 </html>
