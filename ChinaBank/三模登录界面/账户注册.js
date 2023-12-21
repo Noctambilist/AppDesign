@@ -122,7 +122,7 @@ sign.addEventListener('click', (e) => {
 
 
 
-document.querySelector('.save-btn').addEventListener('click', () => {
+document.querySelector('.box3-2').addEventListener('click', () => {
   const username = document.querySelector('.txt003').value
   const ID = document.querySelector('.txt004').value
   axios({
