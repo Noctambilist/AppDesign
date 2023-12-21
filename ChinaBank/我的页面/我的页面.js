@@ -30,7 +30,6 @@ function getaccountInfo(){
       axios({
         url: 'http://hmajax.itheima.net/api/books',
         params: {
-
           creator
         }
       }).then(result => {
@@ -43,7 +42,7 @@ function getaccountInfo(){
               assetElement.innerHTML = asset;
           }
     })//实验调用
-}
+}//获取资产金额以及刷新时间修改
 getaccountInfo();
 refresh.addEventListener('click',()=>{
     getaccountInfo();
