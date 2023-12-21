@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +17,6 @@
         <div class="box1"><!-- 顶部导航栏 -->
             <box class="box1-1">
                 <img src="./images/退出.png" alt="显示错误" width="30">
-                <br>
                 <label for="text-exit">
                     <p class="text-exit">退出</p>
                 </label>
@@ -26,13 +26,15 @@
                     <img class="icon-sou" src="./images/搜索.png" alt="显示错误" width="25">
                 </div>
                 <div class="textInput">
-                    <input class="inp" type="text" placeholder="搜索">
+                    <input class="inp" id="searchBox" onkeyup="search()" onclick="showDropdown()" type="text"
+                        placeholder="搜索">
                     <div class="clear"><img src="./images/关闭.png" alt="显示错误" width="20"></div>
+                    <div id="dropdown"></div>
+                    <!-- 点击搜索框后会出现列表，展示搜索结果，可以进行模糊搜索 -->
                 </div>
             </box>
             <box class="box1-3">
                 <img src="./images/客服.png" alt="显示错误" width="30">
-                <br>
                 <label for="text-exit">
                     <p class="text-exit">客服</p>
                 </label>
@@ -105,7 +107,7 @@
                     </a>
                 </li>
             </ul>
-    
+
             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="filter-svg">
                 <defs>
                     <filter id="goo">
@@ -118,8 +120,8 @@
             </svg>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="./我的页面.js"></script>
+    <script src="./搜索框.js"></script>
     <script src="./底部栏.js"></script>
 </body>
+
 </html>

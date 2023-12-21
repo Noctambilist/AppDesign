@@ -153,19 +153,18 @@ login.addEventListener('click', (e) => {
         phoneNumber: sjhm.value,
       }
     }).then(result => {
-      if (result.data.code==200) {
+      if (result.data.code == 200) {
         console.log(result)
-        localStorage.setItem('token',result.data.data.token)
+        localStorage.setItem('token', result.data.data.token)
         alert(result.data.message)
-        /*********************************************************
-                                接跳转！
-    *********************************************************/
-        location.href = './主页/主页.html';
+
+        location.href = '../主页/主页.html';
+
       } else {
         alert(result.data.message)
         console.log(result)
       }
-      
+
     })//后端
 
 
@@ -182,10 +181,10 @@ login.addEventListener('click', (e) => {
 
   }
   else if (yzm.value == varify && flag === true && flagOfSpecial === false) {
-    
-    
-    
-    
+
+
+
+
     axios({
       url: 'http://hmajax.itheima.net/api/login',
       method: 'POST',
@@ -194,17 +193,15 @@ login.addEventListener('click', (e) => {
 
       }
     }).then(result => {
-      if (result.data.code==200) {
-        localStorage.setItem('token',result.data.data.token)
+      if (result.data.code == 200) {
+        localStorage.setItem('token', result.data.data.token)
         alert(result.data.message)
-        /*********************************************************
-                                接跳转！
-    *********************************************************/
-        location.href = './主页/主页.html';
+        location.href = '../主页/主页.html';
+
       } else {
         alert(result.data.message)
       }
-      
+
     })//后端
 
 

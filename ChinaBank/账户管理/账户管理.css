@@ -1,0 +1,296 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.box {
+    width: 350px;
+    height: 700px;
+    margin: 0 auto;
+    overflow: auto;
+    /*超出内容会自动生成滚动条*/
+    background-color: rgb(238, 246, 255);
+    position: relative;
+}
+
+
+.box1 {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    /* 垂直居中 */
+    overflow: hidden;
+    line-height: 1;
+    /*控制行间距*/
+    position: sticky;
+    /*粘性定位做导航栏*/
+    top: 0px;
+    z-index: 10;
+    /*设置图层优先级*/
+    background-color: #EEF6FF;
+}
+
+.box1-1 {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+}
+
+.box1-2 {
+    flex: 3;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+    font-size: 24px;
+}
+
+.box1-3 {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+}
+
+.box2 {
+    margin: 6%;
+    width: 88%;
+    height: 135px;
+    padding-left: 3%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-image: url(./images/goldenBoard.png);
+    background-size: cover;
+}
+
+.box2-1,
+.box2-2,
+.box2-3 {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    color: #392905;
+    font-weight: 500;
+}
+
+.box2-1 {
+    flex: 2;
+    display: flex;
+}
+
+.box2-1-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #503a06;
+    font-weight: 500;
+}
+
+.eyeClose {
+    display: block;
+}
+
+.eyeOpen {
+    display: none;
+}
+
+.box2-1-2 {
+    flex: 3;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.box2-3-1 {
+    justify-content: space-between;
+    color: #503a06;
+    font-weight: 500;
+}
+
+.box2-3-2 {
+    justify-content: space-between;
+    color: #503a06;
+    font-weight: 500;
+}
+
+.box3 {
+    margin: 7%;
+    width: 86%;
+    height: 180px;
+    /* background-color: #fff; */
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+}
+
+.box3-1 {
+    height: 100px;
+}
+
+/* .box3-2 {
+
+    display: flex;
+    background-color: yellow;
+    height: 30%;
+    margin: auto 0;
+}
+
+.box3-2-1 {
+    display: flex;
+    flex: 2;
+    font-size: 14px;
+    align-items: center;
+    justify-content: left;
+}
+
+.box3-2-2 {
+    flex: 3;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+} */
+
+/* .box3-3 {
+    display: flex;
+    height: 30%;
+    margin: auto 0;
+}
+
+.box3-3-1 {
+    display: flex;
+    flex: 1;
+}
+
+.box3-3-2 {
+    display: flex;
+    flex: 1;
+    justify-content: right;
+}
+
+.box3-3-1-1,
+.box3-3-2-1 {
+    width: 100%;
+    height: 48px;
+    margin-top: 5%;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+} */
+
+.box4 {
+    margin: 6%;
+    width: 88%;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+}
+
+.box4-1 {
+    width: 100%;
+    height: 48px;
+    margin-top: 5%;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    /* background: linear-gradient(129.12deg, #446dff, rgba(99, 125, 255, .75)); */
+    background: #ffffff;
+    color: #1811f7;
+    font-size: 20px;
+    opacity: 0.85;
+    box-shadow: 2px 2px 15px #4e4a4a;
+}
+
+.box4-1-1 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.box4-1-2 {
+    font-size: 14px;
+    color: #464b52;
+    margin-top: 3px;
+}
+
+.swiper {
+    /* width: 437px;
+    height: 276px; */
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    /* 到时候文字和按钮样式需要分别设定！ */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    font-size: 26px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.swiper-slide:nth-child(1n) {
+    background-image: url(./images/card1.png);
+    background-size: cover;
+}
+
+.swiper-slide:nth-child(2n) {
+    background-image: url(./images/card2.png);
+    background-size: cover;
+}
+
+.swiper-slide:nth-child(3n) {
+    background-image: url(./images/card3.png);
+    background-size: cover;
+}
+
+.swiper-slide:nth-child(4n) {
+    background-image: url(./images/card4.png);
+    background-size: cover;
+}
+
+.swiper-slide:nth-child(5n) {
+    background-image: url(./images/card3.png);
+    background-size: cover;
+}
+
+.swiper-slide:nth-child(6n) {
+    background-image: url(./images/card1.png);
+    background-size: cover;
+}
+
+.swiper-slide:nth-child(7n) {
+    background-image: url(./images/card4.png);
+    background-size: cover;
+}
+
+.swiper-slide:nth-child(8n) {
+    background-image: url(./images/card2.png);
+    background-size: cover;
+}

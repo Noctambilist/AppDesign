@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     display: grid;
     flex-direction: column;
     align-items: center;
@@ -12,6 +12,7 @@ body{
     height: 100vh;
     place-items: center;
 }
+
 ::-webkit-scrollbar {
     /* 滚动条消失 */
     display: none;
@@ -32,41 +33,41 @@ body{
 }
 
 .box1 {
-    padding-top: 15px;
-    padding-bottom: 15px;
+
     width: 100%;
     height: 80px;
     display: flex;
-    align-items: center;/* 垂直居中 */
+    align-items: center;
+    /* 垂直居中 */
     overflow: hidden;
-    line-height: 1;/*控制行间距*/
-    position:sticky;/*粘性定位做导航栏*/
+    line-height: 1;
+    /*控制行间距*/
+    position: sticky;
+    /*粘性定位做导航栏*/
     top: 0px;
-    z-index: 10;/*设置图层优先级*/
-    background-color:#EEF6FF;
-    box-shadow: 0px 10px 10px 5px rgba(0,0,0,0.3);
+    z-index: 10;
+    /*设置图层优先级*/
+    background-color: #EEF6FF;
 }
 
 .box1-1 {
-    width: 18%;
-    padding: 2% 2% 2% 4%;
-    margin-left: 1%;
-    margin-right: 2%;
-    border-radius: 30px;
-    transition: 0.5s ease;
-}
-.box1-1:hover{
-    box-shadow: 2px 2px 10px 0px rgba(0,0,0,0.3);
-}
-
-.text-exit,
-.text-service {
-    font-size: 13px;
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+    flex-direction: column;
 }
 
 .box1-2 {
-    width: 200px;
+    flex: 3;
     height: 50px;
+    display: flex;
+    align-items: center;
+    /* 垂直居中 */
+    font-size: 24px;
     background-color: #fff;
     box-shadow:
         0 0 10px rgba(0, 0, 0, 0.4);
@@ -75,9 +76,6 @@ body{
     /*圆角*/
     position: relative;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    /* 垂直居中 */
 }
 
 .icon {
@@ -109,6 +107,21 @@ body{
     font-size: 18px;
 }
 
+#dropdown {
+    display: none;
+    width: 200px;
+}
+
+#dropdown div {
+    background-color: #f8f8f8;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#dropdown div:hover {
+    background-color: #e0e0e0;
+}
+
 .clear {
     position: absolute;
     right: 22%;
@@ -121,15 +134,14 @@ body{
 }
 
 .box1-3 {
-    width: 18%;
-    padding: 2% 2% 2% 4%;
-    margin-left: 1%;
-    margin-right: 2%;
-    border-radius: 30px;
-    transition: 0.5s ease;
-}
-.box1-3:hover{
-    box-shadow: 2px 2px 10px 0px rgba(0,0,0,0.3);
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+    flex-direction: column;
 }
 
 .box2 {
@@ -150,10 +162,14 @@ body{
 .box3 {
     width: 100%;
     overflow: hidden;
+    background: url(./images/色卡.png);
+    background-size: 100% 100%;
+    border-radius: 5%;
+    box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.3), inset -5px -5px 5px rgba(255, 255, 255, 0.7);
 }
 
 .box3-1 {
-    background: url(./images/bg01.png);
+    /* background: url(./images/bg01.png); */
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 5%;
@@ -162,33 +178,30 @@ body{
 }
 
 .box3-2 {
-    background: url(./images/bg02.png);
+    /* background: url(./images/bg02.png); */
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 5%;
     width: 100%;
     height: 77px;
-    margin-top: -2px;
 }
 
 .box3-3 {
-    background: url(./images/bg03.png);
+    /* background: url(./images/bg03.png); */
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 5%;
     width: 100%;
     height: 77px;
-    margin-top: -2px;
 }
 
 .box3-4 {
-    background: url(./images/bg04.png);
+    /* background: url(./images/bg04.png); */
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 5%;
     width: 100%;
     height: 77px;
-    margin-top: -2px;
 }
 
 .transMoney {
@@ -201,6 +214,7 @@ body{
     background: #fff;
     border-radius: 30px;
     transition: all 0.5s;
+    box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.3), inset -3px -3px 3px rgba(0, 0, 0, 0.3), -4px -4px 4px rgba(0, 0, 0, 0.4);
 }
 
 .transMoney:hover {
@@ -217,6 +231,7 @@ body{
     background: #fff;
     border-radius: 30px;
     transition: all 0.5s;
+    box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.3), inset -3px -3px 3px rgba(0, 0, 0, 0.3), -4px -4px 4px rgba(0, 0, 0, 0.4);
 }
 
 .payCode:hover {
@@ -234,6 +249,7 @@ body{
     background: #fff;
     border-radius: 30px;
     transition: all 0.5s;
+    box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.3), inset -3px -3px 3px rgba(0, 0, 0, 0.3), -4px -4px 4px rgba(0, 0, 0, 0.4);
 }
 
 .account:hover {
@@ -251,6 +267,7 @@ body{
     background: #fff;
     border-radius: 30px;
     transition: all 0.5s;
+    box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.3), inset -3px -3px 3px rgba(0, 0, 0, 0.3), -4px -4px 4px rgba(0, 0, 0, 0.4);
 }
 
 .flow:hover {
@@ -373,12 +390,13 @@ body{
     animation: a 5s infinite linear;
 }
 
-.box4{
+.box4 {
     width: 100%;
     height: 50px;
     margin-top: 30px;
 }
-.box4-1{
+
+.box4-1 {
     width: 30%;
     height: 50px;
     text-align: center;
@@ -387,29 +405,34 @@ body{
     border-right: solid 2px #AFAFAF;
     float: left;
 }
-.box4-2{
+
+.box4-2 {
     font-size: 20px;
     width: 70%;
     height: 50px;
     padding-left: 5%;
-    line-height: 50px;/*设置为父容器的高度可以实现垂直居中*/
+    line-height: 50px;
+    /*设置为父容器的高度可以实现垂直居中*/
     float: right;
 }
 
-.box5{
-    border-top: solid #005ebd 1px;/*设置一条分界线*/
+.box5 {
+    border-top: solid #005ebd 1px;
+    /*设置一条分界线*/
     margin-top: 20px;
     margin-left: 5%;
     margin-right: 5%;
     margin-bottom: 50%;
 }
-.box5 p{
+
+.box5 p {
     font-size: 22px;
     font-weight: 400;
     line-height: 200%;
     letter-spacing: 5px;
 }
-.activity-1{
+
+.activity-1 {
     width: 48%;
     height: 150px;
     border-radius: 10px;
@@ -419,7 +442,8 @@ body{
     float: left;
     margin-right: 4%;
 }
-.activity-2{
+
+.activity-2 {
     width: 48%;
     height: 150px;
 
@@ -428,7 +452,7 @@ body{
     float: left;
 }
 
-.activity-2-1{
+.activity-2-1 {
     width: 100%;
     height: 48%;
     background-color: red;
@@ -437,7 +461,8 @@ body{
     background-size: cover;
     margin-bottom: 4%;
 }
-.activity-2-2{
+
+.activity-2-2 {
     width: 100%;
     height: 48%;
     background-color: red;
@@ -446,37 +471,39 @@ body{
     background-size: cover;
 }
 
-.box6{
+.box6 {
     width: 100%;
     height: 50px;
     background-color: #005ebd;
     margin-top: 300px;
     position: sticky;
     bottom: 0px;
-    z-index: 10;/*设置图层优先级*/
+    z-index: 10;
+    /*设置图层优先级*/
 }
+
 /* 规定全局颜色  可以使用var调用 */
-:root{
-    --bg-body:#dff9f6;
-    --bg-nav:#220455;
-    --color-nav:#644c89;
-    --color-nav-active:#fff;
+:root {
+    --bg-body: #dff9f6;
+    --bg-nav: #220455;
+    --color-nav: #644c89;
+    --color-nav-active: #fff;
 }
 
 /* 初始化 */
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
 
-#filter-svg{
+#filter-svg {
     /* 设置元素不可见 */
     display: none;
 }
 
-.nav{
+.nav {
     /* 相对定位 */
     position: relative;
     /* 设置列表格式为none 也就是没有格式 */
@@ -490,7 +517,7 @@ body{
     filter: url("#goo");
 }
 
-.nav li a{
+.nav li a {
     /* 去除下划线 */
     text-decoration: none;
     color: var(--color-nav);
@@ -506,54 +533,56 @@ body{
     position: relative;
     /* 溢出隐藏 */
     overflow: hidden;
-    
+
 }
 
-.nav li a .title{
+.nav li a .title {
     /* 设置元素不可见  */
     display: none;
 }
 
-.nav li a:hover{
+.nav li a:hover {
     color: var(--bg-body);
 }
 
 /* 使用js的 */
-.nav li a.nav-item-active{
+.nav li a.nav-item-active {
     color: var(--color-nav-active);
     /* 上下移动 */
     transform: translateY(-20%);
     font-size: 45px;
     /* 放慢速度  使用贝塞尔曲线 */
-    transition: transform 0.5s cubic-bezier(0.175,0.885,0.32,1.275);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.nav li a.nav-item-active .title{
-        display: block;
-        font-size: 16px;
+.nav li a.nav-item-active .title {
+    display: block;
+    font-size: 16px;
 }
 
-.nav .nav-indicator{
-    width: 90px;
-    height: 85px;
+.nav .nav-indicator {
+    width: 75px;
+    height: 65px;
     border-radius: 50%;
     background-color: var(--bg-nav);
     /* 绝对定位 */
     position: absolute;
-    top: -35px;
-    left: calc(300px -45px);/*初始位置*/
+    top: -22px;
+    left: calc(300px -45px);
+    /*初始位置*/
     z-index: 1;
     /* 贝塞尔曲线 */
-    transition: left 0.5s cubic-bezier(0.175,0.885,0.32,1.275);
+    transition: left 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-@keyframes zoom{
-    0%{
+@keyframes zoom {
+    0% {
         width: 0;
         height: 0;
         opacity: 0.2;
     }
-    100%{
+
+    100% {
         width: 1500px;
         height: 1500px;
         opacity: 0;
