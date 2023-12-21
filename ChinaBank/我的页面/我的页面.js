@@ -1,6 +1,6 @@
-const refresh = document.querySelector('.box3-1-2 img');
-var assetElement = document.getElementById('asset');
-const creator = '老张'
+const refresh = document.querySelector('.box3-1-2 img');//刷新图片
+var assetElement = document.getElementById('asset');//资产空
+const creator = '老张';//实验
 
 
 
@@ -43,7 +43,9 @@ function getaccountInfo(){
           }
     })//实验调用
 }//获取资产金额以及刷新时间修改
+
 getaccountInfo();
+
 refresh.addEventListener('click',()=>{
     getaccountInfo();
-})
+})//刷新按钮
