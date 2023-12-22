@@ -53,21 +53,21 @@
                         <input type="text" id="year" readonly><br>
                         <input type="text" id="month" readonly><br>
                         <input type="text" id="day" readonly><br>
-                        <button onclick="showDatePicker()">开始日期</button>
-                        <div id="datePicker">
+                        <!-- <button onclick="showDatePicker()">开始日期</button> -->
+                        <div id="datePicker" onclick="showDatePicker()">
                             <input type="date" id="date">
                             <button onclick="setDate()">确定</button>
                         </div>
                     </div>
                     <div class="box3-1-2-2">
-                        <p>——</p>
+                        <p style="margin-top: -30px;">——</p>
                     </div>
                     <div class="box3-1-2-3">
                         <input type="text" id="year1" readonly><br>
                         <input type="text" id="month1" readonly><br>
                         <input type="text" id="day1" readonly><br>
-                        <button onclick="showDatePicker1()">结束日期</button>
-                        <div id="datePicker1">
+                        <!-- <button onclick="showDatePicker1()">结束日期</button> -->
+                        <div id="datePicker1" onclick="showDatePicker1()">
                             <input type="date" id="date1">
                             <button onclick="setDate1()">确定</button>
                         </div>
@@ -109,7 +109,7 @@
                         <input type="text">
                     </div>
                     <div class="box3-4-2-2">
-                        <p>——</p>
+                        <p style="margin-top: -8px;">——</p>
                     </div>
                     <div class="box3-4-2-3">
                         <input type="text">
@@ -122,6 +122,7 @@
         </div>
     </div>
     <script src="./日期选择器.js"></script>
+    <script src="./查看流水.js"></script>
 </body>
 
 </html>

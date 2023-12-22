@@ -13,6 +13,11 @@ body {
     height: 100vh;
 }
 
+::-webkit-scrollbar {
+    /* 滚动条消失 */
+    display: none;
+}
+
 .box {
     width: 350px;
     height: 700px;
@@ -106,7 +111,7 @@ body {
     justify-content: center;
     position: absolute;
     bottom: 0px;
-    /* display: none; */
+    display: none;
 }
 
 .box3-1 {
@@ -123,12 +128,53 @@ body {
     width: 30px;
 }
 
-#datePicker {
-    display: none;
+#datePicker,
+#datePicker1 {
+    display: block;
 }
 
-#datePicker1 {
-    display: none;
+#date,
+#date1 {
+    width: 17px;
+    border: none;
+}
+
+#year,
+#year1 {
+    width: 40px;
+    font-size: 16px;
+    text-align: center;
+    margin-right: 3px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color: #6A88F7;
+    outline: none;
+}
+
+#month,
+#month1 {
+    width: 22px;
+    font-size: 16px;
+    text-align: center;
+    margin-right: 3px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color: #6A88F7;
+    outline: none;
+}
+
+#day,
+#day1 {
+    width: 22px;
+    font-size: 16px;
+    text-align: center;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color: #6A88F7;
+    outline: none;
 }
 
 .box3-1-1 {
@@ -271,7 +317,7 @@ input[type="radio"]:checked+label:before {
     border-left: none;
     border-right: none;
     border-bottom-color: #6A88F7;
-    font-size: 20px;
+    font-size: 18px;
     text-align: center;
 }
 
@@ -311,6 +357,6 @@ input[type="radio"]:checked+label:before {
     }
 }
 
-.box3 {
-    animation: slideUp 1s ease-out;
+.slideUp {
+    animation: slideUp 0.5s ease-out;
 }
