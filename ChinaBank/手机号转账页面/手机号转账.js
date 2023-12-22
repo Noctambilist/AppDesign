@@ -20,7 +20,7 @@ let aliveDetector = setInterval(() => {
 }, 50)
 
 exitButton.addEventListener('click', () => {
-    location.href = '../主页/主页.html';
+    location.href = '../转账页面/转账页面.html';
 })
 /***********************************************/
 

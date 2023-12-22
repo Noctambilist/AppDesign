@@ -15,7 +15,7 @@ clearText.addEventListener('click', () => {
 })
 
 ZhuanZhangButton.addEventListener('click', () => {
-  location.href = '../银行账号转账/银行卡号转账.html';
+  location.href = '../转账页面/转账页面.html';
 })
 
 ShouFuKuanButton.addEventListener('click', () => {
