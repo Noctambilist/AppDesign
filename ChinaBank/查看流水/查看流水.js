@@ -1,6 +1,7 @@
-const confirmButton = document.querySelector('.box3-5 button');
-const chooseBoard = document.querySelector('.box3');
-const chooseButton = document.querySelector('.box1-3 img');
+const confirmButton = document.querySelector('.box3-5 button'); //筛选框的确认
+const chooseBoard = document.querySelector('.box3');  //筛选板
+const chooseButton = document.querySelector('.box1-3 img'); //漏斗按钮
+const exitButton = document.querySelector('.box1-1 img');
 
 const textYear = document.querySelector('#year');
 const textYear1 = document.querySelector('#year1');
@@ -11,6 +12,7 @@ const textDay1 = document.querySelector('#day1');
 const moneyLeft = document.querySelector('.box3-4-2-1 input');
 const moneyRight = document.querySelector('.box3-4-2-3 input');
 
+let flagOfChoose = true;
 
 let aliveDetector = setInterval(() => {
   if (textDay.value != '' && textDay1.value != '' && moneyLeft.value != '' && moneyRight.value != '') {
@@ -68,4 +70,8 @@ chooseButton.addEventListener('click', () => {
   // chooseBoard.classList.remove('slideDown');
   chooseBoard.classList.add('slideUp');
   chooseBoard.style.display = 'flex';
+})
+
+exitButton.addEventListener('click', () => {
+  location.href = '../主页/主页.html';
 })
