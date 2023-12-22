@@ -6,9 +6,14 @@ const creator = '老张';//实验
 /*  12月22日23:24增加基本事件*/
 
 const exitButton = document.querySelector('.box1-1 img');//退出按钮
+const settingButton = document.querySelector('.box1-3 img');//设置按钮
 
 exitButton.addEventListener('click', () => {
   location.href = '../三模登录页面/三模登录页面.html'
+})
+
+settingButton.addEventListener('click', () => {
+  location.href = './设置界面/设置.html';
 })
 
 /***********************************************/
