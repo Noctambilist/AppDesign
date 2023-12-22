@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>留言板</title>
+    <link rel="stylesheet" href="./留言板页面.css">
+</head>
+<body>
+    <div class="box">
+        <div class="box1">
+            <div class="box1-1">
+                <img src="./images/返回.png" alt="显示错误" width="45">
+            </div>
+            <div class="box1-2">
+                <p>留言板</p>
+            </div>
+            <div class="box1-3">
+            </div>
+        </div>
+        <div class="box2">
+            <div class="box2-1">
+                <textarea name="" id="message" placeholder="请输入留言内容"></textarea>
+            </div>
+            <div class="box2-2">
+                <button type="button" class="submit" onclick="showDiv()">提交留言</button>
+            </div>
+            <div class="box2-3">
+                
+            </div>
+        </div>
+        <div class="overlay" id="overlay"></div>
+        <div class="success" id="success">
+            <svg width="100" height="100">
+                <circle fill="none" stroke="#68E534" stroke-width="7" cx="50" cy="50" r="40"/>
+                <polyline fill="none" stroke="#68E534" stroke-width="7" points="22,54 44,71 76,37" stroke-linecap="round" stroke-linejoin="round"/> 
+            </svg>
+            <h3>提交成功</h3>
+        </div>
+    </div>
+<script>
+    function showDiv() {
+    document.getElementById("success").classList.add("show");
+    document.getElementById("overlay").classList.add("show");
+}
+</script>
+</body>
+</html>
