@@ -11,10 +11,14 @@ function showDatePicker() {
 
 function setDate() {
   var date = new Date(document.getElementById('date').value);
-  document.getElementById('year').value = date.getFullYear();
-  document.getElementById('month').value = date.getMonth() + 1;
-  document.getElementById('day').value = date.getDate();
-  document.getElementById('datePicker').style.display = 'none';
+  //console.log(document.getElementById('date').value);
+  // console.log(typeof (document.getElementById('date').value));
+  if (document.getElementById('date').value !== '') {
+    document.getElementById('year').value = date.getFullYear();
+    document.getElementById('month').value = date.getMonth() + 1;
+    document.getElementById('day').value = date.getDate();
+  }
+  // document.getElementById('datePicker').style.display = 'none';
 }
 
 function showDatePicker1() {
@@ -30,8 +34,10 @@ function showDatePicker1() {
 
 function setDate1() {
   var date1 = new Date(document.getElementById('date1').value);
-  document.getElementById('year1').value = date1.getFullYear();
-  document.getElementById('month1').value = date1.getMonth() + 1;
-  document.getElementById('day1').value = date1.getDate();
-  document.getElementById('datePicker1').style.display = 'none';
+  if (document.getElementById('date1').value !== '') {
+    document.getElementById('year1').value = date1.getFullYear();
+    document.getElementById('month1').value = date1.getMonth() + 1;
+    document.getElementById('day1').value = date1.getDate();
+  }
+  // document.getElementById('datePicker1').style.display = 'none';
 }
