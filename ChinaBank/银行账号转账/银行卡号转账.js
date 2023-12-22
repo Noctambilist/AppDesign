@@ -1,6 +1,30 @@
 const creator = '老张'
 const tranferbtn = document.querySelector('.box4 .tranfer');//转账按钮
 
+/***********************************************/
+/*  12月22日23:42增加  转账按钮事件未添加*/
+const exitButton = document.querySelector('.box1-1 img');//退出按钮
+const confirmButton = document.querySelector('.box4 button');//转账按钮
+const ShouKuanRen = document.querySelector('.box2-2 input');//收款人
+const ShouKuanShouJiHao = document.querySelector('.box2-3 input');//收款手机号
+const ZhuanZhangJinE = document.querySelector('.box3-2 input');//转账金额
+
+let aliveDetector = setInterval(() => {
+    if (ShouKuanRen.value !== '' && ShouKuanShouJiHao.value !== '' && ZhuanZhangJinE.value !== '') {
+        confirmButton.style.opacity = '1';
+        confirmButton.disabled = false;
+    } else {
+        confirmButton.style.opacity = '0.5';
+        confirmButton.disabled = true;
+    }
+}, 50)
+
+exitButton.addEventListener('click', () => {
+    location.href = '../转账页面/转账页面.html';
+})
+/***********************************************/
+
+
 function getaccount() {
     axios({
         url: 'http://hmajax.itheima.net/api/books',
