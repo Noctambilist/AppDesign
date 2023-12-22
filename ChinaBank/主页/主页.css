@@ -30,7 +30,8 @@ body {
     width: 100%;
     height: 1000px;
     margin: 0 auto;
-    background: linear-gradient(129.12deg, #F0F8FF, rgba(174, 187, 255, 0.4));
+    /* background: linear-gradient(129.12deg, #F0F8FF, rgba(174, 187, 255, 0.4)); */
+    background-color: #fff;
 }
 
 .box1 {
@@ -47,7 +48,6 @@ body {
     z-index: 10;
     /*设置图层优先级*/
     background-color: #EEF6FF;
-    position: relative;
 }
 
 .box1-1 {
@@ -431,6 +431,9 @@ body {
     letter-spacing: 5px;
     border-right: solid 2px #AFAFAF;
     float: left;
+}
+.box4-1 :first-child{
+    color: red;
 }
 
 .box4-2 {
