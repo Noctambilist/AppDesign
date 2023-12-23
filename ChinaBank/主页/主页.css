@@ -520,9 +520,14 @@ body {
 
 /* 规定全局颜色  可以使用var调用 */
 :root {
-    --bg-nav: #e5edf5;/*背景颜色*/
+    --bg-body: #dff9f6;
+    --bg-nav: #220455;
+    /*背景颜色*/
+    --bg-nav: #b0ccec;
+    /*背景颜色*/
     --color-nav: #644c89;
-    --color-nav-active: #000;/*字体颜色*/
+    --color-nav-active: #fff;
+    /*字体颜色*/
 }
 
 
