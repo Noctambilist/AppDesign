@@ -4,102 +4,135 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     user-select: none;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
+
+    overflow: hidden;
+    transition: 0.1s;
+    margin-right: -15%;
+    opacity: 0;
 }
 
 .box {
     width: 350px;
     height: 700px;
     margin: 0 auto;
-    overflow: auto;/*超出内容会自动生成滚动条*/
+    overflow: auto;
+    /*超出内容会自动生成滚动条*/
     background-color: aqua;
 }
 
-.box1{
+.box1 {
     padding-top: 15px;
     padding-bottom: 15px;
     width: 100%;
     height: 70px;
     display: flex;
-    align-items: center;/* 垂直居中 */
+    align-items: center;
+    /* 垂直居中 */
     overflow: hidden;
-    line-height: 1;/*控制行间距*/
-    position:sticky;/*粘性定位做导航栏*/
+    line-height: 1;
+    /*控制行间距*/
+    position: sticky;
+    /*粘性定位做导航栏*/
     top: 0px;
-    z-index: 10;/*设置图层优先级*/
-    background-color:#EEF6FF;
+    z-index: 10;
+    /*设置图层优先级*/
+    background-color: #EEF6FF;
 }
 
-.box1-1{
+.box1-1 {
     flex: 1;
     height: 100%;
     display: flex;
-    justify-content: center; /* 水平居中 */
-    align-items: center; /* 垂直居中 */
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
 }
-.box1-2{
+
+.box1-2 {
     flex: 3;
     height: 100%;
     display: flex;
-    justify-content: center; /* 水平居中 */
-    align-items: center; /* 垂直居中 */
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
     font-size: 24px;
 }
-.box1-3{
+
+.box1-3 {
     flex: 1;
     height: 100%;
     display: flex;
-    justify-content: center; /* 水平居中 */
-    align-items: center; /* 垂直居中 */
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
 }
 
-.box2{
+.box2 {
     margin: 12px;
     height: 30%;
     background-color: yellow;
-    border-radius: 25px;/*圆角*/
-    display:flex;
+    border-radius: 25px;
+    /*圆角*/
+    display: flex;
     flex-direction: column;
 }
-.box2-1{
+
+.box2-1 {
     width: 100%;
     /* margin: 0 5%; */
     flex: 3;
     display: flex;
     border-bottom: solid 2px #AFAFAF;
-    border-top-left-radius: 25px;/*左上角设为圆角*/
-    border-top-right-radius: 25px;/*右上角设为圆角*/
-    box-shadow: inset 0px -3px 3px 0px rgba(0,0,0,0.2);/*内部阴影*/
+    border-top-left-radius: 25px;
+    /*左上角设为圆角*/
+    border-top-right-radius: 25px;
+    /*右上角设为圆角*/
+    box-shadow: inset 0px -3px 3px 0px rgba(0, 0, 0, 0.2);
+    /*内部阴影*/
 }
-.box2-1-1,.box2-1-2{
+
+.box2-1-1,
+.box2-1-2 {
     height: 100%;
     flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: center;/* 垂直居中 */
-    justify-content: center; /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+    justify-content: center;
+    /* 水平居中 */
 }
 
-.box2-2{
+.box2-2 {
     width: 90%;
-    margin: 5%;/*想要加padding,就要在wdith或者height上留出空间,确保总和为100%*/
+    margin: 5%;
+    /*想要加padding,就要在wdith或者height上留出空间,确保总和为100%*/
     flex: 1;
     display: flex;
 }
-.box2-2-1,.box2-2-2{
+
+.box2-2-1,
+.box2-2-2 {
     height: 100%;
-    margin: ;
+    /* margin: ; */
     flex: 1;
     display: flex;
-    justify-content: center; /* 水平居中 */
-    align-items: center;/* 垂直居中 */
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
 }
-.box2-2-1{
+
+.box2-2-1 {
     border-right: solid 2px #AFAFAF;
 }

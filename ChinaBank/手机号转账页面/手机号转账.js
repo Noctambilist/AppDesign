@@ -19,8 +19,17 @@ let aliveDetector = setInterval(() => {
     }
 }, 50)
 
+function slideMe() {
+    document.body.style.marginRight = "0"
+    document.body.style.opacity = "1";
+}
+
 exitButton.addEventListener('click', () => {
-    location.href = '../转账页面/转账页面.html';
+    document.body.style.marginRight = "-15%";
+    document.body.style.opacity = "0";
+    setTimeout(function () {
+        location.href = '../转账页面/转账页面.html';
+    }, 100);
 })
 /***********************************************/
 
