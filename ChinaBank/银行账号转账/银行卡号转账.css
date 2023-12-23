@@ -45,7 +45,7 @@ body {
     top: 0px;
     z-index: 10;
     /*设置图层优先级*/
-    background-color: #EEF6FF;
+    background-color: #7f9bff;
 }
 
 .box1-1 {
@@ -53,9 +53,7 @@ body {
     height: 100%;
     display: flex;
     justify-content: center;
-    /* 水平居中 */
     align-items: center;
-    /* 垂直居中 */
 }
 
 .box1-2 {
@@ -63,10 +61,9 @@ body {
     height: 100%;
     display: flex;
     justify-content: center;
-    /* 水平居中 */
     align-items: center;
-    /* 垂直居中 */
     font-size: 24px;
+    color: #fff;
 }
 
 .box1-3 {
@@ -78,7 +75,7 @@ body {
 .box2 {
     margin: 5%;
     width: 90%;
-    height: 180px;
+    height: 210px;
     padding-left: 3%;
     background-color: #fff;
     display: flex;
@@ -197,7 +194,6 @@ input::placeholder {
 select {
     width: 60%;
     height: 60%;
-    /* border: none; */
     border-radius: 10px;
     border-style: dotted;
     padding-left: 5%;
@@ -235,26 +231,88 @@ select {
     height: 700px;
     background-color: rgba(0, 0, 0, 0.4);
     z-index: 10;
-    /* visibility: hidden; */
+    visibility: hidden;
 }
 .tranferInformation{
-    
+    padding: 2% 5%;
+    width: 70%;
+    height: 50%;
+    border-radius: 10px;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    visibility: hidden;
 }
+.tranferInformation>h2{
+    text-align: center;
+}
+.information1,
+.information2,
+.information3,
+.information4{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.information1 p,
+.information2 p,
+.information3 p,
+.information4 p{
+    text-align: right;
+    font: 500 18px '';
+    color: #6A88F7;
+}
+.information3 p{
+    font: 900 24px '';
+    color: tomato;
+}
+.information5{
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+.yesBtn,
+.noBtn{
+    width: 50%;
+    height: 80%;
+    color: #fff;
+    border: none;
+    font: 600 18px '';
+    text-align: center;
+    cursor: pointer;
+}
+.yesBtn{
+    background-color: rgba(63, 182, 13,0.8);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.noBtn{
+    background-color: rgba(226, 127, 110,0.8);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
 .success{
     width: 150px;
     height: 150px;
     border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
-    transition: transform 0.5s;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 20;
-    background-color: rgba(255, 255, 255, 0.9);
+    transition: transform 0.5s;
     visibility: hidden;
 }
 .success.show{
