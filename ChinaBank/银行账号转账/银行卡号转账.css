@@ -11,7 +11,6 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-
     overflow: hidden;
     transition: 0.1s;
     margin-right: -15%;
@@ -24,7 +23,8 @@ body {
     margin: 0 auto;
     overflow: auto;
     /*超出内容会自动生成滚动条*/
-    background-color: aquamarine;
+    background-color: #f5f5f5;
+    position: relative;
 }
 
 
@@ -96,41 +96,52 @@ body {
 
 .box2-2,
 .box2-3 {
+    padding-right: 20%;
     justify-content: space-between;
+    position: relative;
 }
-
+.box2-3{
+    padding-right: 10%;
+}
+.payeeCancel,
+.actIDCancel{
+    position: absolute;
+    right: 5%;
+}
 .box2-4 {
     flex: 1;
-    font-size: 14px;
-    font: 200;
+    font: 300 12px '';
     display: flex;
     align-items: center;
 }
-
 .box2-4 a {
     text-decoration: none;
     color: #6A88F7;
     transition: font-size 0.25s ease;
 }
-
 .box2-4 a:hover {
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .payee,
 .actID,
 .actNum {
-    width: 70%;
+    width: 60%;
+    height: 70%;
     border: none;
-    outline: none;
+    outline: 0px;
     font-size: 18px;
-    transition: border-bottom 0.5s ease-in-out;
+    transition: 0.25s ease;
+}
+
+.actID{
+    width: 65%;
 }
 
 .payee:focus,
 .actID:focus,
 .actNum:focus {
-    border-bottom: solid 1px;
+    box-shadow: 0 2px 0 0 skyblue;
 }
 
 input::placeholder {
@@ -160,12 +171,21 @@ input::placeholder {
 }
 
 .box3-2 {
+    padding-right: 30%;
     justify-content: space-between;
+    position: relative;
 }
 
 .actNum {
-    width: 85%;
+    width: 70%;
     font-size: 30px;
+}
+.actNum::placeholder{
+    font-size: 20px;
+}
+.actNumCancel{
+    position: absolute;
+    right: 20%;
 }
 
 .box3-3 {
@@ -204,6 +224,43 @@ select {
     transition: opacity 0.3s;
     /* 设置透明度的过渡效果 */
 }
-
 /*这里要加一个js事件检测到本文框内容格式正确后改变按钮的透明度*/
 /*button.style.opacity = '1';*/
+
+/*转账后提示动画*/
+.overlay {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 700px;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 10;
+    /* visibility: hidden; */
+}
+.tranferInformation{
+    
+}
+.success{
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    background-color: rgba(255, 255, 255, 0.9);
+    visibility: hidden;
+}
+.success.show{
+    transform: translate(-50%, -50%) scale(1);
+    visibility: visible;
+}
+.overlay.show{
+    visibility: visible;
+}

@@ -24,7 +24,7 @@ body {
     margin: 0 auto;
     overflow: auto;
     /*超出内容会自动生成滚动条*/
-    background-color: aqua;
+    background-color: #eff3f8;
 }
 
 .box1 {
@@ -80,7 +80,7 @@ body {
 .box2 {
     margin: 12px;
     height: 30%;
-    background-color: yellow;
+    background-color:#fff;
     border-radius: 25px;
     /*圆角*/
     display: flex;
@@ -99,6 +99,7 @@ body {
     /*右上角设为圆角*/
     box-shadow: inset 0px -3px 3px 0px rgba(0, 0, 0, 0.2);
     /*内部阴影*/
+    font: 600 18px '';
 }
 
 .box2-1-1,
