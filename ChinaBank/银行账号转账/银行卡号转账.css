@@ -33,7 +33,7 @@ body {
     padding-top: 15px;
     padding-bottom: 15px;
     width: 100%;
-    height: 70px;
+    height: 65px;
     display: flex;
     align-items: center;
     /* 垂直居中 */
@@ -202,7 +202,7 @@ select {
 }
 
 .box4 {
-    margin: 0 5%;
+    margin: 5% 5%;
 }
 
 .tranfer {
@@ -223,7 +223,21 @@ select {
 /*这里要加一个js事件检测到本文框内容格式正确后改变按钮的透明度*/
 /*button.style.opacity = '1';*/
 
-/*转账后提示动画*/
+
+.box5{
+    margin: 0 5%;
+}
+.box5 h6{
+    font: 500 14px '';
+    line-height: 2;
+}
+.box5 p{
+    font: 300 12px '';
+    line-height: 1.8;
+}
+
+
+/*灯箱效果*/
 .overlay {
     position: absolute;
     top: 0;
@@ -233,6 +247,8 @@ select {
     z-index: 10;
     visibility: hidden;
 }
+
+/*确认转账信息*/
 .tranferInformation{
     padding: 2% 5%;
     width: 70%;
@@ -246,6 +262,7 @@ select {
     display: flex;
     flex-direction: column;
     z-index: 10;
+    transition: transform 0.5s;
     visibility: hidden;
 }
 .tranferInformation>h2{
@@ -298,6 +315,76 @@ select {
     border-bottom-right-radius: 10px;
 }
 
+/*输入支付密码*/
+.payPassword{
+    padding: 2% 5%;
+    width: 70%;
+    height: 25%;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 10;
+    transition: transform 0.5s;
+    visibility: hidden;
+}
+
+
+.payPassword1{
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.payPassword2{
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.password{
+    width: 100%;
+    height: 70%;
+    border: none;
+    outline:0px;
+    font: 500 24px '';
+    text-align: center;
+    letter-spacing: 20px;
+    transition: 0.25s ease;
+}
+.password:focus{
+    box-shadow: 0 2px 0 0 skyblue;
+}
+.payPassword3{
+    flex: 1.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.payBtn{
+    width: 60%;
+    height: 80%;
+    background-color: rgba(63, 182, 13,0.8);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font: 600 20px '';
+    text-align: center;
+    cursor: pointer;
+    background: linear-gradient(129.12deg, #446dff, rgba(99, 125, 255, .75));
+    opacity: 0.5;
+    /* 初始时按钮是半透明的 */
+    transition: opacity 0.3s;
+    /* 设置透明度的过渡效果 */
+}
+
+
+/*转账成功动画*/
 .success{
     width: 150px;
     height: 150px;
