@@ -12,11 +12,11 @@ body {
     justify-content: center;
     height: 100vh;
     place-items: center;
-
     overflow: hidden;
     transition: 0.1s;
     margin-right: -15%;
     opacity: 0;
+    background: url(./images/返回.png);
 }
 
 ::-webkit-scrollbar {
@@ -30,6 +30,7 @@ body {
     margin: 0 auto;
     overflow: auto;
     position: absolute;
+    background-color: #f5f5f5;
 }
 
 
@@ -49,7 +50,7 @@ body {
     top: 0px;
     z-index: 10;
     /*设置图层优先级*/
-    background-color: #EEF6FF;
+    background-color: #7f9bff;
 }
 
 .box1-1,
@@ -67,20 +68,22 @@ body {
 .box1-2 {
     flex: 3;
     font-size: 24px;
+    color: #fff;
 }
 
 
 .box2 {
-    width: 94%;
-    margin: 5% 3%;
-    background-color: rgba(200, 200, 200, 0.3);
+    width: 90%;
+    margin: 5% 5%;
+    padding-bottom: 5%;
+    background-color: rgba(211, 230, 252,0.8);
     /*磨砂质感*/
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 10px 30px #00000020;
+    /* box-shadow: 0 10px 30px #00000020; */
 }
 
 .box2-1 {
@@ -115,7 +118,6 @@ body {
 .submit {
     width: 90%;
     height: 48px;
-    margin-top: 5%;
     cursor: pointer;
     border: none;
     border-radius: 10px;
