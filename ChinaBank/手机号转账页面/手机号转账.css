@@ -327,7 +327,7 @@ select {
     padding: 2% 5%;
     width: 70%;
     height: 25%;
-    border-radius: 20px;
+    border-radius: 15px;
     background-color: rgba(255, 255, 255, 0.9);
     position: absolute;
     top: 50%;
@@ -367,7 +367,13 @@ select {
 .password:focus{
     box-shadow: 0 2px 0 0 skyblue;
 }
+.payPassword p{
+    font: 500 12px '';
+    color: red;
+    visibility: hidden;
+}
 .payPassword3{
+    margin-top: 10px;
     flex: 1.5;
     display: flex;
     justify-content: center;
@@ -375,12 +381,12 @@ select {
 }
 .payBtn{
     width: 60%;
-    height: 80%;
+    height: 90%;
     background-color: rgba(63, 182, 13,0.8);
     color: #fff;
     border: none;
     border-radius: 10px;
-    font: 600 20px '';
+    font: 600 16px '';
     text-align: center;
     cursor: pointer;
     background: linear-gradient(129.12deg, #446dff, rgba(99, 125, 255, .75));
