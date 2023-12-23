@@ -423,12 +423,12 @@ body {
 
 .box4 {
     width: 90%;
-    height: 90px;
+    height: 75px;
     margin: 5% 5%;
     display: flex;
     align-items: center;
-    border-top: solid #005ebd 1px;
-    border-bottom: solid #005ebd 1px;
+    border-top: solid #005ebd 1.5px;
+    border-bottom: solid #005ebd 1.5px;
 }
 
 .box4-1 {
@@ -523,10 +523,13 @@ body {
 /* 规定全局颜色  可以使用var调用 */
 :root {
     --bg-body: #dff9f6;
-    --bg-nav: #220455;/*背景颜色*/
-    --bg-nav: #b0ccec;/*背景颜色*/
+    --bg-nav: #220455;
+    /*背景颜色*/
+    --bg-nav: #b0ccec;
+    /*背景颜色*/
     --color-nav: #644c89;
-    --color-nav-active: #fff;/*字体颜色*/
+    --color-nav-active: #fff;
+    /*字体颜色*/
 }
 
 
