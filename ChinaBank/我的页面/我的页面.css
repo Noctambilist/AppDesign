@@ -36,7 +36,6 @@ body {
     display: flex;
     align-items: center;
     /* 垂直居中 */
-    overflow: hidden;
     line-height: 1;
     /*控制行间距*/
     position: sticky;
@@ -62,22 +61,20 @@ body {
     flex: 3;
     height: 50px;
     display: flex;
-    align-items: center;
-    /* 垂直居中 */
+    flex-wrap: wrap;/*元素换行*/
+    align-items: center;/* 垂直居中 */
     font-size: 24px;
     background-color: #fff;
     box-shadow:
         0 0 10px rgba(0, 0, 0, 0.4);
     /*在元素周围添加一个模糊度为10像素的阴影，阴影的颜色为半透明的黑色（透明度为0.4）*/
-    border-radius: 60px;
-    /*圆角*/
+    border-radius: 60px;/*圆角*/
     position: relative;
-    overflow: hidden;
 }
 
 .icon {
     width: 60px;
-    height: 60px;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -93,11 +90,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(151, 151, 224)
 }
 
 .textInput input {
-    width: 100%;
+    width: 90%;
+    border-top-right-radius: 60px;
+    border-bottom-right-radius: 60px;
     height: 100%;
     border: none;
     outline: none;
@@ -105,14 +103,16 @@ body {
 }
 
 #dropdown {
-    display: none;
-    width: 200px;
+    /* display: none; */
+    width: 100%;
+    z-index: 10;
 }
 
 #dropdown div {
     background-color: #f8f8f8;
     padding: 10px;
     cursor: pointer;
+    z-index: 10;
 }
 
 #dropdown div:hover {
@@ -295,17 +295,9 @@ body {
 
 /* 规定全局颜色  可以使用var调用 */
 :root {
-    --bg-body: #dff9f6;
-    --bg-nav: #220455;
+    --bg-nav: #e5edf5;/*背景颜色*/
     --color-nav: #644c89;
-    --color-nav-active: #fff;
-}
-
-/* 初始化 */
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+    --color-nav-active: #000000;
 }
 
 
