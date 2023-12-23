@@ -9,6 +9,11 @@ const ShouKuanRen = document.querySelector('.box2-2 input');//收款人
 const ShouKuanShouJiHao = document.querySelector('.box2-3 input');//收款手机号
 const ZhuanZhangJinE = document.querySelector('.box3-2 input');//转账金额
 
+function slideMe() {
+    document.body.style.marginRight = "0"
+    document.body.style.opacity = "1";
+}
+
 let aliveDetector = setInterval(() => {
     if (ShouKuanRen.value !== '' && ShouKuanShouJiHao.value !== '' && ZhuanZhangJinE.value !== '') {
         confirmButton.style.opacity = '1';
@@ -20,7 +25,11 @@ let aliveDetector = setInterval(() => {
 }, 50)
 
 exitButton.addEventListener('click', () => {
-    location.href = '../转账页面/转账页面.html';
+    document.body.style.marginRight = "-15%";
+    document.body.style.opacity = "0";
+    setTimeout(function () {
+        location.href = '../转账页面/转账页面.html';
+    }, 100);
 })
 /***********************************************/
 

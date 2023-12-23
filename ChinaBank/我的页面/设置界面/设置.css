@@ -11,6 +11,11 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+
+    overflow: hidden;
+    transition: 0.1s;
+    margin-right: -15%;
+    opacity: 0;
 }
 
 

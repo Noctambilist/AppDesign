@@ -25,6 +25,11 @@ let aliveDetector = setInterval(() => {
   }
 }, 50);
 
+function slideMe() {
+  document.body.style.marginRight = "0"
+  document.body.style.opacity = "1";
+}
+
 confirmButton.addEventListener('click', () => {
   // chooseBoard.classList.remove('slideUp');
   // chooseBoard.classList.add('slideDown');
@@ -73,5 +78,9 @@ chooseButton.addEventListener('click', () => {
 })
 
 exitButton.addEventListener('click', () => {
-  location.href = '../主页/主页.html';
+  document.body.style.marginRight = "-15%";
+  document.body.style.opacity = "0";
+  setTimeout(function () {
+    location.href = '../主页/主页.html';
+  }, 100);
 })
