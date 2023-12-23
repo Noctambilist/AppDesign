@@ -71,10 +71,21 @@ confirmButton.addEventListener('click', () => {
 
 })
 
+// console.log(chooseBoard.style.display);
+// alert(chooseBoard.style.display);
+
 chooseButton.addEventListener('click', () => {
-  // chooseBoard.classList.remove('slideDown');
-  chooseBoard.classList.add('slideUp');
-  chooseBoard.style.display = 'flex';
+  if (chooseBoard.style.display === '' || chooseBoard.style.display === 'none') {
+    chooseBoard.classList.add('slideUp');
+    chooseBoard.style.display = 'flex';
+    console.log(222);
+    console.log(chooseBoard.style.display)
+  } else {
+    chooseBoard.classList.remove('slideUp');
+    chooseBoard.style.display = 'none';
+    console.log(111);
+    console.log(chooseBoard.style.display)
+  }
 })
 
 exitButton.addEventListener('click', () => {
