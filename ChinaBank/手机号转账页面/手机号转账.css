@@ -24,7 +24,8 @@ body {
     margin: 0 auto;
     overflow: auto;
     /*超出内容会自动生成滚动条*/
-    background-color: aquamarine;
+    background-color: #f5f5f5;
+    position: relative;
 }
 
 
@@ -45,7 +46,7 @@ body {
     top: 0px;
     z-index: 10;
     /*设置图层优先级*/
-    background-color: #EEF6FF;
+    background-color: #7f9bff;
 }
 
 .box1-1 {
@@ -67,6 +68,7 @@ body {
     align-items: center;
     /* 垂直居中 */
     font-size: 24px;
+    color: #fff;
 }
 
 .box1-3 {
@@ -96,31 +98,59 @@ body {
 
 .box2-2,
 .box2-3 {
+    padding-right: 20%;
     justify-content: space-between;
+    position: relative;
+}
+.box2-3{
+    padding-right: 10%;
+}
+.payeeCancel,
+.phoneNumCancel{
+    position: absolute;
+    right: 5%;
+}
+.box2-4 {
+    flex: 1;
+    font: 300 12px '';
+    display: flex;
+    align-items: center;
+}
+.box2-4 a {
+    text-decoration: none;
+    color: #6A88F7;
+    transition: font-size 0.25s ease;
+}
+.box2-4 a:hover {
+    font-size: 14px;
 }
 
 
 .payee,
 .phoneNum,
 .actNum {
-    width: 70%;
+    width: 60%;
+    height: 70%;
     border: none;
-    outline: none;
+    outline: 0px;
     font-size: 18px;
-    transition: border-bottom 0.5s ease-in-out;
+    transition: 0.25s ease;
+}
+
+.phoneNum{
+    width: 65%;
 }
 
 .payee:focus,
 .phoneNum:focus,
 .actNum:focus {
-    border-bottom: solid 1px;
+    box-shadow: 0 2px 0 0 skyblue;
 }
 
 input::placeholder {
     color: rgba(75, 75, 75, 0.4);
     font-size: 16px;
 }
-
 
 
 .box3 {
@@ -143,12 +173,21 @@ input::placeholder {
 }
 
 .box3-2 {
+    padding-right: 30%;
     justify-content: space-between;
+    position: relative;
 }
 
 .actNum {
-    width: 85%;
+    width: 70%;
     font-size: 30px;
+}
+.actNum::placeholder{
+    font-size: 20px;
+}
+.actNumCancel{
+    position: absolute;
+    right: 20%;
 }
 
 .box3-3 {
@@ -190,3 +229,103 @@ select {
 
 /*这里要加一个js事件检测到本文框内容格式正确后改变按钮的透明度*/
 /*button.style.opacity = '1';*/
+
+/*转账后提示动画*/
+.overlay {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 700px;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 10;
+    visibility: hidden;
+}
+.tranferInformation{
+    padding: 2% 5%;
+    width: 70%;
+    height: 50%;
+    border-radius: 10px;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    visibility: hidden;
+}
+.tranferInformation>h2{
+    text-align: center;
+}
+.information1,
+.information2,
+.information3,
+.information4{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.information1 p,
+.information2 p,
+.information3 p,
+.information4 p{
+    text-align: right;
+    font: 500 18px '';
+    color: #6A88F7;
+}
+.information3 p{
+    font: 900 24px '';
+    color: tomato;
+}
+.information5{
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+.yesBtn,
+.noBtn{
+    width: 50%;
+    height: 80%;
+    color: #fff;
+    border: none;
+    font: 600 18px '';
+    text-align: center;
+    cursor: pointer;
+}
+.yesBtn{
+    background-color: rgba(63, 182, 13,0.8);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.noBtn{
+    background-color: rgba(226, 127, 110,0.8);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.success{
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    transition: transform 0.5s;
+    visibility: hidden;
+}
+.success.show{
+    transform: translate(-50%, -50%) scale(1);
+    visibility: visible;
+}
+.overlay.show{
+    visibility: visible;
+}
