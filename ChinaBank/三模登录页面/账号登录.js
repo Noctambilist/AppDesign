@@ -49,25 +49,25 @@ login1.addEventListener('click', (e) => {
 
 
   axios({
-    url: '',
+    url: 'http://47.113.198.244/pre/login',
     method: 'POST',
     data: {
       phoneNumber: sjhm2.value,
       userPassword: sjmm2.value
     }
   }).then(result => {
-    if (result.data.code == 200) {
-      localStorage.setItem('token', result.data.data.token)
-      console.log(result)
-      console.log(result.data.message)
-      alert(result.data.message)
-      location.href = '../首页/首页.html';
-    } else {
-      console.log(error)
-      console.log(error.response.data.message)
-      alert(error.response.data.message)
-    }
+      console.log(result);
+      console.log(result.data.code)
+      if (result.data.code==200) {
+
+        localStorage.setItem('token',result.data.data.token);
+        alert("登陆成功");
+        location.href = '../首页/首页.html';
+      } else {
+        alert("手机号或密码错误");
+      }
   })
+
 
 
 

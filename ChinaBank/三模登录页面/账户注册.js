@@ -119,31 +119,25 @@ let aliveDetector1 = setInterval(function () {
 sign.addEventListener('click', (e) => {
   modal.show()
 })
-
-
-
 document.querySelector('.box3-2').addEventListener('click', () => {
   const username = document.querySelector('.txt003').value
   const ID = document.querySelector('.txt004').value
   axios({
-    url: 'http://hmajax.itheima.net/api/register',
-    method: 'post',
+    url: 'http://47.113.198.244/pre/signup',
+    method: 'PUT',
     data: {
-
-      username: sjhm1.value,
-      password: password1.value
-
+      customerName:username,
+      personID:ID,
+      phoneNumber: sjhm1.value,
+      userPassword: password1.value
     }
   }).then(result => {
-    // 成功
-    if (result.data.code == 200) {
-      console.log(result)
-      alert(result.data.message)
-
+    console.log(result);
+    if (result.data.code==200) {
+      alert("注册成功");      
     } else {
-      alert(result.data.message)
+      alert(result.data.msg);
     }
   })
-
   modal.hide()
 })
