@@ -75,33 +75,20 @@ function getaccountInfo() {
     currentTimeElement.innerHTML = currentTime;
   }
 
-
-  /*axios({
-      url: '',
-      Headers:{
-        Authorization: `Bearer ${localStorage.getItem('token')}`
+  let token = localStorage.getItem('token');
+  console.log(token);
+  axios({
+      url: 'http://47.113.198.244/user/getRelatedCard',
+      headers: {
+         // 设置 User-Agent
+        token
       }
     }).then(result => {
       var optionsData =result.data.data;
+      asset=0;
       for (var i = 0; i < optionsData.length; i++) {
           asset= optionsData[i].balance+asset;
       }       
-      if (assetElement) {
-          assetElement.innerHTML = asset;
-      }
-    })*///正式调用
-  axios({
-    url: 'http://hmajax.itheima.net/api/books',
-    params: {
-      creator
-    }
-  }).then(result => {
-    console.log(result)
-    var optionsData = result.data.data;
-    asset=0;
-    for (var i = 0; i < optionsData.length; i++) {
-      asset = optionsData[i].id + asset;
-    }
     var eyeOpenStyle = window.getComputedStyle(eyeOpen);
     if (eyeOpenStyle.display === 'block') {
       assetElement.innerHTML = asset;
@@ -112,8 +99,9 @@ function getaccountInfo() {
       incomeElement.innerHTML = "*******";
       expensesElement.innerHTML = "*******";      
     }
-
-  })//实验调用
+    console.log(result)
+    })//正式调用
+  //实验调用
 }//获取资产金额以及刷新时间修改
 
 getaccountInfo();
