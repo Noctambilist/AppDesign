@@ -98,6 +98,7 @@ function getaccountInfo() {
   }).then(result => {
     console.log(result)
     var optionsData = result.data.data;
+    asset=0;
     for (var i = 0; i < optionsData.length; i++) {
       asset = optionsData[i].id + asset;
     }
@@ -118,9 +119,6 @@ function getaccountInfo() {
 getaccountInfo();
 
 refresh.addEventListener('click', () => {
-  var asset = 0;//资产
-  var income=123456;//收入
-  var expenses=123456;
   getaccountInfo();
 })//刷新按钮
 function toggleVisibility() {
