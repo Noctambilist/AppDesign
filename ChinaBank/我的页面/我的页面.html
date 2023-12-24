@@ -48,23 +48,23 @@
             </div>
             <div class="box2-2">
                 <h3>您好,尊敬的用户</h3>
-                <p>当前时间:2023/12/19 16:44:51</p>
+                <p id="cTime">当前时间:</p>
             </div>
         </div>
         <div class="box3"><!-- 我的资产 -->
             <div class="box3-1">
-                <div class="box3-1-1">
+                <div class="box3-1-1" onclick="toggleVisibility()">
                     <h3>我的资产</h3>
                     <img src="https://s11.ax1x.com/2023/12/16/pi4rgXt.png" class="eyeClose" width="30" height="30">
                     <img src="https://s11.ax1x.com/2023/12/16/pi4rc6I.png" class="eyeOpen" width="30" height="30">
                 </div>
                 <div class="box3-1-2">
-                    <p>2023/12/19 16:44:51</p>
+                    <div id="currentTime"></div>
                     <img src="./images/刷新.png" class="refresh" width="20" height="20" id="image1">
                 </div>
             </div>
             <div class="box3-2">
-                <p>资产 ></p>
+                <p>资产</p>
                 <img src="./images/人民币符号.png" alt="" width="20">
                 <p id="asset"></p>
             </div>
@@ -81,11 +81,11 @@
                 <div class="box4-2-2">
                     <div class="box4-2-2-1">
                         <img src="./images/人民币符号.png" alt="" width="20" height="20">
-                        <p>123456</p>
+                        <p id="income"></p>
                     </div>
                     <div class="box4-2-2-2">
                         <img class="aaa" src="./images/人民币符号.png" alt="" width="20" height="20">
-                        <p class="aaa">123456</p>
+                        <p class="aaa" id="expenses"></p>
                     </div>
                 </div>
             </div>
