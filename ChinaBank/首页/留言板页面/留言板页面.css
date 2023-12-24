@@ -76,7 +76,7 @@ body {
     width: 90%;
     margin: 5% 5%;
     padding-bottom: 5%;
-    background-color: rgba(211, 230, 252,0.8);
+    background-color: rgba(211, 230, 252, 0.8);
     /*磨砂质感*/
     border-radius: 20px;
     display: flex;
@@ -139,12 +139,12 @@ body {
 }
 
 .box3 h6 {
-    font: 500 14px '';
+    font: 700 16px '';
     line-height: 2;
 }
 
 .box3 p {
-    font: 300 12px '';
+    font: 300 12.5px '';
     line-height: 1.8;
 }
 
