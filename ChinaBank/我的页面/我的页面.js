@@ -118,6 +118,9 @@ function getaccountInfo() {
 getaccountInfo();
 
 refresh.addEventListener('click', () => {
+  var asset = 0;//资产
+  var income=123456;//收入
+  var expenses=123456;
   getaccountInfo();
 })//刷新按钮
 function toggleVisibility() {
