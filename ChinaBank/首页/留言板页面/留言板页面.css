@@ -131,6 +131,25 @@ body {
 }
 
 /*这里要加一个js事件检测到本文框内容格式正确后改变按钮的透明度*/
+
+
+
+.box3 {
+    margin: 0 5%;
+}
+
+.box3 h6 {
+    font: 500 14px '';
+    line-height: 2;
+}
+
+.box3 p {
+    font: 300 12px '';
+    line-height: 1.8;
+}
+
+
+
 /*button.style.opacity = '1';*/
 .overlay {
     position: absolute;
