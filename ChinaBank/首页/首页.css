@@ -29,6 +29,7 @@ body {
     height: 700px;
     margin: 0 auto;
     overflow: auto;
+    background-color: #f5f5f5;
 }
 
 .box0 {
@@ -36,7 +37,6 @@ body {
     height: 1000px;
     margin: 0 auto;
     /* background: linear-gradient(129.12deg, #F0F8FF, rgba(174, 187, 255, 0.4)); */
-    background-color: #fff;
 }
 
 .box1 {
@@ -520,6 +520,32 @@ body {
     background-size: cover;
 }
 
+
+.box7{
+    border-top: solid #005ebd 1px;
+    /*设置一条分界线*/
+    margin-top: 20px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 50%;
+}
+.box7 p {
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 200%;
+    letter-spacing: 5px;
+}
+.recommend{
+    width: 100%;
+    height: 300px;
+    background: url("./images/为您推荐.png");
+    background-size: 100% 100%;
+    background-color: #fff;
+    border-radius: 20px;
+}
+
+
+
 .box6 {
     width: 100%;
     height: 50px;
@@ -532,7 +558,7 @@ body {
 
 /* 规定全局颜色  可以使用var调用 */
 :root {
-    --bg-nav: #e5edf5;
+    --bg-nav: #d6edf8;
     /*背景颜色*/
     --color-nav: #644c89;
     --color-nav-active: #000000;
