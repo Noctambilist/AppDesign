@@ -1,13 +1,13 @@
 const refresh = document.querySelector('.box3-1-2 img');//刷新图片
 var assetElement = document.getElementById('asset');//资产空
-var incomeElement = document.getElementById('income');
-var expensesElement = document.getElementById('expenses');
+var incomeElement = document.getElementById('income');//收入
+var expensesElement = document.getElementById('expenses');//支出
 var eyeClose = document.querySelector('.eyeClose');
 var eyeOpen = document.querySelector('.eyeOpen');
 const creator = '老张';//实验
-var asset = 0;
-var income=123456;
-var expenses=123456
+var asset = 0;//资产
+var income=123456;//收入
+var expenses=123456;//支出
 /***********************************************/
 /*  12月22日23:24增加基本事件*/
 
@@ -121,8 +121,6 @@ refresh.addEventListener('click', () => {
   getaccountInfo();
 })//刷新按钮
 function toggleVisibility() {
-
-
   if (eyeClose.style.display === 'none') {
       eyeClose.style.display = 'block';
       eyeOpen.style.display = 'none';
