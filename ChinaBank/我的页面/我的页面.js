@@ -1,7 +1,13 @@
 const refresh = document.querySelector('.box3-1-2 img');//刷新图片
 var assetElement = document.getElementById('asset');//资产空
+var incomeElement = document.getElementById('income');
+var expensesElement = document.getElementById('expenses');
+var eyeClose = document.querySelector('.eyeClose');
+var eyeOpen = document.querySelector('.eyeOpen');
 const creator = '老张';//实验
-
+var asset = 0;
+var income=123456;
+var expenses=123456
 /***********************************************/
 /*  12月22日23:24增加基本事件*/
 
@@ -44,6 +50,22 @@ clearButton.addEventListener('click', () => {
 })
 
 /***********************************************/
+function updateCurrentTime() {
+  var d = new Date();
+  var currentTime = d.toLocaleString();
+  var currentTimeElement = document.getElementById('cTime');
+
+  if (currentTimeElement) {
+      currentTimeElement.innerHTML = '当前时间: ' + currentTime;
+  }
+}
+
+// 初始加载时更新一次时间
+updateCurrentTime();
+
+// 每秒更新一次时间
+setInterval(updateCurrentTime, 1000);
+
 
 function getaccountInfo() {
   var d = new Date();
@@ -53,7 +75,7 @@ function getaccountInfo() {
     currentTimeElement.innerHTML = currentTime;
   }
 
-  var asset = 0;
+
   /*axios({
       url: '',
       Headers:{
@@ -79,9 +101,17 @@ function getaccountInfo() {
     for (var i = 0; i < optionsData.length; i++) {
       asset = optionsData[i].id + asset;
     }
-    if (assetElement) {
+    var eyeOpenStyle = window.getComputedStyle(eyeOpen);
+    if (eyeOpenStyle.display === 'block') {
       assetElement.innerHTML = asset;
+      incomeElement.innerHTML = income;
+      expensesElement.innerHTML = expenses;
+    } else {
+      assetElement.innerHTML = "*******";
+      incomeElement.innerHTML = "*******";
+      expensesElement.innerHTML = "*******";      
     }
+
   })//实验调用
 }//获取资产金额以及刷新时间修改
 
@@ -90,3 +120,20 @@ getaccountInfo();
 refresh.addEventListener('click', () => {
   getaccountInfo();
 })//刷新按钮
+function toggleVisibility() {
+
+
+  if (eyeClose.style.display === 'none') {
+      eyeClose.style.display = 'block';
+      eyeOpen.style.display = 'none';
+      assetElement.innerHTML = "*******";
+      incomeElement.innerHTML = "*******";
+      expensesElement.innerHTML = "*******";
+  } else {
+      eyeClose.style.display = 'none';
+      eyeOpen.style.display = 'block';
+      assetElement.innerHTML = asset;
+      incomeElement.innerHTML = income;
+      expensesElement.innerHTML = expenses;     
+  }
+}
