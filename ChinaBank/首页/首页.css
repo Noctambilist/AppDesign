@@ -34,9 +34,8 @@ body {
 
 .box0 {
     width: 100%;
-    height: 300px;
     margin: 0 auto;
-    /* background: linear-gradient(129.12deg, #F0F8FF, rgba(174, 187, 255, 0.4)); */
+    position: ;
 }
 
 .box1 {
@@ -538,10 +537,7 @@ body {
 .box7 {
     border-top: solid #005ebd 1px;
     /*设置一条分界线*/
-    margin-top: 20px;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-bottom: 50%;
+    margin: 20px 5% 20% 5%;
 }
 
 .box7 p {
@@ -565,7 +561,6 @@ body {
 .box6 {
     width: 100%;
     height: 50px;
-    margin-top: 300px;
     position: sticky;
     bottom: 0px;
     z-index: 10;
