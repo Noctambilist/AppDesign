@@ -74,7 +74,7 @@ body {
 
 .box2 {
     width: 94%;
-    height: 300px;
+    height: 240px;
     margin: 3%;
     background-color: #fff;
     display: flex;
@@ -82,87 +82,30 @@ body {
     flex-direction: column;
 }
 
-.box2-1 {
-    margin-top: 10px;
-}
-
-.box2-1-1 p {
-    display: flex;
-    flex: 1;
+.box2-1 p {
     font-size: 12px;
     margin: 0 auto;
-    justify-content: center;
-    align-items: center;
-    color: rgb(169, 169, 169);
-}
-
-.box2-1-2 p {
     display: flex;
-    flex: 1;
-    font-size: 12px;
-    margin: 0 auto;
     justify-content: center;
+    /* 水平居中 */
     align-items: center;
+    /* 垂直居中 */
     color: rgb(169, 169, 169);
 }
 
 .box2-2 {
-    margin-top: 20px;
-    width: 100%;
     display: flex;
     justify-content: center;
-}
-
-#j86 {
-    width: 20%;
-    height: 60px;
-
-    outline: skyblue;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    font: 500 15px '';
-    padding: 5% 5%;
-    resize: none;
-}
-
-#message1 {
-    width: 70%;
-    height: 60px;
-
-    outline: skyblue;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    font: 500 15px '';
-    padding: 5% 5%;
-    resize: none;
-    z-index: 1;
-}
-
-#message2 {
-    width: 90%;
-    height: 60px;
-
-    outline: skyblue;
-    border-radius: 10px;
-    font: 500 15px '';
-    padding: 5% 5%;
-    resize: none;
-}
-
-#message1:focus,
-#message2:focus {
-    outline: 2px solid skyblue;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
 }
 
 .box2-2 p {
+    margin-top: 30px;
+    width: 100%;
     display: flex;
-    z-index: 2;
-    position: absolute;
-    font-size: 12px;
-    color: rgb(169, 169, 169);
-    text-decoration: underline;
-    margin-left: 226px;
-    margin-top: 19px;
+    justify-content: center;
 }
 
 .box2-3 {
@@ -172,16 +115,7 @@ body {
     justify-content: center;
 }
 
-.box2-4 {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    /* 水平居中 */
-    align-items: center;
-    /* 垂直居中 */
-}
-
-.submit {
+.box2-3 button {
     width: 90%;
     height: 48px;
     cursor: pointer;
@@ -190,8 +124,18 @@ body {
     background: linear-gradient(129.12deg, #446dff, rgba(99, 125, 255, .75));
     color: #fff;
     font-size: 20px;
-    opacity: 0.5;
-    /* 初始时按钮是半透明的 */
+    opacity: 1;
     transition: opacity 0.3s;
-    /* 设置透明度的过渡效果 */
+}
+
+.box2-4 {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.box2-4 a {
+    text-decoration: underline;
+    color: #7f9bff;
 }
