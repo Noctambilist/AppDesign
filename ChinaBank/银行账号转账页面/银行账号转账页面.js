@@ -1,5 +1,8 @@
 const tranferbtn = document.querySelector('.box4 .tranfer');//转账按钮
 var selectElement = document.getElementById("account");
+const urlParams = new URLSearchParams(window.location.search);
+const cardNumber=urlParams.get('cardID');
+console.log(cardNumber);
 /***********************************************/
 /*  12月24日0:52增加 */
 const exitButton = document.querySelector('.box1-1 img');//退出按钮
@@ -102,6 +105,9 @@ function getaccount() {
             let lastFourDigits = optionsData[i].cardID.slice(-4);
             optionElement.text = lastFourDigits;
             selectElement.appendChild(optionElement);
+        }
+        if(cardNumber){
+            selectElement.value = cardNumber;
         }
     })
 }

@@ -26,7 +26,7 @@
         </div>
         <div class="box2">
             <div class="box2-1">
-                <div class="box2-1-1">
+                <div class="box2-1-1" onclick="toggleVisibility()">
                     <p>总资产（折算人民币元）</p>
                     <img src="https://s11.ax1x.com/2023/12/16/pi4rgXt.png" class="eyeClose" width="30" height="30">
                     <img src="https://s11.ax1x.com/2023/12/16/pi4rc6I.png" class="eyeOpen" width="30" height="30">
@@ -36,7 +36,7 @@
                 </div>
             </div>
             <div class="box2-2">
-                <h1>1145141919810</h1>
+                <h1 id="asset">******</h1>
             </div>
             <div class="box2-3">
                 <div class="box2-3-1">
@@ -51,10 +51,10 @@
             <div class="swiper mySwiper box3-1">
                 <div class="swiper-wrapper">
                     <!-- 到时候文字和按钮样式需要分别设定！ -->
-                    <div class="swiper-slide">卡号 1 <button>交易明细</button> <button>转账</button> 账面余额</div>
+                    <!--div class="swiper-slide">卡号 1 <button>交易明细</button> <button>转账</button> 账面余额</!--div>
                     <div class="swiper-slide">卡号 2 <button>交易明细</button> <button>转账</button> 账面余额</div>
                     <div class="swiper-slide">卡号 3 <button>交易明细</button> <button>转账</button> 账面余额</div>
-                    <div class="swiper-slide">卡号 4 <button>交易明细</button> <button>转账</button> 账面余额</div>
+                    <div!-- class="swiper-slide">卡号 4 <button>交易明细</button> <button>转账</button> 账面余额</div!-->
                 </div>
             </div>
 
@@ -87,7 +87,7 @@
             </button>
         </div>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./swiper-bundle.min.js"></script>
     <script src="./银行卡组.js"></script>
     <script src="./账户管理页面.js"></script>

@@ -98,17 +98,17 @@ function getaccountInfo() {
           incomeElement.innerHTML = "*******";
           expensesElement.innerHTML = "*******";      
         }
-      
-      
-      
-      
-      
-      
-      
-      
-      
       } else {
-        
+        var eyeOpenStyle = window.getComputedStyle(eyeOpen);
+        if (eyeOpenStyle.display === 'block') {
+          assetElement.innerHTML = asset;
+          incomeElement.innerHTML = income;
+          expensesElement.innerHTML = expenses;
+        } else {
+          assetElement.innerHTML = "*******";
+          incomeElement.innerHTML = "*******";
+          expensesElement.innerHTML = "*******";      
+        }
       }
 
     console.log(result)
