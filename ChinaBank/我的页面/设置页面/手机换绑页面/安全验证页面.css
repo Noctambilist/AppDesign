@@ -92,26 +92,30 @@ body {
     /* 垂直居中 */
     color: rgb(169, 169, 169);
 }
-.box2-2{
+
+.box2-2 {
     display: flex;
     justify-content: center;
     /* 水平居中 */
     align-items: center;
     /* 垂直居中 */
 }
-.box2-2 p{
+
+.box2-2 p {
     margin-top: 30px;
     width: 100%;
     display: flex;
     justify-content: center;
 }
-.box2-3{
+
+.box2-3 {
     margin-top: 30px;
     width: 100%;
     display: flex;
     justify-content: center;
 }
-.box2-3 button{
+
+.box2-3 button {
     width: 90%;
     height: 48px;
     cursor: pointer;
@@ -120,16 +124,18 @@ body {
     background: linear-gradient(129.12deg, #446dff, rgba(99, 125, 255, .75));
     color: #fff;
     font-size: 20px;
-    opacity: 0.5;
+    opacity: 1;
     transition: opacity 0.3s;
 }
-.box2-4{
+
+.box2-4 {
     margin-top: 30px;
     width: 100%;
     display: flex;
     justify-content: center;
 }
-.box2-4 p{
-    text-decoration:underline;
+
+.box2-4 a {
+    text-decoration: underline;
     color: #7f9bff;
 }
