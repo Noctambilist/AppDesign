@@ -16,7 +16,8 @@ const moneyRight = document.querySelector('.box3-4-2-3 input');
 const urlParams = new URLSearchParams(window.location.search);
 const cardNumber=urlParams.get('cardID');
 console.log(cardNumber);
-
+const ioe=urlParams.get('ioe');
+console.log(ioe);
 let flagOfChoose = true;
 
 let aliveDetector = setInterval(() => {

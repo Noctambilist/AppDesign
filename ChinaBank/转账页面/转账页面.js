@@ -34,14 +34,11 @@ ShouJiHaoZhuanZhangButton.addEventListener('click', () => {
 })
 
 ZhuanZhangJiLu.addEventListener('click', () => {
-  location.href = '../查看流水页面/查看流水页面.html';
+  var ioe=0;
+  const url = '../查看流水页面/查看流水页面.html?ioe=' +ioe;
+  window.location.href =url;
+  //转账方式传递
 
-  /*
-  *
-  *            并且同时做筛选，转账方式设为转出
-  *
-  *
-  */
 })
 
 ShouKuanErWeiMa.addEventListener('click', () => {
