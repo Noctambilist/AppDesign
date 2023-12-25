@@ -1,6 +1,5 @@
-const creator = '老张'
 const tranferbtn = document.querySelector('.box4 .tranfer');//转账按钮
-
+var selectElement = document.getElementById("account");
 /***********************************************/
 /*  12月24日0:52增加 */
 const exitButton = document.querySelector('.box1-1 img');//退出按钮
@@ -22,6 +21,7 @@ const closeMiMaTanChuang = document.querySelector('.payPassword1 img');//关密�
 const passwordInput = document.querySelector('.payPassword2 input');//弹窗密码框
 const confirmPasswordButton = document.querySelector('.payPassword3 button');//确认密码
 const hint = document.querySelector('.payPassword p');//提示密码错误
+
 
 clear1.addEventListener('click', () => {
     document.querySelector('.box2-2 input').value = '';
@@ -79,96 +79,134 @@ closeMiMaTanChuang.addEventListener('click', () => {
 })
 
 confirmPasswordButton.addEventListener('click', () => {
-    /*
-    *
-    *
-    * 
-    * 
-    * 
-    *       张伟写
-    * 
-    * 
-    * 
-    * 
-    * 
-    *
-    */
-    //把flag换了：验证数据，如果输入密码和账号密码不一样
-    let flag = false;
-    if (flag) {
-        hint.style.visibility = 'visible';
-    }
-    else {  //如果正确，弹成功动画，并且传数据
-        MiMaTanChuang.style.visibility = 'hidden';
-        document.getElementById("success").classList.add("show");
-        setTimeout(() => {
-            document.getElementById("success").classList.remove("show");
-            document.getElementById("overlay").classList.remove("show");
-            passwordInput.value = '';
-        }, 2000)
-    }
-
+    guasiInfo();
 })
 
 /***********************************************/
 
 
 function getaccount() {
+    let token = localStorage.getItem('token');
     axios({
-        url: 'http://hmajax.itheima.net/api/books',
-        params: {
-
-            creator
-        }
+        url: 'http://47.113.198.244/user/getRelatedCard',
+      headers: {
+        token
+      }
     }).then(result => {
         console.log(result)
-
         var optionsData = result.data.data;
-        var selectElement = document.getElementById("account");
-        var currentOptionValue = 1;
         selectElement.innerHTML = '';
-
         for (var i = 0; i < optionsData.length; i++) {
             var optionElement = document.createElement('option');
-            optionElement.value = currentOptionValue++;
-            optionElement.text = optionsData[i].bookname;
+            optionElement.value = optionsData[i].cardID;
+            let lastFourDigits = optionsData[i].cardID.slice(-4);
+            optionElement.text = lastFourDigits;
             selectElement.appendChild(optionElement);
         }
     })
-}//获取银行卡号并渲染，没有接口，用黑马获取书籍代替，已测试，没有说明后台数据被人删完了
+}
 getaccount();
 
-// function pButton(){
-//     payButton.addEventListener('click', () => {
-//     const passwordValue = passwordInput.value;
-//     console.log(passwordValue);
-//     //*********下面传数据**********
-
-
-//     //****************************
-//     var payPasswordElement = document.querySelector('.payPassword');
-//     payPasswordElement.style.visibility = 'hidden';
-//     })
-// }
-
-// confirmButton.addEventListener('click', () => {
-//     var selectElement = document.querySelector('select');
-//     if (selectElement) {
-//         var selectedOptionValue = selectElement.value;
-//         var selectedOptionText = selectElement.options[selectElement.selectedIndex].text;
-//         console.log('选中的选项值：', selectedOptionValue);
-//         console.log('选中的选项文本：', selectedOptionText);
-//     } else {
-//         console.log('请先渲染选项');
-//     }
-//     var payPasswordElement = document.querySelector('.payPassword');
-//     payPasswordElement.style.visibility = 'visible';
-//     pButton()
-// })
-// closeButton.addEventListener('click', () => {
-//     var payPasswordElement = document.querySelector('.payPassword');
-//     payPasswordElement.style.visibility = 'hidden';
-// })
+function guasiInfo(){
+    var cardIDII=ShouKuanShouJiHao.value;
+    var token = localStorage.getItem('token');
+    axios({
+        url: 'http://47.113.198.244/user/verifyLoss',
+        headers: {
+          token
+        },
+        params:{
+            cardID:cardIDII
+        }
+      }).then(result => {
+        if (result.data.code==200) {
+            console.log(result.data.msg);
+            pipei();
+        } else {
+            alert(result.data.msg);
+        }
+      })    
+}
+function pipei(){
+    var customerName=ShouKuanRen.value;
+    var cardIDII=ShouKuanShouJiHao.value; 
+    var token = localStorage.getItem('token');       
+    axios({
+        url: 'http://47.113.198.244/user/verifyConnection1',
+        headers: {
+            token
+          },
+        params: {
+          customerName,
+          cardID:cardIDII       
+        }
+      }).then(result => {
+         if (result.data.code==200) {
+            console.log(result.data.msg);
+            mima(); 
+         } else {
+            alert(result.data.msg);
+         }
+    }) 
+}
+function mima(){
+    var password=passwordInput.value;
+    var selectedValue = selectElement.value;
+    var token = localStorage.getItem('token');
+    axios({
+        url: 'http://47.113.198.244/user/getPaymentPassword',
+        headers: {
+            token
+          },
+        params: {
+          cardID:selectedValue,
+          password
+        }
+      }).then(result => {
+         if (result.data.code==200) {
+            console.log(result.data.msg);
+            hint.style.visibility = 'hidden';
+            transfer();
+         } else {
+            console.log(result);
+            console.log(result.data.msg);
+            hint.style.visibility = 'visible';
+         }
+    })    
+}
+function transfer(){
+    var selectedValue = selectElement.value;
+    var tradeDate = new Date("2023-12-20T15:44:30");
+    var cardIDII=ShouKuanShouJiHao.value;
+    var money=ZhuanZhangJinE.value;
+    var token = localStorage.getItem('token'); 
+    axios({
+        url: 'http://47.113.198.244/user/transfer',
+        method:'POST',
+        headers: {
+            token
+          },
+        data:{
+          tradeDate,
+          cardID:selectedValue,
+          cardIDII,
+          tradeMoney:money
+        }
+      }).then(result => {
+         if (result.data.code==200) {
+            console.log(result.data.msg);
+            MiMaTanChuang.style.visibility = 'hidden';
+            document.getElementById("success").classList.add("show");
+            setTimeout(() => {
+                document.getElementById("success").classList.remove("show");
+                document.getElementById("overlay").classList.remove("show");
+                passwordInput.value = '';
+            }, 2000)            
+         } else {
+            alert(result.data.msg)
+         }
+    })   
+}
 
 let aliveDetector = setInterval(() => {
     if (ShouKuanRen.value !== '' && ShouKuanShouJiHao.value !== '' && ZhuanZhangJinE.value !== '') {
