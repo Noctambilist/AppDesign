@@ -4,7 +4,6 @@ var incomeElement = document.getElementById('income');//收入
 var expensesElement = document.getElementById('expenses');//支出
 var eyeClose = document.querySelector('.eyeClose');
 var eyeOpen = document.querySelector('.eyeOpen');
-const creator = '老张';//实验
 var asset = 0;//资产
 var income=123456;//收入
 var expenses=123456;//支出
@@ -80,25 +79,38 @@ function getaccountInfo() {
   axios({
       url: 'http://47.113.198.244/user/getRelatedCard',
       headers: {
-         // 设置 User-Agent
         token
       }
     }).then(result => {
-      var optionsData =result.data.data;
-      asset=0;
-      for (var i = 0; i < optionsData.length; i++) {
-          asset= optionsData[i].balance+asset;
-      }       
-    var eyeOpenStyle = window.getComputedStyle(eyeOpen);
-    if (eyeOpenStyle.display === 'block') {
-      assetElement.innerHTML = asset;
-      incomeElement.innerHTML = income;
-      expensesElement.innerHTML = expenses;
-    } else {
-      assetElement.innerHTML = "*******";
-      incomeElement.innerHTML = "*******";
-      expensesElement.innerHTML = "*******";      
-    }
+      if (result.data.code==200) {
+        var optionsData =result.data.data;
+        asset=0;
+        for (var i = 0; i < optionsData.length; i++) {
+              asset= optionsData[i].balance+asset;
+          }       
+        var eyeOpenStyle = window.getComputedStyle(eyeOpen);
+        if (eyeOpenStyle.display === 'block') {
+          assetElement.innerHTML = asset;
+          incomeElement.innerHTML = income;
+          expensesElement.innerHTML = expenses;
+        } else {
+          assetElement.innerHTML = "*******";
+          incomeElement.innerHTML = "*******";
+          expensesElement.innerHTML = "*******";      
+        }
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      } else {
+        
+      }
+
     console.log(result)
     })//正式调用
   //实验调用
