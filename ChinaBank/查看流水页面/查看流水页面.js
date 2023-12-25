@@ -11,6 +11,11 @@ const textDay = document.querySelector('#day');
 const textDay1 = document.querySelector('#day1');
 const moneyLeft = document.querySelector('.box3-4-2-1 input');
 const moneyRight = document.querySelector('.box3-4-2-3 input');
+/***********************************************/
+/*  12月25日16:47增加 */
+const urlParams = new URLSearchParams(window.location.search);
+const cardNumber=urlParams.get('cardID');
+console.log(cardNumber);
 
 let flagOfChoose = true;
 
