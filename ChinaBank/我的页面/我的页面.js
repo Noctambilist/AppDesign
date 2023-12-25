@@ -84,7 +84,13 @@ function getaccountInfo() {
     }).then(result => {
       if (result.data.code==200) {
         var optionsData =result.data.data;
+        var end = new Date("2023-12-20T15:44:30");
+        var start="2023-12-01T00:00:00";
+        var startMoney=0;
+        var endMoney=10000;
         asset=0;
+        var cardIDs = optionsData.map(option => option.cardID);
+        console.log(cardIDs);
         for (var i = 0; i < optionsData.length; i++) {
               asset= optionsData[i].balance+asset;
           }       
@@ -98,6 +104,26 @@ function getaccountInfo() {
           incomeElement.innerHTML = "*******";
           expensesElement.innerHTML = "*******";      
         }
+        axios({
+          url: 'http://47.113.198.244/user/getFinance',
+          headers: {
+            token
+          },
+          params:{
+            end,
+            start,
+            startMoney,
+            endMoney,
+            cardIDs
+          },
+
+        }).then(result1 => {
+           if (result1.data.code==200) {
+              console.log(result);
+           } else {
+              alert(result1.data.message)
+           }
+      })  
       } else {
         var eyeOpenStyle = window.getComputedStyle(eyeOpen);
         if (eyeOpenStyle.display === 'block') {
@@ -111,11 +137,38 @@ function getaccountInfo() {
         }
       }
 
-    console.log(result)
-    })//正式调用
-  //实验调用
-}//获取资产金额以及刷新时间修改
+      console.log(result)
+    })
+  
+}
+function ie(){
+    var end = new Date("2023-12-20T15:44:30");
+    var start="2023-12-01T00:00:00";
+    var startMoney=0;
+    var endMoney=10000;
+    let token = localStorage.getItem('token');
+    axios({
+        url: 'http://47.113.198.244/user/getFinance',
+        headers: {
+          token
+        },
+        params: {
+          end,
+          start,
+          startMoney,
+          endMoney
+        },
+        data:{
 
+        }
+      }).then(result1 => {
+         if (result1.data.code==200) {
+            
+         } else {
+            alert(result1.data.message)
+         }
+    })  
+}
 getaccountInfo();
 
 refresh.addEventListener('click', () => {
