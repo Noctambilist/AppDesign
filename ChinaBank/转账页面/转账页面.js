@@ -1,6 +1,8 @@
 const exitButton = document.querySelector('.box1-1 img');
 const YinHangZhangHaoZhuanZhangButton = document.querySelector('.box2-1-1 img');
 const ShouJiHaoZhuanZhangButton = document.querySelector('.box2-1-2 img');
+const ZhuanZhangJiLu = document.querySelector('.box2-2-1 p');
+const ShouKuanErWeiMa = document.querySelector('.box2-2-2 p');
 
 function slideMe() {
   document.body.style.marginRight = "0"
@@ -29,4 +31,19 @@ ShouJiHaoZhuanZhangButton.addEventListener('click', () => {
   setTimeout(function () {
     location.href = '../手机号转账页面/手机号转账页面.html';
   }, 100);
+})
+
+ZhuanZhangJiLu.addEventListener('click', () => {
+  location.href = '../查看流水页面/查看流水页面.html';
+
+  /*
+  *
+  *            并且同时做筛选，转账方式设为转出
+  *
+  *
+  */
+})
+
+ShouKuanErWeiMa.addEventListener('click', () => {
+  location.href = '../收付款页面/收付款页面.html';
 })
