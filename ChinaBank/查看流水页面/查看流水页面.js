@@ -11,12 +11,30 @@ const textDay = document.querySelector('#day');
 const textDay1 = document.querySelector('#day1');
 const moneyLeft = document.querySelector('.box3-4-2-1 input');
 const moneyRight = document.querySelector('.box3-4-2-3 input');
+
+
+const leftDateSet = document.querySelectorAll('.box3-1-2-1 input');
+const rightDateSet = document.querySelectorAll('.box3-1-2-3 input');
+let tradeDateLeft = '';
+let tradeDateRight = '';
+
+const chooseTradeType = document.querySelectorAll('.box3-2-2 input');
+let tradeType = 0;
+
+
+function addZero(str) {
+  if (Number(str) < 10) {
+    str = '0' + str;
+  }
+  return str;
+}
+
 /***********************************************/
 /*  12月25日16:47增加 */
 const urlParams = new URLSearchParams(window.location.search);
-const cardNumber=urlParams.get('cardID');
+const cardNumber = urlParams.get('cardID');
 console.log(cardNumber);
-const ioe=urlParams.get('ioe');
+const ioe = urlParams.get('ioe');
 console.log(ioe);
 let flagOfChoose = true;
 
@@ -29,6 +47,19 @@ let aliveDetector = setInterval(() => {
     confirmButton.style.opacity = '0.5';
     confirmButton.disabled = true;
   }
+
+  // console.log(leftDateSet[0].value);
+  tradeDateLeft = `${leftDateSet[0].value}-${addZero(leftDateSet[1].value)}-${addZero(leftDateSet[2].value)}T00:00:00`;
+  tradeDateRight = `${rightDateSet[0].value}-${addZero(rightDateSet[1].value)}-${addZero(rightDateSet[2].value)}T23:59:59`;
+  // console.log(tradeDateLeft);
+  // console.log(typeof (leftDateSet[0].value)); //string
+  // console.log(tradeDateRight);
+
+  // console.log(document.querySelector('.box3-2-2 input').checked);
+  tradeType = (chooseTradeType[0].checked === true ? 0 : (chooseTradeType[1].checked === true ? 2 : 1));
+  // console.log(tradeType);
+  // console.log(chooseTradeType[2].checked == true);
+
 }, 50);
 
 function slideMe() {
