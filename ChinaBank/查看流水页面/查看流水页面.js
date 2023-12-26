@@ -1,5 +1,8 @@
 var selectElement = document.getElementById("account");
+<<<<<<< Updated upstream
 const table = document.getElementById('transactionTable');
+=======
+>>>>>>> Stashed changes
 /***********************************************/
 /*  12月25日16:47增加 */
 const confirmButton = document.querySelector('.box3-5 button'); //筛选框的确认
@@ -36,11 +39,17 @@ function addZero(str) {
 /***********************************************/
 /*  12月25日16:47增加 */
 const urlParams = new URLSearchParams(window.location.search);
+<<<<<<< Updated upstream
 const cardNumber = urlParams.get('cardID');
 console.log(cardNumber);
 const ioe = urlParams.get('ioe');
 console.log(ioe);
+=======
+const cardNumber=urlParams.get('cardID');
+const ioe=urlParams.get('ioe');
+>>>>>>> Stashed changes
 let flagOfChoose = true;
+
 
 let aliveDetector = setInterval(() => {
   if (textDay.value != '' && textDay1.value != '' && moneyLeft.value != '' && moneyRight.value != '') {
@@ -203,6 +212,10 @@ axios({
    if (result.data.code==200) {
       console.log(result);
       var optionsData2 =result.data.data;
+<<<<<<< Updated upstream
+=======
+      const table = document.getElementById('transactionTable');
+>>>>>>> Stashed changes
       optionsData2.forEach(transaction => {
         // 创建新的表格行
         const row = table.insertRow();
@@ -223,7 +236,11 @@ axios({
         amountCell.textContent = transaction.tradeMoney.toFixed(2); // 保留两位小数
     });   
    } else {
+<<<<<<< Updated upstream
     alert(result.data.msg);
+=======
+    alert(result.data.message);
+>>>>>>> Stashed changes
    }
 }) 
 })
@@ -260,7 +277,11 @@ if(cardNumber){
     if (result.data.code==200) {
         console.log(result);
         var optionsData2 =result.data.data;
+<<<<<<< Updated upstream
 
+=======
+        const table = document.getElementById('transactionTable');
+>>>>>>> Stashed changes
         optionsData2.forEach(transaction => {
           // 创建新的表格行
           const row = table.insertRow();
@@ -281,7 +302,11 @@ if(cardNumber){
           amountCell.textContent = transaction.tradeMoney.toFixed(2); // 保留两位小数
       });   
     } else {
+<<<<<<< Updated upstream
       alert(result.data.msg);
+=======
+      alert(result.data.message);
+>>>>>>> Stashed changes
     }
   }) 
 }
@@ -289,6 +314,7 @@ if(cardNumber){
 
 
 
+<<<<<<< Updated upstream
 function filter(){
   var selectedValue = selectElement.value;
   var end=tradeDateRight;
@@ -300,6 +326,19 @@ function filter(){
   var token = localStorage.getItem('token');
   if (selectedValue==114514) {
 
+=======
+var myButton = document.getElementById('myButton');
+    myButton.addEventListener('click', function() {
+
+    var start="2023-10-01T00:00:00";
+    var startMoney=0;
+    var endMoney=10000;
+    let token = localStorage.getItem('token');
+    var getwhat=2;
+    var order=0;
+    var currentDate = new Date();
+    var formattedCurrentDate = currentDate.toISOString().slice(0, 19);
+>>>>>>> Stashed changes
     axios({
       url: 'http://47.113.198.244/user/getRelatedCard',
       headers: {
@@ -308,6 +347,7 @@ function filter(){
     }).then(result => {
       var optionsData1 =result.data.data;
       cardIDs = optionsData1.map(option => option.cardID);
+<<<<<<< Updated upstream
         axios({
           url: 'http://47.113.198.244/user/getTradeRecord',
           headers: {
@@ -410,3 +450,51 @@ function filter(){
     })
   }
 }
+=======
+  axios({
+    url: 'http://47.113.198.244/user/getTradeRecord',
+    headers: {
+      token
+    },
+    params:{
+      listCard:cardIDs.join(','),
+      end:formattedCurrentDate,
+      start,
+      getwhat,
+      order,
+      startMoney,
+      endMoney,
+      cardIDII:''
+    }
+  }).then(result => {
+     console.log(result);
+     if (result.data.code==200) {
+        console.log(result);
+        var optionsData2 =result.data.data;
+        const table = document.getElementById('transactionTable');
+        optionsData2.forEach(transaction => {
+          // 创建新的表格行
+          const row = table.insertRow();
+      
+          // 创建单元格并填充数据
+          const timeCell = row.insertCell(0);
+          const date = new Date(transaction.tradeDate);
+          timeCell.textContent = `${date.getMonth() + 1}/${date.getDate()}`;
+      
+          const typeCell = row.insertCell(1);
+          typeCell.textContent = transaction.tradeType === 0 ? '转入' : '转出';
+      
+          const cardCell = row.insertCell(2);
+          const lastFourDigits = transaction.cardID.slice(-4);
+          cardCell.textContent = `(${lastFourDigits})`;
+      
+          const amountCell = row.insertCell(3);
+          amountCell.textContent = transaction.tradeMoney.toFixed(2); // 保留两位小数
+      });   
+     } else {
+      alert(result.data.message);
+     }
+}) 
+})
+});
+>>>>>>> Stashed changes
