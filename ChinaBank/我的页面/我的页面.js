@@ -7,6 +7,8 @@ var eyeOpen = document.querySelector('.eyeOpen');
 var asset = 0;//资产
 var income=123456;//收入
 var expenses=123456;//支出
+var cardIDs;
+var cTime;
 /***********************************************/
 /*  12月22日23:24增加基本事件*/
 
@@ -58,11 +60,7 @@ function updateCurrentTime() {
       currentTimeElement.innerHTML = '当前时间: ' + currentTime;
   }
 }
-
-// 初始加载时更新一次时间
 updateCurrentTime();
-
-// 每秒更新一次时间
 setInterval(updateCurrentTime, 1000);
 
 
@@ -75,56 +73,69 @@ function getaccountInfo() {
   }
 
   let token = localStorage.getItem('token');
-  console.log(token);
+
+
+  var currentDate = new Date();
+  var formattedCurrentDate = currentDate.toISOString().slice(0, 19);
+
   axios({
       url: 'http://47.113.198.244/user/getRelatedCard',
       headers: {
         token
       }
     }).then(result => {
+      console.log(result);
       if (result.data.code==200) {
         var optionsData =result.data.data;
-        var end = new Date("2023-12-20T15:44:30");
         var start="2023-12-01T00:00:00";
         var startMoney=0;
         var endMoney=10000;
         asset=0;
-        var cardIDs = optionsData.map(option => option.cardID);
-        console.log(cardIDs);
+        cardIDs = optionsData.map(option => option.cardID);
         for (var i = 0; i < optionsData.length; i++) {
               asset= optionsData[i].balance+asset;
           }       
         var eyeOpenStyle = window.getComputedStyle(eyeOpen);
         if (eyeOpenStyle.display === 'block') {
           assetElement.innerHTML = asset;
-          incomeElement.innerHTML = income;
-          expensesElement.innerHTML = expenses;
+
         } else {
           assetElement.innerHTML = "*******";
           incomeElement.innerHTML = "*******";
           expensesElement.innerHTML = "*******";      
         }
-       /*axios({
+
+        axios({
           url: 'http://47.113.198.244/user/getFinance',
           headers: {
             token
           },
           params:{
-            listCard:cardIDs,
-            end,
+            listCard:cardIDs.join(','),
+            end:formattedCurrentDate,
             start,
             startMoney,
             endMoney,
-            
           },
-
-        }).then(result1 => {
-           if (result1.data.code==200) {
-              console.log(result);
+        }).then(result => {
+          console.log(result);
+           if (result.data.code==200) {
+            income=result.data.data.income;
+            expenses=result.data.data.expense;
+            var eyeOpenStyle = window.getComputedStyle(eyeOpen);
+            if (eyeOpenStyle.display === 'block') {
+              incomeElement.innerHTML = income;
+              expensesElement.innerHTML = expenses;
+            } else {
+              assetElement.innerHTML = "*******";
+              incomeElement.innerHTML = "*******";
+              expensesElement.innerHTML = "*******";      
+            }            
            } else {
-              alert(result1.data.message)
+              alert(result.data.message)
            }
-      }) */
+      }) 
+
       } else {
         var eyeOpenStyle = window.getComputedStyle(eyeOpen);
         if (eyeOpenStyle.display === 'block') {
@@ -138,8 +149,10 @@ function getaccountInfo() {
         }
       }
 
-      console.log(result)
-    })
+      
+    }).catch(error => {
+      console.error('Network error or other issue:', error);
+    });
   
 }
 /*function ie(){
@@ -188,3 +201,14 @@ function toggleVisibility() {
       expensesElement.innerHTML = expenses;     
   }
 }
+
+
+
+var myButton = document.getElementById('myButton');
+  myButton.addEventListener('click', function() {
+
+
+    let currentDate = new Date();
+    let formattedCurrentDate = currentDate.toISOString().slice(0, 19);
+    console.log(formattedCurrentDate);
+});
