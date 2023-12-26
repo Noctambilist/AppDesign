@@ -28,6 +28,9 @@ body {
     position: relative;
 }
 
+.refresh {
+    margin-right: 12px;
+}
 
 .box1 {
     padding-top: 15px;

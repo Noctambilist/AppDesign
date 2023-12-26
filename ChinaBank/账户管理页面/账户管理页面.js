@@ -6,6 +6,8 @@ var assetElement = document.getElementById('asset');
 const refreshimg = document.querySelector('.box2-1-2 img');
 var asset = 0;//资产
 
+const addCardOrAmountButton = document.querySelector('.box4 button');
+
 function slideMe() {
   document.body.style.marginRight = "0"
   document.body.style.opacity = "1";
@@ -19,7 +21,13 @@ exitButton.addEventListener('click', () => {
   }, 100);
 })
 
-
+addCardOrAmountButton.addEventListener('click', () => {
+  document.body.style.marginRight = "-15%";
+  document.body.style.opacity = "0";
+  setTimeout(function () {
+    location.href = './添加银行卡/添加银行卡.html';
+  }, 100);
+})
 
 /***********************************************/
 /*  12月24日15:12增加 */
