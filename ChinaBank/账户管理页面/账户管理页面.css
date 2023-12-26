@@ -158,27 +158,40 @@ body {
 }
 
 
-.swiper-wrapper h3{
+.swiper-wrapper h3 {
     text-align: center;
+    text-shadow: 0 0 4px #ffffff, 0 0 5px #ffffff, 0 0 6px #ffffff, 0 0 7px #ffffff;
+    font-size: 28px;
+    letter-spacing: 0.5px;
 }
-.swiper-wrapper button{
+
+.swiper-wrapper button {
     width: 25%;
     height: 20%;
-    float: right;
+    /* float: right; */
+    margin-left: 25px;
     background-color: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(4px);
     border-radius: 15px;
-    border:none;
+    border: none;
     font: 500 17px '';
     cursor: pointer;
-    transition-duration: 0.25s ;
+    transition-duration: 0.25s;
 }
+
 .swiper-wrapper button:hover {
-    background-color: white; 
+    background-color: white;
     border: 2px solid skyblue;
 }
-.swiper-wrapper p{
-    float: right;
+
+.swiper-wrapper p {
+    /* float: right; */
+    text-align: right;
+    margin-top: 12px;
+    margin-bottom: 17px;
+    margin-right: 20px;
+    letter-spacing: 8px;
+    text-shadow: 0 0 4px #ffffff, 0 0 5px #ffffff, 0 0 6px #ffffff, 0 0 7px #ffffff;
 }
 
 /* .box3-2 {
