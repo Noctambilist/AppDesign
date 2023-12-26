@@ -30,15 +30,24 @@
             </div>
             <div class="box2-3">
                 <!-- <textarea name="" id="j86">+86</textarea> -->
-                <textarea name="" id="message2" placeholder="请输入新的密码"></textarea>
+                <input type="password" name="" id="message2" placeholder="请输入新的密码">
                 <!-- <p>获取验证码</p> -->
             </div>
             <div class="box2-3">
-                <textarea name="" id="message2" placeholder="请确认新的密码"></textarea>
+                <input type="password" name="" id="message2" placeholder="请确认新的密码">
             </div>
             <div class="box2-4">
                 <button type="button" class="submit" onclick="showDiv()">确定</button>
             </div>
+        </div>
+        <div class="overlay" id="overlay"></div><!-- 灯箱 -->
+        <div class="success" id="success"><!-- 修改成功 -->
+            <svg width="100" height="100">
+                <circle fill="none" stroke="#68E534" stroke-width="7" cx="50" cy="50" r="40" />
+                <polyline fill="none" stroke="#68E534" stroke-width="7" points="22,54 44,71 76,37"
+                    stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <h3>修改成功</h3>
         </div>
     </div>
 </body>
