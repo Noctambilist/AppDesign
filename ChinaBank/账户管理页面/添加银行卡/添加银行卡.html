@@ -21,12 +21,34 @@
         </div>
         <div class="box2">
             <div class="box2-1">
-                <textarea name="" id="ka">卡/账号</textarea>
-                <textarea name="" id="message1" placeholder="请输入"></textarea>
+                <input type="text" id="ka" placeholder="卡/账号">
+                <input type="text" id="message1" placeholder="请输入">
             </div>
             <div class="box2-2">
                 <button type="button" class="submit" onclick="showDiv()">确定</button>
             </div>
+        </div>
+        <div class="overlay" id="overlay"></div><!-- 灯箱 -->
+        <div class="payPassword"><!-- 输入支付密码 -->
+            <div class="payPassword1">
+                <h3>请输入支付密码:</h3>
+                <img src="../images/关闭.png" width="20" height="20">
+            </div>
+            <div class="payPassword2">
+                <input type="password" class="password" maxlength="6">
+            </div>
+            <p>密码错误,请重新输入!</p>
+            <div class="payPassword3">
+                <button class="payBtn" type="button">确认</button>
+            </div>
+        </div>
+        <div class="success" id="success"><!-- 添加成功 -->
+            <svg width="100" height="100">
+                <circle fill="none" stroke="#68E534" stroke-width="7" cx="50" cy="50" r="40" />
+                <polyline fill="none" stroke="#68E534" stroke-width="7" points="22,54 44,71 76,37"
+                    stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <h3>添加成功</h3>
         </div>
     </div>
 </body>
