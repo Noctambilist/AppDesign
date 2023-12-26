@@ -201,14 +201,3 @@ function toggleVisibility() {
       expensesElement.innerHTML = expenses;     
   }
 }
-
-
-
-var myButton = document.getElementById('myButton');
-  myButton.addEventListener('click', function() {
-
-
-    let currentDate = new Date();
-    let formattedCurrentDate = currentDate.toISOString().slice(0, 19);
-    console.log(formattedCurrentDate);
-});
