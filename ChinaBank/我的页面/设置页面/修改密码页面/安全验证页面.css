@@ -13,8 +13,8 @@ body {
     height: 100vh;
     overflow: hidden;
     transition: 0.1s;
-    /* margin-right: -15%; */
-    /* opacity: 0; */
+    margin-right: -15%;
+    opacity: 0;
 }
 
 

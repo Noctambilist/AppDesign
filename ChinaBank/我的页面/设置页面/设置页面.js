@@ -1,6 +1,8 @@
 const exitButton = document.querySelector('.box1-1 img');
-const ShouJiHuanBangButton = document.querySelector('.box2-2-1 img');
-const XiuGaiMiMa = document.querySelector('.box2-2-2 img');
+const ShouJiHuanBangButton = document.querySelector('.box2-2-1');
+const XiuGaiMiMaButton = document.querySelector('.box2-2-2');
+const XiuGaiMoRenKaButton = document.querySelector('.box3-2-1');
+const YinHangKaGuaShiButton = document.querySelector('.box3-2-2');
 const TuiChuDengLuButton = document.querySelector('.box3-2-3');
 
 function slideMe() {
@@ -16,9 +18,42 @@ exitButton.addEventListener('click', () => {
   }, 100);
 })
 
+ShouJiHuanBangButton.addEventListener('click', () => {
+  document.body.style.marginRight = "-15%";
+  document.body.style.opacity = "0";
+  setTimeout(function () {
+    location.href = './手机换绑页面/安全验证页面.html';
+  }, 100);
+})
+
+XiuGaiMiMaButton.addEventListener('click', () => {
+  document.body.style.marginRight = "-15%";
+  document.body.style.opacity = "0";
+  setTimeout(function () {
+    location.href = './修改密码页面/安全验证页面.html';
+  }, 100);
+})
+
+XiuGaiMoRenKaButton.addEventListener('click', () => {
+  document.body.style.marginRight = "-15%";
+  document.body.style.opacity = "0";
+  setTimeout(function () {
+    location.href = './修改默认银行卡/修改默认银行卡.html';
+  }, 100);
+})
+
+YinHangKaGuaShiButton.addEventListener('click', () => {
+  document.body.style.marginRight = "-15%";
+  document.body.style.opacity = "0";
+  setTimeout(function () {
+    location.href = './银行卡挂失/银行卡挂失.html';
+  }, 100);
+})
+
 TuiChuDengLuButton.addEventListener('click', () => {
-  /*
-      加个“确认退出”的弹窗
-  */
-  // location.href = '../../三模登录页面/三模登录页面.html';
+  document.body.style.marginRight = "-15%";
+  document.body.style.opacity = "0";
+  setTimeout(function () {
+    location.href = '../../三模登录页面/三模登录页面.html';
+  }, 100);
 })

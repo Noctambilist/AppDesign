@@ -13,6 +13,8 @@ body {
     height: 100vh;
     overflow: hidden;
     transition: 0.1s;
+    margin-right: -15%;
+    opacity: 0;
 }
 
 
@@ -107,6 +109,7 @@ select {
     outline: none;
     font-size: 16px;
 }
+
 .box3 {
     margin: 5% 5%;
 }
@@ -121,7 +124,7 @@ select {
     background: linear-gradient(129.12deg, #446dff, rgba(99, 125, 255, .75));
     color: #fff;
     font-size: 20px;
-    opacity: 0.5;
+    opacity: 1;
     /* 初始时按钮是半透明的 */
     transition: opacity 0.3s;
     /* 设置透明度的过渡效果 */
@@ -140,6 +143,7 @@ select {
     z-index: 10;
     visibility: hidden;
 }
+
 /*添加成功动画*/
 .success {
     width: 150px;
