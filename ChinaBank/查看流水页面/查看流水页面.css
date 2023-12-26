@@ -87,8 +87,9 @@ body {
 
 .box2 {
     width: 94%;
-    margin: 0 3%;
-    background-color: yellowgreen;
+    margin: 3% 3%;
+    border-radius: 15px;
+    background-color: #fff;
     display: flex;
     justify-content: center;
 }
