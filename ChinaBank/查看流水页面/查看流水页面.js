@@ -1,3 +1,7 @@
+var selectElement = document.getElementById("account");
+const table = document.getElementById('transactionTable');
+/***********************************************/
+/*  12月25日16:47增加 */
 const confirmButton = document.querySelector('.box3-5 button'); //筛选框的确认
 const chooseBoard = document.querySelector('.box3');  //筛选板
 const chooseButton = document.querySelector('.box1-3 img'); //漏斗按钮
@@ -56,7 +60,7 @@ let aliveDetector = setInterval(() => {
   // console.log(tradeDateRight);
 
   // console.log(document.querySelector('.box3-2-2 input').checked);
-  tradeType = (chooseTradeType[0].checked === true ? 0 : (chooseTradeType[1].checked === true ? 2 : 1));
+  tradeType = (chooseTradeType[0].checked === true ? 0 : (chooseTradeType[1].checked === true ? 1 : 2));
   // console.log(tradeType);
   // console.log(chooseTradeType[2].checked == true);
 
@@ -84,6 +88,7 @@ confirmButton.addEventListener('click', () => {
           alert('请检查金额区间是否有误');
         } else {
           //传数据还没写
+          filter();
           chooseBoard.style.display = 'none';
         }
       }
@@ -93,6 +98,7 @@ confirmButton.addEventListener('click', () => {
         alert('请检查金额区间是否有误');
       } else {
         //传数据还没写
+        filter();
         chooseBoard.style.display = 'none';
       }
     }
@@ -102,6 +108,7 @@ confirmButton.addEventListener('click', () => {
       alert('请检查金额区间是否有误');
     } else {
       //传数据还没写
+      filter();
       chooseBoard.style.display = 'none';
     }
   }
@@ -117,6 +124,30 @@ chooseButton.addEventListener('click', () => {
     chooseBoard.style.display = 'flex';
     console.log(222);
     console.log(chooseBoard.style.display)
+    let token = localStorage.getItem('token');
+    axios({
+      url: 'http://47.113.198.244/user/getRelatedCard',
+    headers: {
+      token
+    }
+  }).then(result => {
+      console.log(result)
+      var optionsData = result.data.data;
+      selectElement.innerHTML = '';
+
+      var allOption = document.createElement('option');
+      allOption.value = '114514'; // 或者你可以使用一个特殊的值表示“全部”
+      allOption.text = '全部';
+      selectElement.appendChild(allOption);
+
+      for (var i = 0; i < optionsData.length; i++) {
+          var optionElement = document.createElement('option');
+          optionElement.value = optionsData[i].cardID;
+          let lastFourDigits = optionsData[i].cardID.slice(-4);
+          optionElement.text = lastFourDigits;
+          selectElement.appendChild(optionElement);
+      }
+  })
   } else {
     chooseBoard.classList.remove('slideUp');
     chooseBoard.style.display = 'none';
@@ -132,3 +163,250 @@ exitButton.addEventListener('click', () => {
     location.href = '../首页/首页.html';
   }, 100);
 })
+
+/***********************************************/
+//下面是从转账进来
+if(ioe){
+  var start="2023-10-01T00:00:00";
+  var startMoney=0;
+  var endMoney=10000;
+  let token = localStorage.getItem('token');
+  var getwhat=2;
+  var order=0;
+  var currentDate = new Date();
+  var formattedCurrentDate = currentDate.toISOString().slice(0, 19);
+  axios({
+    url: 'http://47.113.198.244/user/getRelatedCard',
+    headers: {
+      token
+    }
+  }).then(result => {
+    var optionsData1 =result.data.data;
+    cardIDs = optionsData1.map(option => option.cardID);
+axios({
+  url: 'http://47.113.198.244/user/getTradeRecord',
+  headers: {
+    token
+  },
+  params:{
+    listCard:cardIDs.join(','),
+    end:formattedCurrentDate,
+    start,
+    getwhat,
+    order,
+    startMoney,
+    endMoney,
+    cardIDII:''
+  }
+}).then(result => {
+   console.log(result);
+   if (result.data.code==200) {
+      console.log(result);
+      var optionsData2 =result.data.data;
+      optionsData2.forEach(transaction => {
+        // 创建新的表格行
+        const row = table.insertRow();
+    
+          // 创建单元格并填充数据
+          const timeCell = row.insertCell(0);
+          const date = new Date(transaction.tradeDate);
+          timeCell.textContent = `${date.getMonth() + 1}/${date.getDate()}`;
+    
+        const typeCell = row.insertCell(1);
+        typeCell.textContent = transaction.tradeType === 0 ? '转出' : '转入';
+    
+        const cardCell = row.insertCell(2);
+        const lastFourDigits = transaction.cardID.slice(-4);
+        cardCell.textContent = `(${lastFourDigits})`;
+    
+        const amountCell = row.insertCell(3);
+        amountCell.textContent = transaction.tradeMoney.toFixed(2); // 保留两位小数
+    });   
+   } else {
+    alert(result.data.msg);
+   }
+}) 
+})
+}
+/***********************************************/
+//下面是从账户管理进来
+if(cardNumber){
+  var start="2023-10-01T00:00:00";
+  var startMoney=0;
+  var endMoney=10000;
+  let token = localStorage.getItem('token');
+  var getwhat=0;
+  var order=0;
+  var currentDate = new Date();
+  var formattedCurrentDate = currentDate.toISOString().slice(0, 19);
+  
+  axios({
+    url: 'http://47.113.198.244/user/getTradeRecord',
+    headers: {
+      token
+    },
+    params:{
+      listCard:cardNumber,
+      end:formattedCurrentDate,
+      start,
+      getwhat,
+      order,
+      startMoney,
+      endMoney,
+      cardIDII:''
+    }
+  }).then(result => {
+    console.log(result);
+    if (result.data.code==200) {
+        console.log(result);
+        var optionsData2 =result.data.data;
+
+        optionsData2.forEach(transaction => {
+          // 创建新的表格行
+          const row = table.insertRow();
+      
+          // 创建单元格并填充数据
+          const timeCell = row.insertCell(0);
+          const date = new Date(transaction.tradeDate);
+          timeCell.textContent = `${date.getMonth() + 1}/${date.getDate()}`;
+      
+          const typeCell = row.insertCell(1);
+          typeCell.textContent = transaction.tradeType === 0 ? '转出' : '转入';
+      
+          const cardCell = row.insertCell(2);
+          const lastFourDigits = transaction.cardID.slice(-4);
+          cardCell.textContent = `(${lastFourDigits})`;
+      
+          const amountCell = row.insertCell(3);
+          amountCell.textContent = transaction.tradeMoney.toFixed(2); // 保留两位小数
+      });   
+    } else {
+      alert(result.data.msg);
+    }
+  }) 
+}
+
+
+
+
+function filter(){
+  var selectedValue = selectElement.value;
+  var end=tradeDateRight;
+  var start=tradeDateLeft;
+  var getwhat=tradeType;
+  var order=0;
+  var startMoney=moneyLeft.value;
+  var endMoney=moneyRight.value;
+  var token = localStorage.getItem('token');
+  if (selectedValue==114514) {
+
+    axios({
+      url: 'http://47.113.198.244/user/getRelatedCard',
+      headers: {
+        token
+      }
+    }).then(result => {
+      var optionsData1 =result.data.data;
+      cardIDs = optionsData1.map(option => option.cardID);
+        axios({
+          url: 'http://47.113.198.244/user/getTradeRecord',
+          headers: {
+            token
+          },
+          params:{
+            listCard:cardIDs.join(','),
+            end,
+            start,
+            getwhat,
+            order,
+            startMoney,
+            endMoney,
+            cardIDII:''
+          }
+        }).then(result => {
+          console.log(result);
+          if (result.data.code==200) {
+              console.log(result);
+              var optionsData2 =result.data.data;
+
+              var rows = table.getElementsByTagName('tr');
+              for (var i = rows.length - 1; i > 0; i--) {
+                table.deleteRow(i);
+            }
+              optionsData2.forEach(transaction => {
+                // 创建新的表格行
+                const row = table.insertRow();
+            
+                  // 创建单元格并填充数据
+                  const timeCell = row.insertCell(0);
+                  const date = new Date(transaction.tradeDate);
+                  timeCell.textContent = `${date.getMonth() + 1}/${date.getDate()}`;
+            
+                const typeCell = row.insertCell(1);
+                typeCell.textContent = transaction.tradeType === 0 ? '转出' : '转入';
+            
+                const cardCell = row.insertCell(2);
+                const lastFourDigits = transaction.cardID.slice(-4);
+                cardCell.textContent = `(${lastFourDigits})`;
+            
+                const amountCell = row.insertCell(3);
+                amountCell.textContent = transaction.tradeMoney.toFixed(2); // 保留两位小数
+            });   
+          } else {
+            console.log(result);
+            alert(result.data.msg);
+          }
+        }) 
+  })
+  } else {
+    axios({
+      url: 'http://47.113.198.244/user/getTradeRecord',
+      headers: {
+        token
+      },
+      params:{
+        listCard:selectedValue,
+        end,
+        start,
+        getwhat,
+        order,
+        startMoney,
+        endMoney,
+        cardIDII:''
+      }
+    }).then(result => {
+      console.log(result);
+      if (result.data.code==200) {
+          console.log(result);
+          var optionsData2 =result.data.data;
+
+          var rows = table.getElementsByTagName('tr');
+          for (var i = rows.length - 1; i > 0; i--) {
+            table.deleteRow(i);
+        }
+          optionsData2.forEach(transaction => {
+            // 创建新的表格行
+            const row = table.insertRow();
+        
+              // 创建单元格并填充数据
+              const timeCell = row.insertCell(0);
+              const date = new Date(transaction.tradeDate);
+              timeCell.textContent = `${date.getMonth() + 1}/${date.getDate()}`;
+        
+            const typeCell = row.insertCell(1);
+            typeCell.textContent = transaction.tradeType === 0 ? '转出' : '转入';
+        
+            const cardCell = row.insertCell(2);
+            const lastFourDigits = transaction.cardID.slice(-4);
+            cardCell.textContent = `(${lastFourDigits})`;
+        
+            const amountCell = row.insertCell(3);
+            amountCell.textContent = transaction.tradeMoney.toFixed(2); // 保留两位小数
+        });   
+      } else {
+        console.log(result);
+        alert(result.data.msg);
+      }
+    })
+  }
+}

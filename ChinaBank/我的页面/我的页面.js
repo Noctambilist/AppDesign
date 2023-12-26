@@ -5,8 +5,8 @@ var expensesElement = document.getElementById('expenses');//支出
 var eyeClose = document.querySelector('.eyeClose');
 var eyeOpen = document.querySelector('.eyeOpen');
 var asset = 0;//资产
-var income=123456;//收入
-var expenses=123456;//支出
+var income=0;//收入
+var expenses=0;//支出
 var cardIDs;
 var cTime;
 /***********************************************/
