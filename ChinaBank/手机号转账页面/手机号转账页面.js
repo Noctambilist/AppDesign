@@ -111,10 +111,7 @@ function getaccount() {
     })
 }
 getaccount();
-var myButton = document.getElementById('myButton');
-    myButton.addEventListener('click', function() {
-        pipei();
-    });
+
 function pipei(){
     var customerName=ShouKuanRen.value;
     var phoneNumber=ShouKuanShouJiHao.value; 
