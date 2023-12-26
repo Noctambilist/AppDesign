@@ -104,17 +104,18 @@ function getaccountInfo() {
           incomeElement.innerHTML = "*******";
           expensesElement.innerHTML = "*******";      
         }
-        axios({
+       /*axios({
           url: 'http://47.113.198.244/user/getFinance',
           headers: {
             token
           },
           params:{
+            listCard:cardIDs,
             end,
             start,
             startMoney,
             endMoney,
-            cardIDs
+            
           },
 
         }).then(result1 => {
@@ -123,7 +124,7 @@ function getaccountInfo() {
            } else {
               alert(result1.data.message)
            }
-      })  
+      }) */
       } else {
         var eyeOpenStyle = window.getComputedStyle(eyeOpen);
         if (eyeOpenStyle.display === 'block') {
@@ -141,7 +142,7 @@ function getaccountInfo() {
     })
   
 }
-function ie(){
+/*function ie(){
     var end = new Date("2023-12-20T15:44:30");
     var start="2023-12-01T00:00:00";
     var startMoney=0;
@@ -157,8 +158,6 @@ function ie(){
           start,
           startMoney,
           endMoney
-        },
-        data:{
 
         }
       }).then(result1 => {
@@ -168,7 +167,7 @@ function ie(){
             alert(result1.data.message)
          }
     })  
-}
+}*/
 getaccountInfo();
 
 refresh.addEventListener('click', () => {
