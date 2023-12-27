@@ -1,5 +1,5 @@
-const HuoQuYanZhengMaButton = document.querySelector('.box2-3 button');
 const exitButton = document.querySelector('.box1-1 img');
+const confirmButton = document.querySelector('.box3 button');
 
 function slideMe() {
   document.body.style.marginRight = "0"
@@ -12,8 +12,4 @@ exitButton.addEventListener('click', () => {
   setTimeout(function () {
     location.href = '../设置页面.html';
   }, 100);
-})
-
-HuoQuYanZhengMaButton.addEventListener('click', () => {
-
 })
