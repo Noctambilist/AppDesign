@@ -8,7 +8,7 @@ const ts = document.querySelector('.m-form .hidden-text');//正则验证
 const yhxz = document.querySelector('.m-form #sure');//用户须知按钮
 
 
-let varify;
+let varifyToBack; //给后端的验证码
 let flag = false;
 let yzmflag = false;
 //getbtn.style.color = 'grey';
@@ -65,56 +65,80 @@ function getRandomVarify() {
   return (Math.floor(Math.random() * (999999 - 100000 + 1) + 100000));
 }
 
+
+
+
 getbtn.addEventListener('click', (e) => {
-  // if (yzmflag === false) {
-  //     getbtn.disabled = true;
-  // } else {
-  getbtn.disabled = false;
-  varify = +getRandomVarify();
 
-  if (flagOfSpecial === false) {
-    let num1 = setInterval(() => {
-      alert(`【China Bank】CAPTCHA ${varify}，used for login, please do not disclose.`);
-      clearInterval(num1);
-    }, 3000)
-  } else {
-    let num1 = setInterval(() => {
-      alert(`【中国银行】验证码${varify}，用于手机验证码登录，请勿泄露。`);
-      clearInterval(num1);
-    }, 3000)
-  }
 
-  getbtn.disabled = true;
-  //e.stopPropagation();
-  //console.log(11);
-  let tmp = 10;
+  /*
+  *
+  *     获取验证码之前要先做个判断，如果手机号在数据库里没有不让获取验证码
+  *     手机号的值是sjhm.value
+  * 
+  *
+  */
+  if ("数据库里没这个手机号") { alert("手机号尚未注册") }
+  else {  //有这个号，正常获取验证码
 
-  if (flagOfSpecial === false) {
-    getbtn.innerHTML = `Wait ${tmp}s try again`;
-    let num2 = setInterval(() => {
-      tmp--;
+
+    varifyToBack = +getRandomVarify();  //生成给后端的验证码
+
+    getbtn.disabled = true;
+    let tmp = 10;
+    //十秒内不能重新获取验证码
+    if (flagOfSpecial === false) {
       getbtn.innerHTML = `Wait ${tmp}s try again`;
-      if (tmp === 0) {
-        clearInterval(num2);
-        getbtn.style.color = '#637dff';
-        getbtn.disabled = false;
-        getbtn.innerHTML = 'Get CAPTCHA';
-      }
-    }, 1000)
-  }
-  else {
-    getbtn.innerHTML = `请${tmp}秒后重试`;
-    let num2 = setInterval(() => {
-      tmp--;
+      let num2 = setInterval(() => {
+        tmp--;
+        getbtn.innerHTML = `Wait ${tmp}s try again`;
+        if (tmp === 0) {
+          clearInterval(num2);
+          getbtn.style.color = '#637dff';
+          getbtn.disabled = false;
+          getbtn.innerHTML = 'Get CAPTCHA';
+        }
+      }, 1000)
+    }
+    else {
       getbtn.innerHTML = `请${tmp}秒后重试`;
-      if (tmp === 0) {
-        clearInterval(num2);
-        getbtn.style.color = '#637dff';
-        getbtn.disabled = false;
-        getbtn.innerHTML = '获取验证码';
-      }
-    }, 1000)
+      let num2 = setInterval(() => {
+        tmp--;
+        getbtn.innerHTML = `请${tmp}秒后重试`;
+        if (tmp === 0) {
+          clearInterval(num2);
+          getbtn.style.color = '#637dff';
+          getbtn.disabled = false;
+          getbtn.innerHTML = '获取验证码';
+        }
+      }, 1000)
+    }
+
+    /*
+    *
+    *   关于前端怎么检测用户输入的验证码是否正确，其实直接拿yzm.value和varifyToBack比就行，短信只是给张磊看看
+    *   这个校验是写在登录按钮里的，我看你写了要经过后端的，其实可以直接改简单，你看看
+    * 
+    */
+
+
   }
+
+
+  /*
+  *     注释掉alert弹验证码，用不上
+  */
+  // if (flagOfSpecial === false) {
+  //   let num1 = setInterval(() => {
+  //     alert(`【China Bank】CAPTCHA ${varify}，used for login, please do not disclose.`);
+  //     clearInterval(num1);
+  //   }, 3000)
+  // } else {
+  //   let num1 = setInterval(() => {
+  //     alert(`【中国银行】验证码${varify}，用于手机验证码登录，请勿泄露。`);
+  //     clearInterval(num1);
+  //   }, 3000)
+  // }
 
 })
 
@@ -125,11 +149,6 @@ getbtn.addEventListener('click', (e) => {
 // }, 50)
 
 login.addEventListener('click', (e) => {
-  //console.log(111);
-  //e.stopPropagation();
-  // if (flag === false) {
-  //     login.disabled = true;
-  // } else 
   if ((flag === true && sjhm.value === '' || ts.style.color === 'red') && flagOfSpecial === true) {
     alert('请输入正确的手机号！');
   }
