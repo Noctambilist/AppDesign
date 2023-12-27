@@ -155,32 +155,6 @@ function getaccountInfo() {
     });
   
 }
-/*function ie(){
-    var end = new Date("2023-12-20T15:44:30");
-    var start="2023-12-01T00:00:00";
-    var startMoney=0;
-    var endMoney=10000;
-    let token = localStorage.getItem('token');
-    axios({
-        url: 'http://47.113.198.244/user/getFinance',
-        headers: {
-          token
-        },
-        params: {
-          end,
-          start,
-          startMoney,
-          endMoney
-
-        }
-      }).then(result1 => {
-         if (result1.data.code==200) {
-            
-         } else {
-            alert(result1.data.message)
-         }
-    })  
-}*/
 getaccountInfo();
 
 refresh.addEventListener('click', () => {
