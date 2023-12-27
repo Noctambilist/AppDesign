@@ -51,25 +51,12 @@ closeMiMaTanChuang.addEventListener('click', () => {
 
 confirmPasswordButton.addEventListener('click', () => {
   pipei();
-  
-  /*
-  *
-  *
-  *     匹配函数没写，密码对了出现添加成功动画，密码错了红字提示     
-  * 
-  * 
-  * 
-  */
-
-
 })
 
-myButton.addEventListener('click', function() {
-  tianjia();
-});
 function pipei(){
   right();
 }
+
 function right(){
   let token = localStorage.getItem('token');
   axios({
