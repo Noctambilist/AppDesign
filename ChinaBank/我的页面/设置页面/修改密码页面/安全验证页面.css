@@ -25,6 +25,7 @@ body {
     overflow: auto;
     /*超出内容会自动生成滚动条*/
     background-color: #f5f5f5;
+    position: relative;
 }
 
 .box1 {
@@ -110,22 +111,10 @@ body {
 
 .box2-2-1 {
     justify-content: space-between;
-    margin-right: 10%;
     font-size: 18px;
     flex: 1;
     display: flex;
     align-items: center;
-}
-
-select {
-    width: 170%;
-    height: 60%;
-    border-radius: 10px;
-    border-style: dotted;
-    padding-left: 5%;
-    outline: none;
-    font-size: 30px;
-    margin-top: 30px;
 }
 
 .box2-3 {
@@ -158,4 +147,100 @@ select {
 .box2-4 a {
     text-decoration: underline;
     color: #7f9bff;
+}
+
+
+
+/*灯箱效果*/
+.overlay {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 700px;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 10;
+    visibility: hidden;
+}
+
+/*输入验证码*/
+.verCode {
+    padding: 2% 5%;
+    width: 70%;
+    height: 25%;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 10;
+    transition: transform 0.5s;
+    visibility: hidden;
+}
+
+.verCode1 {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.verCode2 {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.password {
+    width: 100%;
+    height: 70%;
+    border: none;
+    outline: 0px;
+    font: 500 24px '';
+    text-align: center;
+    letter-spacing: 20px;
+    transition: box-shadow 0.25s ease;
+}
+
+.password:focus {
+    box-shadow: 0 2px 0 0 skyblue;
+}
+
+.verCode p {
+    font: 500 14px '';
+    color: red;
+    visibility: hidden;
+}
+
+.verCode3 {
+    margin-top: 10px;
+    flex: 1.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.payBtn {
+    width: 60%;
+    height: 90%;
+    background-color: rgba(63, 182, 13, 0.8);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font: 600 16px '';
+    text-align: center;
+    cursor: pointer;
+    background: linear-gradient(129.12deg, #446dff, rgba(99, 125, 255, .75));
+    opacity: 0.5;
+    /* 初始时按钮是半透明的 */
+    transition: opacity 0.3s;
+    /* 设置透明度的过渡效果 */
+}
+
+.overlay.show {
+    visibility: visible;
 }
