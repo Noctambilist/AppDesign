@@ -159,7 +159,14 @@ exitButton.addEventListener('click', () => {
   document.body.style.marginRight = "-15%";
   document.body.style.opacity = "0";
   setTimeout(function () {
-    location.href = '../首页/首页.html';
+    if (cardNumber) {
+      location.href = '../账户管理页面/账户管理页面.html';
+    } else if(ioe){
+      location.href = '../转账页面/转账页面.html';
+    } else{
+      location.href = '../首页/首页.html';
+    }
+
   }, 100);
 })
 
