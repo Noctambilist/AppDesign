@@ -13,8 +13,8 @@ body {
     height: 100vh;
     overflow: hidden;
     transition: 0.1s;
-    /* margin-right: -15%; */
-    /* opacity: 0; */
+    margin-right: -15%;
+    opacity: 0;
 }
 
 
@@ -224,7 +224,7 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 20;
-    transition: transform 0.5s;
+    transition: 0.5s;
     visibility: hidden;
 }
 

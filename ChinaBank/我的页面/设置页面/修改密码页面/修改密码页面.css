@@ -13,8 +13,8 @@ body {
     height: 100vh;
     overflow: hidden;
     transition: 0.1s;
-    /* margin-right: -15%; */
-    /* opacity: 0; */
+    margin-right: -15%;
+    opacity: 0;
 }
 
 
@@ -229,11 +229,6 @@ body {
     z-index: 20;
     transition: transform 0.5s;
     visibility: hidden;
-}
-
-.success.show {
-    transform: translate(-50%, -50%) scale(1);
-    visibility: visible;
 }
 
 .success.show {
