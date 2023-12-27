@@ -1,0 +1,264 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    transition: 0.1s;
+    margin-right: -15%;
+    opacity: 0;
+}
+
+
+.box {
+    width: 350px;
+    height: 700px;
+    margin: 0 auto;
+    overflow: auto;
+    /*超出内容会自动生成滚动条*/
+    background-color: #f5f5f5;
+    position: relative;
+}
+
+.box1 {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 100%;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    /* 垂直居中 */
+    overflow: hidden;
+    line-height: 1;
+    /*控制行间距*/
+    position: sticky;
+    /*粘性定位做导航栏*/
+    top: 0px;
+    z-index: 10;
+    /*设置图层优先级*/
+    background-color: #7f9bff;
+}
+
+.box1-1 {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+}
+
+.box1-2 {
+    flex: 3;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+    font-size: 24px;
+    color: #fff;
+}
+
+.box1-3 {
+    flex: 1;
+}
+
+.box2 {
+    width: 94%;
+    height: 180px;
+    margin: 3%;
+    background-color: #fff;
+    display: flex;
+    border-radius: 5px;
+    flex-direction: column;
+}
+
+.box2-1 {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+#ka {
+    width: 30%;
+    height: 50px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    outline: none;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: #fafafa;
+    font: 500 15px '';
+    padding: 5% 5%;
+    resize: none;
+}
+select {
+    width: 60%;
+    height: 100%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-style: dotted;
+    padding-left: 5%;
+    outline: none;
+    font-size: 16px;
+}
+
+.box2-2 {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+}
+
+.submit {
+    width: 90%;
+    height: 48px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(129.12deg, #446dff, rgba(99, 125, 255, .75));
+    color: #fff;
+    font-size: 20px;
+    opacity: 0.5;
+    /* 初始时按钮是半透明的 */
+    transition: opacity 0.3s;
+    /* 设置透明度的过渡效果 */
+}
+
+
+/*灯箱效果*/
+.overlay {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 700px;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 10;
+    visibility: hidden;
+}
+
+/*输入支付密码*/
+.payPassword {
+    padding: 2% 5%;
+    width: 70%;
+    height: 25%;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 10;
+    transition: transform 0.5s;
+    visibility: hidden;
+}
+
+.payPassword.show {
+    transform: translate(-50%, -50%) scale(1);
+    visibility: visible;
+}
+
+.payPassword1 {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.payPassword2 {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.password {
+    width: 100%;
+    height: 70%;
+    border: none;
+    outline: 0px;
+    font: 500 24px '';
+    text-align: center;
+    letter-spacing: 20px;
+    transition: box-shadow 0.25s ease;
+}
+
+.password:focus {
+    box-shadow: 0 2px 0 0 skyblue;
+}
+
+.payPassword p {
+    font: 500 14px '';
+    color: red;
+    visibility: hidden;
+}
+
+.payPassword3 {
+    margin-top: 10px;
+    flex: 1.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.payBtn {
+    width: 60%;
+    height: 90%;
+    background-color: rgba(63, 182, 13, 0.8);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font: 600 16px '';
+    text-align: center;
+    cursor: pointer;
+    background: linear-gradient(129.12deg, #446dff, rgba(99, 125, 255, .75));
+    opacity: 0.5;
+    /* 初始时按钮是半透明的 */
+    transition: opacity 0.3s;
+    /* 设置透明度的过渡效果 */
+}
+
+
+/*添加成功动画*/
+.success {
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    transition: transform 0.5s;
+    visibility: hidden;
+}
+
+.success.show {
+    transform: translate(-50%, -50%) scale(1);
+    visibility: visible;
+}
+
+.overlay.show {
+    visibility: visible;
+}
