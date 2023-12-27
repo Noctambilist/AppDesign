@@ -14,51 +14,66 @@ exitButton.addEventListener('click', () => {
   }, 100);
 })
 
+function showDiv() {
+  document.getElementById("success").classList.add("show");
+  document.getElementById("overlay").classList.add("show");
+  setTimeout(() => {
+    document.getElementById("success").classList.remove("show");
+    document.getElementById("overlay").classList.remove("show");
+  }, 1500)
+}
+
 confirmButton.addEventListener('click', () => {
   confirmButton.addEventListener('click', () => {
     var selectedValue = selectElement.value;
     let token = localStorage.getItem('token');
-  
+
     axios({
       url: 'http://47.113.198.244/user/reportLoss',
-      method:'PUT',
-    headers: {
-      token
-    },
-    params:{
-      cardID:selectedValue
-    }
-  }).then(result => {
-      if (result.data.code==200) {
+      method: 'PUT',
+      headers: {
+        token
+      },
+      params: {
+        cardID: selectedValue
+      }
+    }).then(result => {
+      console.log(result);
+      if (result.data.code == 200) {
         //挂失成功提醒
+
+
+        showDiv();
+        getaccount();
+
       } else {
         alert(result.data.msg);
       }
-  })
+    })
   })
 })
 
 function getaccount() {
   let token = localStorage.getItem('token');
   axios({
-      url: 'http://47.113.198.244/user/getRelatedCard',
+    url: 'http://47.113.198.244/user/getRelatedCard',
     headers: {
       token
     }
   }).then(result => {
-      console.log(result)
-      var optionsData = result.data.data;
-      selectElement.innerHTML = '';
-      for (var i = 0; i < optionsData.length; i++) {
-          var optionElement = document.createElement('option');
-          optionElement.value = optionsData[i].cardID;
-          let lastFourDigits = optionsData[i].cardID.slice(-4);
-          optionElement.text = lastFourDigits;
-          selectElement.appendChild(optionElement);
-      }
-      if(cardNumber){
-          selectElement.value = cardNumber;
-      }
+    console.log(result)
+    var optionsData = result.data.data;
+    selectElement.innerHTML = '';
+    for (var i = 0; i < optionsData.length; i++) {
+      var optionElement = document.createElement('option');
+      optionElement.value = optionsData[i].cardID;
+      let lastFourDigits = optionsData[i].cardID.slice(-4);
+      optionElement.text = lastFourDigits;
+      selectElement.appendChild(optionElement);
+    }
+    if (cardNumber) {
+      selectElement.value = cardNumber;
+    }
   })
 }
 getaccount();
