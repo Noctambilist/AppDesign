@@ -146,6 +146,7 @@ function tianjia(){
           MiMaTanChuang.classList.remove("show");
           passwordInput.value = '';
           document.getElementById("overlay").classList.remove("show");
+          getaccount();
        } else {
           alert(result.data.msg);
           hint.style.visibility = 'hidden';

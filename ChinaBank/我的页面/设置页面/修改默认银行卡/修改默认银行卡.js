@@ -42,7 +42,7 @@ confirmButton.addEventListener('click', () => {
 
 
       showDiv();
-
+      getaccount();
 
     } else {
       alert(result.data.msg);
