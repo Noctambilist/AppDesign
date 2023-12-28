@@ -81,7 +81,7 @@ getbtn.addEventListener('click', (e) => {
     }).then(result => {
       console.log(result);
       if (result.data.data=="OK") {
-        
+
       } else {
         alert(result.data.data);
       }
@@ -171,6 +171,7 @@ login.addEventListener('click', (e) => {
       console.log(result);
         if (result.data.code==200) {
           localStorage.setItem('token',result.data.data.token);
+          localStorage.setItem('sjhm',sjhm.value);
           alert(result.data.msg);
           location.href = '../首页/首页.html';
         } else {
@@ -180,6 +181,7 @@ login.addEventListener('click', (e) => {
   }
   else if (yzm.value == varifyToBack && flag === true && flagOfSpecial === false) {
     login.disabled = false;
+    
     axios({
       url: 'http://47.113.198.244/pre/checkLogin',
       params:{
@@ -190,6 +192,7 @@ login.addEventListener('click', (e) => {
         console.log(result);
         if (result.data.code==200) {
           localStorage.setItem('token',result.data.data.token);
+          localStorage.setItem('sjhm',sjhm.value);
           alert(result.data.msg);
           location.href = '../首页/首页.html';
         } else {
