@@ -35,15 +35,17 @@ HuoQuYanZhengMaButton.addEventListener('click', () => {
   console.log(varifyToBack);
   axios({
     url: 'http://47.113.198.244/pre/send',
+
     method:'POST',
     params:{
       phoneNumber:sjhm,
       code:varifyToBack
+
     }
   }).then(result => {
     console.log(result);
-    if (result.data.data=="OK") {
-      
+    if (result.data.data == "OK") {
+
     } else {
       alert(result.data.data);
     }
@@ -66,6 +68,7 @@ confirmPasswordButton.addEventListener('click', () => {
     document.body.style.opacity = "0";
     axios({
       url: 'http://47.113.198.244/pre/checkLogin',
+
       params:{
         phoneNumber:sjhm,
         code:varifyToBack
@@ -78,6 +81,7 @@ confirmPasswordButton.addEventListener('click', () => {
         } else {
           alert(result.data.msg);
         }
+
     })
     setTimeout(function () {
       location.href = './手机换绑页面.html';
