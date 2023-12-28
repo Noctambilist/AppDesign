@@ -71,9 +71,6 @@ function getaccount() {
       optionElement.text = lastFourDigits;
       selectElement.appendChild(optionElement);
     }
-    if (cardNumber) {
-      selectElement.value = cardNumber;
-    }
   })
 }
 getaccount();

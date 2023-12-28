@@ -131,6 +131,7 @@ function tianjia() {
   let token = localStorage.getItem('token');
   var selectedValue = selectElement.value;
   axios({
+
     url: 'http://47.113.198.244/user/deleteCard',
     method: "PUT",
     headers: {
@@ -154,6 +155,7 @@ function tianjia() {
       document.getElementById("overlay").classList.remove("show");
     }
   })
+
 }
 function getaccount() {
   let token = localStorage.getItem('token');
