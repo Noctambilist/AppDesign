@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+    <link rel="stylesheet" href="三模登录页面.css">
+    <link rel="stylesheet"
+        href="https://formden.com/static/assets/demos/bootstrap-iso/bootstrap-iso/bootstrap-iso.css" />
+</head>
+
+<body>
+    <div class="goods">
+        <div class="box">
+            <img src="./image/中国银行logo.png" alt="显示错误" class="logo">
+        </div>
+        <div class="login-app">
+            <input type="radio" name="opt" id="msg">
+            <label for="msg" class="m-btn">短信登录</label>
+            <input type="radio" name="opt" id="uname" checked>
+            <label for="uname" class="u-btn">账号登录</label>
+            <input type="radio" name="opt" id="code">
+            <label for="code" class="q-btn">账户注册</label>
+            <div id="form-bar">
+                <form class="m-form">
+                    <input class='ttt' placeholder="请输入手机号码">
+                    <p class="hidden-text" style="color: rgb(240,248,255);"></p>
+                    <br>
+                    <input class='tttt' placeholder="请输入验证码">
+                    <button type="button" class="get-btn">获取验证码</button>
+                    <input type="checkbox" id="sure">
+                    <label for="sure" class="besure">
+                        <p>
+                            我已阅读并同意
+                            <a class="s"
+                                href="https://www.boc.cn/ebanking/service/cs1/202210/t20221010_21885685.html">服务协议</a>
+                            和
+                            <a class="ss"
+                                href="https://www.boc.cn/fr/bocinfo/ab9/202108/t20210803_19846515.html">隐私权条款</a>
+                        </p>
+                    </label>
+                    <button type="button" class="login-btn">登录</button>
+                </form>
+
+                <form class="u-form">
+                    <input class='txt001' placeholder="请输入手机号码">
+                    <p class="hidden-text" style="color: rgb(240,248,255);"></p>
+                    <br>
+                    <input class="txt002" type="password" placeholder="登录密码">
+                    <img src="./image/闭眼.png" class="yanjing1">
+                    <img src="./image/睁眼.png" class="yanjing2">
+                    <button type="button" class="login-btn">登录</button>
+                </form>
+
+                <form class="q-form">
+                    <input class='ttt' placeholder="请输入手机号码">
+                    <p class="hidden-text1" style="color: rgb(240,248,255);"></p>
+                    <br>
+                    <input class='pw1' type="password" placeholder="请输入您的密码">
+                    <img src="./image/闭眼.png" class="yanjing1">
+                    <img src="./image/睁眼.png" class="yanjing2">
+                    <p class="hidden-text2" style="color: rgb(38, 29, 203);">请输入密码</p>
+                    <br>
+                    <input class='pw2' type="password" placeholder="请确认您的密码">
+                    <p class="hidden-text3" style="color: rgb(240,248,255);"></p>
+                    <br>
+                    <button type="button" class="login-btn">注册</button>
+                </form>
+            </div>
+            <div class="box2">
+                <p class="cnn">简体中文 &nbsp |</p>
+                <p class="enn"> &nbsp English</p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="bootstrap-iso">
+        <div class="modal realname" tabindex="-1">
+            <div class="modal-dialog" style="width:300px">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">清进行实名认证</h5>
+                    </div>
+                    <div class="modal-body">
+                        <form action="">
+                            <div>
+                                <span>姓名：</span>
+                                <input type="text" class="txt003">
+                            </div>
+                            <div>
+                                <span>身份证号：</span>
+                                <input type="text" class="txt004">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="box3">
+                        <button type="button" class="box3-1" data-bs-dismiss="modal">取消</button>
+                        <button type="button" class="box3-2">保存</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"></script>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <script src="../node_modules/amfe-flexible/index.js"></script>
+    <script src="./中英文切换.js"></script>
+    <script src="./短信登录.js"></script>
+    <script src="./账户注册.js"></script>
+    <script src="./账号登录.js"></script>
+</body>
+
+</html>
