@@ -56,16 +56,16 @@ login1.addEventListener('click', (e) => {
       userPassword: sjmm2.value
     }
   }).then(result => {
-      console.log(result);
-      console.log(result.data.code)
-      if (result.data.code==200) {
+    console.log(result);
+    console.log(result.data.code)
+    if (result.data.code == 200) {
 
-        localStorage.setItem('token',result.data.data.token);
-        alert("登陆成功");
-        location.href = '../首页/首页.html';
-      } else {
-        alert("手机号或密码错误");
-      }
+      localStorage.setItem('token', result.data.data.token);
+      alert("登陆成功");
+      location.href = '../死手机号转账页面/手机号转账页面.html';
+    } else {
+      alert("手机号或密码错误");
+    }
   })
 
 

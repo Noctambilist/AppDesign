@@ -110,7 +110,7 @@ let aliveDetector1 = setInterval(function () {
     sign.disabled = true;
     sign.style.background = 'linear-gradient(129.12deg, #9BB3FF, rgba(69, 95, 225, .25))';
   } else {
-    sign.disabled = false;
+    sign.disabled = true;
     sign.style.background = 'linear-gradient(129.12deg, #446dff, rgba(99, 125, 255, .75))';
   }
 }, 50)
@@ -126,15 +126,15 @@ document.querySelector('.box3-2').addEventListener('click', () => {
     url: 'http://47.113.198.244/pre/signup',
     method: 'PUT',
     data: {
-      customerName:username,
-      personID:ID,
+      customerName: username,
+      personID: ID,
       phoneNumber: sjhm1.value,
       userPassword: password1.value
     }
   }).then(result => {
     console.log(result);
-    if (result.data.code==200) {
-      alert("注册成功");      
+    if (result.data.code == 200) {
+      alert("注册成功");
     } else {
       alert(result.data.msg);
     }

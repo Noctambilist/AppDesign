@@ -52,7 +52,7 @@ let aliveDetector = setInterval(function () {
   if (sjhm.value !== '' && yzm.value !== '' && yhxz.checked === false) {
     login.disabled = true;
   } else {
-    login.disabled = false;
+    login.disabled = true;
   }
 }, 50)
 
@@ -69,63 +69,63 @@ function getRandomVarify() {
 
 
 getbtn.addEventListener('click', (e) => {
-    varifyToBack = +getRandomVarify();  //生成给后端的验证码
-    console.log(varifyToBack);
-    axios({
-      url: 'http://47.113.198.244/pre/send',
-      method:'POST',
-      params:{
-        phoneNumber:sjhm.value,
-        code:varifyToBack
-      }
-    }).then(result => {
-      console.log(result);
-      if (result.data.data=="OK") {
-        
-      } else {
-        alert(result.data.data);
-      }
+  varifyToBack = +getRandomVarify();  //生成给后端的验证码
+  console.log(varifyToBack);
+  axios({
+    url: 'http://47.113.198.244/pre/send',
+    method: 'POST',
+    params: {
+      phoneNumber: sjhm.value,
+      code: varifyToBack
+    }
+  }).then(result => {
+    console.log(result);
+    if (result.data.data == "OK") {
 
-    })
-    getbtn.disabled = true;
-    let tmp = 10;
-    //十秒内不能重新获取验证码
-    if (flagOfSpecial === false) {
+    } else {
+      alert(result.data.data);
+    }
+
+  })
+  getbtn.disabled = true;
+  let tmp = 10;
+  //十秒内不能重新获取验证码
+  if (flagOfSpecial === false) {
+    getbtn.innerHTML = `Wait ${tmp}s try again`;
+    let num2 = setInterval(() => {
+      tmp--;
       getbtn.innerHTML = `Wait ${tmp}s try again`;
-      let num2 = setInterval(() => {
-        tmp--;
-        getbtn.innerHTML = `Wait ${tmp}s try again`;
-        if (tmp === 0) {
-          clearInterval(num2);
-          getbtn.style.color = '#637dff';
-          getbtn.disabled = false;
-          getbtn.innerHTML = 'Get CAPTCHA';
-        }
-      }, 1000)
-    }
-    else {
+      if (tmp === 0) {
+        clearInterval(num2);
+        getbtn.style.color = '#637dff';
+        getbtn.disabled = false;
+        getbtn.innerHTML = 'Get CAPTCHA';
+      }
+    }, 1000)
+  }
+  else {
+    getbtn.innerHTML = `请${tmp}秒后重试`;
+    let num2 = setInterval(() => {
+      tmp--;
       getbtn.innerHTML = `请${tmp}秒后重试`;
-      let num2 = setInterval(() => {
-        tmp--;
-        getbtn.innerHTML = `请${tmp}秒后重试`;
-        if (tmp === 0) {
-          clearInterval(num2);
-          getbtn.style.color = '#637dff';
-          getbtn.disabled = false;
-          getbtn.innerHTML = '获取验证码';
-        }
-      }, 1000)
-    }
+      if (tmp === 0) {
+        clearInterval(num2);
+        getbtn.style.color = '#637dff';
+        getbtn.disabled = false;
+        getbtn.innerHTML = '获取验证码';
+      }
+    }, 1000)
+  }
 
-    /*
-    *
-    *   关于前端怎么检测用户输入的验证码是否正确，其实直接拿yzm.value和varifyToBack比就行，短信只是给张磊看看
-    *   这个校验是写在登录按钮里的，我看你写了要经过后端的，其实可以直接改简单，你看看
-    * 
-    */
+  /*
+  *
+  *   关于前端怎么检测用户输入的验证码是否正确，其实直接拿yzm.value和varifyToBack比就行，短信只是给张磊看看
+  *   这个校验是写在登录按钮里的，我看你写了要经过后端的，其实可以直接改简单，你看看
+  * 
+  */
 
 
-  
+
 
 
   /*
@@ -160,41 +160,41 @@ login.addEventListener('click', (e) => {
     alert('Please enter the correct phone number!');
   }
   else if (yzm.value == varifyToBack && flag === true && flagOfSpecial === true) {
-    login.disabled = false;
+    login.disabled = true;
     axios({
       url: 'http://47.113.198.244/pre/checkLogin',
-      params:{
-        phoneNumber:sjhm.value,
-        code:yzm.value
+      params: {
+        phoneNumber: sjhm.value,
+        code: yzm.value
       }
     }).then(result => {
       console.log(result);
-        if (result.data.code==200) {
-          localStorage.setItem('token',result.data.data.token);
-          alert(result.data.msg);
-          location.href = '../首页/首页.html';
-        } else {
-          alert(result.data.msg);
-        }
+      if (result.data.code == 200) {
+        localStorage.setItem('token', result.data.data.token);
+        alert(result.data.msg);
+        location.href = '../首页/首页.html';
+      } else {
+        alert(result.data.msg);
+      }
     })
   }
   else if (yzm.value == varifyToBack && flag === true && flagOfSpecial === false) {
-    login.disabled = false;
+    login.disabled = true;
     axios({
       url: 'http://47.113.198.244/pre/checkLogin',
-      params:{
-        phoneNumber:sjhm.value,
-        code:yzm.value
+      params: {
+        phoneNumber: sjhm.value,
+        code: yzm.value
       }
     }).then(result => {
-        console.log(result);
-        if (result.data.code==200) {
-          localStorage.setItem('token',result.data.data.token);
-          alert(result.data.msg);
-          location.href = '../首页/首页.html';
-        } else {
-          alert(result.data.msg);
-        }
+      console.log(result);
+      if (result.data.code == 200) {
+        localStorage.setItem('token', result.data.data.token);
+        alert(result.data.msg);
+        location.href = '../首页/首页.html';
+      } else {
+        alert(result.data.msg);
+      }
     })
   }
   else if (yzm.value != varifyToBack && yzm.value != '' && flagOfSpecial === true) {
