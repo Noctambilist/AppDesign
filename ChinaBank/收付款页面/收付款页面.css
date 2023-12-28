@@ -18,6 +18,11 @@ body {
     opacity: 0;
 }
 
+::-webkit-scrollbar {
+    /* 滚动条消失 */
+    display: none;
+}
+
 .box {
     width: 350px;
     height: 700px;

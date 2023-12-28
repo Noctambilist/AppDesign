@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+    /* 滚动条消失 */
+    display: none;
+}
+
 .box {
     width: 100%;
     display: flex;
