@@ -1,4 +1,13 @@
 const exitButton = document.querySelector('.box1-1 img');
+const defaultAccount = document.querySelector('.box3 #account');//默认收款账户后的那几个数字
+
+/*
+*
+*
+*   调接口，渲染默认卡号
+*   defaultAccount.innerHTML = 
+*
+*/
 
 
 function slideMe() {
