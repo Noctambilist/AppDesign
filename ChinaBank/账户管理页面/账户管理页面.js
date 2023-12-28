@@ -6,12 +6,22 @@ var assetElement = document.getElementById('asset');
 const refreshimg = document.querySelector('.box2-1-2 img');
 var asset = 0;//资产
 
+const discardCard = document.querySelector('.box4 #t');
+
 const addCardOrAmountButton = document.querySelector('.box4 button');
 
 function slideMe() {
   document.body.style.marginRight = "0"
   document.body.style.opacity = "1";
 }
+
+discardCard.addEventListener('click', () => {
+  document.body.style.marginRight = "-15%";
+  document.body.style.opacity = "0";
+  setTimeout(function () {
+    location.href = './解绑银行卡/解绑银行卡.html';
+  }, 100);
+})
 
 exitButton.addEventListener('click', () => {
   document.body.style.marginRight = "-15%";
