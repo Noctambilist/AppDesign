@@ -18,7 +18,8 @@ const closeMiMaTanChuang = document.querySelector('.payPassword1 img');//关密�
 const passwordInput = document.querySelector('.payPassword2 input');//弹窗密码框
 const confirmPasswordButton = document.querySelector('.payPassword3 button');//确认密码
 const hint = document.querySelector('.payPassword p');//提示密码错误
-
+var customerName = "张三石";
+var phoneNumber = 13182329705;
 
 clear3.addEventListener('click', () => {
     document.querySelector('.box3-2 .actNum').value = '';
@@ -33,7 +34,7 @@ exitButton.addEventListener('click', () => {
     document.body.style.marginRight = "-15%";
     document.body.style.opacity = "0";
     setTimeout(function () {
-        location.href = '../转账页面/转账页面.html';
+        location.href = '../死登录页面/三模登录页面.html';
     }, 100);
 })
 
@@ -76,7 +77,7 @@ closeMiMaTanChuang.addEventListener('click', () => {
 })
 
 confirmPasswordButton.addEventListener('click', () => {
-    pipei(); 
+    pipei();
 })
 
 /***********************************************/
@@ -85,9 +86,9 @@ function getaccount() {
     let token = localStorage.getItem('token');
     axios({
         url: 'http://47.113.198.244/user/getRelatedCard',
-      headers: {
-        token
-      }
+        headers: {
+            token
+        }
     }).then(result => {
         console.log(result)
         var optionsData = result.data.data;
@@ -103,76 +104,73 @@ function getaccount() {
 }
 getaccount();
 
-function pipei(){
-    var customerName=ShouKuanRen.value;
-    var phoneNumber=ShouKuanShouJiHao.value; 
-    var token = localStorage.getItem('token');       
+function pipei() {
+    var token = localStorage.getItem('token');
     axios({
         url: 'http://47.113.198.244/user/verifyConnection2',
         headers: {
             token
-          },
+        },
         params: {
-          customerName,
-          phoneNumber       
+            customerName,
+            phoneNumber
         }
-      }).then(result => {
-         if (result.data.code==200) {
+    }).then(result => {
+        if (result.data.code == 200) {
             console.log(result);
             console.log(result.data.msg);
-            mima(); 
-         } else {
+            mima();
+        } else {
             console.log(result);
             console.log(result.data.msg);
             alert(result.data.msg);
-         }
-    }) 
+        }
+    })
 }
-function mima(){
-    var password=passwordInput.value;
+function mima() {
+    var password = passwordInput.value;
     var selectedValue = selectElement.value;
     var token = localStorage.getItem('token');
     axios({
         url: 'http://47.113.198.244/user/getPaymentPassword',
         headers: {
             token
-          },
+        },
         params: {
-          cardID:selectedValue,
-          password
+            cardID: selectedValue,
+            password
         }
-      }).then(result => {
-         if (result.data.code==200) {
+    }).then(result => {
+        if (result.data.code == 200) {
             console.log(result.data.msg);
             hint.style.visibility = 'hidden';
             transfer();
-         } else {
+        } else {
             console.log(result);
             console.log(result.data.msg);
             hint.style.visibility = 'visible';
-         }
-    })    
+        }
+    })
 }
-function transfer(){
+function transfer() {
     var selectedValue = selectElement.value;
     var tradeDate = new Date("2023-12-20T15:44:30");
-    var phoneNumber=ShouKuanShouJiHao.value;
-    var money=ZhuanZhangJinE.value;
-    var token = localStorage.getItem('token'); 
+    var money = ZhuanZhangJinE.value;
+    var token = localStorage.getItem('token');
     axios({
         url: 'http://47.113.198.244//user/transferByPhone',
-        method:'POST',
+        method: 'POST',
         headers: {
             token
-          },
-        data:{
-          cardID:selectedValue,
-          tradeDate,
-          phoneNumber,
-          tradeMoney:money
+        },
+        data: {
+            cardID: selectedValue,
+            tradeDate,
+            phoneNumber,
+            tradeMoney: money
         }
-      }).then(result => {
-         if (result.data.code==200) {
+    }).then(result => {
+        if (result.data.code == 200) {
             console.log(result.data.msg);
             MiMaTanChuang.style.visibility = 'hidden';
             document.getElementById("success").classList.add("show");
@@ -180,12 +178,12 @@ function transfer(){
                 document.getElementById("success").classList.remove("show");
                 document.getElementById("overlay").classList.remove("show");
                 passwordInput.value = '';
-            }, 2000)            
-         } else {
+            }, 2000)
+        } else {
             console.log(result);
             alert(result.data.msg);
-         }
-    })   
+        }
+    })
 }
 
 let aliveDetector = setInterval(() => {
