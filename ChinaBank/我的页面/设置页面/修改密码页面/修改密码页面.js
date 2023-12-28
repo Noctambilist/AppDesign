@@ -19,6 +19,7 @@ exitButton.addEventListener('click', () => {
 
 confirmButton.addEventListener('click', () => {
   if (passWordOne.value === passWordTwo.value) {
+    let token = localStorage.getItem('token');
     axios({
       url: 'http://47.113.198.244/user/modifyPassword',
       method:'PUT',
@@ -29,6 +30,7 @@ confirmButton.addEventListener('click', () => {
         newPassword:passWordOne.value,
       }
     }).then(result => {
+      console.log(result);
        if (result.data.code==200) {
           console.log(result.data.msg);
 

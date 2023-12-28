@@ -9,7 +9,8 @@ const confirmPasswordButton = document.querySelector('.verCode3 button');//确�
 const hint = document.querySelector('.verCode p');//提示密码错误
 
 const phoneNumber = document.querySelector('.box2-2-1 p');//当前账户手机号，需要在页面加载的时候连后端渲染
-
+var sjhm=localStorage.getItem('sjhm');
+phoneNumber.innerHTML=sjhm;
 let varifyToBack;
 
 function slideMe() {
@@ -31,11 +32,12 @@ exitButton.addEventListener('click', () => {
 
 HuoQuYanZhengMaButton.addEventListener('click', () => {
   varifyToBack = +getRandomVarify();  //生成给后端的验证码
+  console.log(varifyToBack);
   axios({
     url: 'http://47.113.198.244/pre/send',
     method:'POST',
     params:{
-      phoneNumber:phoneNumber.value,
+      phoneNumber:sjhm,
       code:varifyToBack
     }
   }).then(result => {
@@ -65,12 +67,13 @@ confirmPasswordButton.addEventListener('click', () => {
     axios({
       url: 'http://47.113.198.244/pre/checkLogin',
       params:{
-        phoneNumber:phoneNumber.value,
+        phoneNumber:sjhm,
         code:varifyToBack
       }
     }).then(result => {
       console.log(result);
         if (result.data.code==200) {
+          console.log(result);
           localStorage.setItem('token',result.data.data.token);
         } else {
           alert(result.data.msg);

@@ -59,7 +59,7 @@ login1.addEventListener('click', (e) => {
       console.log(result);
       console.log(result.data.code)
       if (result.data.code==200) {
-
+        localStorage.setItem('sjhm',sjhm2.value);
         localStorage.setItem('token',result.data.data.token);
         alert("登陆成功");
         location.href = '../首页/首页.html';
