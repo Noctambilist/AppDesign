@@ -24,22 +24,44 @@ function getRandomVarify() {
 getVarifyButton.addEventListener('click', () => {
   varifyToBack = +getRandomVarify();  //生成给后端的验证码
   console.log(varifyToBack);
-  /*
-  *
-  *
-  * 把这个传给后端，发短信
-  * 
-  */
+  axios({
+    url: 'http://47.113.198.244/pre/send',
+    method:'POST',
+    params:{
+      phoneNumber:phoneNumber.value,
+      code:varifyToBack
+    }
+  }).then(result => {
+    console.log(result);
+    if (result.data.data=="OK") {
+      
+    } else {
+      alert(result.data.data);
+    }
+
+  })
 })
 
 confirmButton.addEventListener('click', () => {
   if (Number(varifyNumber.value) === varifyToBack) {//直接前端做验证
-    /*
-    *
-    *
-    * 掉接口，把后端的手机号改了
-    * 
-    */
+    axios({
+      url: 'http://47.113.198.244/user/modifyPhoneNumber',
+      method:'PUT',
+      headers: {
+          token
+        },
+      params: {
+        newPhoneNumber:phoneNumber.value,
+      }
+    }).then(result => {
+       if (result.data.code==200) {
+          console.log(result.data.msg);
+
+       } else {
+          console.log(result);
+          alert(result.data.msg);
+       }
+  }) 
 
 
     document.getElementById("success").classList.add("show");

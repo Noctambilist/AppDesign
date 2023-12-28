@@ -69,21 +69,24 @@ function getRandomVarify() {
 
 
 getbtn.addEventListener('click', (e) => {
-
-
-  /*
-  *
-  *     获取验证码之前要先做个判断，如果手机号在数据库里没有不让获取验证码
-  *     手机号的值是sjhm.value
-  * 
-  *
-  */
-  if ("数据库里没这个手机号") { alert("手机号尚未注册") }
-  else {  //有这个号，正常获取验证码
-
-
     varifyToBack = +getRandomVarify();  //生成给后端的验证码
+    console.log(varifyToBack);
+    axios({
+      url: 'http://47.113.198.244/pre/send',
+      method:'POST',
+      params:{
+        phoneNumber:sjhm.value,
+        code:varifyToBack
+      }
+    }).then(result => {
+      console.log(result);
+      if (result.data.data=="OK") {
+        
+      } else {
+        alert(result.data.data);
+      }
 
+    })
     getbtn.disabled = true;
     let tmp = 10;
     //十秒内不能重新获取验证码
@@ -122,7 +125,7 @@ getbtn.addEventListener('click', (e) => {
     */
 
 
-  }
+  
 
 
   /*
@@ -147,92 +150,57 @@ getbtn.addEventListener('click', (e) => {
 
 //     }
 // }, 50)
-
 login.addEventListener('click', (e) => {
+  console.log(yzm.value);
+  console.log(varifyToBack);
   if ((flag === true && sjhm.value === '' || ts.style.color === 'red') && flagOfSpecial === true) {
     alert('请输入正确的手机号！');
   }
   else if ((flag === true && sjhm.value === '' || ts.style.color === 'red') && flagOfSpecial === false) {
     alert('Please enter the correct phone number!');
   }
-  else if (yzm.value == varify && flag === true && flagOfSpecial === true) {
+  else if (yzm.value == varifyToBack && flag === true && flagOfSpecial === true) {
     login.disabled = false;
-
-
-
-
-
-
-
-
     axios({
-      url: 'http://hmajax.itheima.net/api/login',
-      method: 'POST',
-      data: {
-        phoneNumber: sjhm.value,
+      url: 'http://47.113.198.244/pre/checkLogin',
+      params:{
+        phoneNumber:sjhm.value,
+        code:yzm.value
       }
     }).then(result => {
-      if (result.data.code == 200) {
-        console.log(result)
-        localStorage.setItem('token', result.data.data.token)
-        alert(result.data.message)
-
-        location.href = '../首页/首页.html';
-
-      } else {
-        alert(result.data.message)
-        console.log(result)
-      }
-
-    })//后端
-
-
-
-
-
-
-
-
-
-
-
-
-
+      console.log(result);
+        if (result.data.code==200) {
+          localStorage.setItem('token',result.data.data.token);
+          alert(result.data.msg);
+          location.href = '../首页/首页.html';
+        } else {
+          alert(result.data.msg);
+        }
+    })
   }
-  else if (yzm.value == varify && flag === true && flagOfSpecial === false) {
-
-
-
-
+  else if (yzm.value == varifyToBack && flag === true && flagOfSpecial === false) {
+    login.disabled = false;
     axios({
-      url: 'http://hmajax.itheima.net/api/login',
-      method: 'POST',
-      data: {
-        username: sjhm.value,
-
+      url: 'http://47.113.198.244/pre/checkLogin',
+      params:{
+        phoneNumber:sjhm.value,
+        code:yzm.value
       }
     }).then(result => {
-      if (result.data.code == 200) {
-        localStorage.setItem('token', result.data.data.token)
-        console.log(result)
-        console.log(result.data.message)
-        alert(result.data.message)
-        location.href = '../首页/首页.html';
-      } else {
-        alert(result.data.message)
-      }
-
-    })//后端
-
-
-
-
-
+        console.log(result);
+        if (result.data.code==200) {
+          localStorage.setItem('token',result.data.data.token);
+          alert(result.data.msg);
+          location.href = '../首页/首页.html';
+        } else {
+          alert(result.data.msg);
+        }
+    })
   }
-  else if (yzm.value != varify && yzm.value != '' && flagOfSpecial === true) {
+  else if (yzm.value != varifyToBack && yzm.value != '' && flagOfSpecial === true) {
     alert('验证码错误，请重新输入');
   }
-  else if (yzm.value != varify && yzm.value != '' && flagOfSpecial === false) {
+  else if (yzm.value != varifyToBack && yzm.value != '' && flagOfSpecial === false) {
     alert('The verification code is wrong, please re-enter!');
   }
 })

@@ -31,12 +31,22 @@ exitButton.addEventListener('click', () => {
 
 HuoQuYanZhengMaButton.addEventListener('click', () => {
   varifyToBack = +getRandomVarify();  //生成给后端的验证码
-  /*
-  *
-  *
-  * 把这个传给后端，发短信
-  * 
-  */
+  axios({
+    url: 'http://47.113.198.244/pre/send',
+    method:'POST',
+    params:{
+      phoneNumber:phoneNumber.value,
+      code:varifyToBack
+    }
+  }).then(result => {
+    console.log(result);
+    if (result.data.data=="OK") {
+      
+    } else {
+      alert(result.data.data);
+    }
+
+  })
   console.log(varifyToBack);
   document.getElementById("overlay").classList.add("show");
   ShuRuYanZhengMa.classList.add("show");
@@ -52,6 +62,20 @@ confirmPasswordButton.addEventListener('click', () => {
   if (Number(passwordInput.value) === varifyToBack) {//直接前端做验证
     document.body.style.marginRight = "-15%";
     document.body.style.opacity = "0";
+    axios({
+      url: 'http://47.113.198.244/pre/checkLogin',
+      params:{
+        phoneNumber:phoneNumber.value,
+        code:varifyToBack
+      }
+    }).then(result => {
+      console.log(result);
+        if (result.data.code==200) {
+          localStorage.setItem('token',result.data.data.token);
+        } else {
+          alert(result.data.msg);
+        }
+    })
     setTimeout(function () {
       location.href = './手机换绑页面.html';
     }, 100);

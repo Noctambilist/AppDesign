@@ -19,12 +19,24 @@ exitButton.addEventListener('click', () => {
 
 confirmButton.addEventListener('click', () => {
   if (passWordOne.value === passWordTwo.value) {
-    /*
-    *
-    *
-    * 两次密码输入正确，调后端接口换密码
-    * 
-    */
+    axios({
+      url: 'http://47.113.198.244/user/modifyPassword',
+      method:'PUT',
+      headers: {
+          token
+        },
+      params: {
+        newPassword:passWordOne.value,
+      }
+    }).then(result => {
+       if (result.data.code==200) {
+          console.log(result.data.msg);
+
+       } else {
+          console.log(result);
+          alert(result.data.msg);
+       }
+  }) 
     console.log(11);
     //成功动画
     document.getElementById("success").classList.add("show");

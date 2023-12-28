@@ -6,22 +6,9 @@ const passwordInput = document.querySelector('.payPassword2 input');//弹窗密�
 const confirmPasswordButton = document.querySelector('.payPassword3 button');//确认密码
 const hint = document.querySelector('.payPassword p');//提示验证码错误
 const exitButton = document.querySelector('.box1-1 img');
+var selectElement = document.getElementById("account");
 
-let aliveDetector = setInterval(() => {
-  if (cardInput.value === '') {
-    confirmButton.style.opacity = 0.5;
-    confirmButton.disabled = true;
-  } else {
-    confirmButton.style.opacity = 1;
-    confirmButton.disabled = false;
-  }
 
-  if (passwordInput.value.length == 6) {
-    confirmPasswordButton.style.opacity = '1';
-  } else {
-    confirmPasswordButton.style.opacity = '0.5';
-  }
-}, 50)
 
 function slideMe() {
   document.body.style.marginRight = "0"
@@ -54,7 +41,7 @@ confirmPasswordButton.addEventListener('click', () => {
 })
 
 function pipei(){
-  right();
+  mima();
 }
 
 function right(){
@@ -119,13 +106,14 @@ function yongyou(){
 
 function mima(){
   let token = localStorage.getItem('token');
+  var selectedValue = selectElement.value;
   axios({
       url: 'http://47.113.198.244/user/getPaymentPassword',
       headers: {
         token
       },
       params: {
-        cardID:cardInput.value,
+        cardID:selectedValue,
         password:passwordInput.value
       }
     }).then(result => {
@@ -141,14 +129,15 @@ function mima(){
 
 function tianjia(){
   let token = localStorage.getItem('token');
+  var selectedValue = selectElement.value;
   axios({
-      url: 'http://47.113.198.244/user/addCard',
+      url: 'http://47.113.198.244/user/deleteCard',
       method:"PUT",
       headers: {
         token
       },
       params: {
-        cardID:cardInput.value
+        cardID:selectedValue
       }
     }).then(result => {
        if (result.data.code==200) {
@@ -166,6 +155,27 @@ function tianjia(){
        }
   })  
 }
+function getaccount() {
+  let token = localStorage.getItem('token');
+  axios({
+    url: 'http://47.113.198.244/user/getRelatedCard',
+    headers: {
+      token
+    }
+  }).then(result => {
+    console.log(result)
+    var optionsData = result.data.data;
+    selectElement.innerHTML = '';
+    for (var i = 0; i < optionsData.length; i++) {
+      var optionElement = document.createElement('option');
+      optionElement.value = optionsData[i].cardID;
+      let lastFourDigits = optionsData[i].cardID.slice(-4);
+      optionElement.text = lastFourDigits;
+      selectElement.appendChild(optionElement);
+    }
+  })
+}
+getaccount();
 
 
 
