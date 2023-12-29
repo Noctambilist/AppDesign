@@ -72,7 +72,7 @@ getbtn.addEventListener('click', (e) => {
   varifyToBack = +getRandomVarify();  //生成给后端的验证码
   console.log(varifyToBack);
   axios({
-    url: 'http://47.113.198.244/pre/send',
+    url: 'http://47.113.198.244:8080/pre/send',
     method: 'POST',
     params: {
       phoneNumber: sjhm.value,
@@ -162,7 +162,7 @@ login.addEventListener('click', (e) => {
   else if (yzm.value == varifyToBack && flag === true && flagOfSpecial === true) {
     login.disabled = true;
     axios({
-      url: 'http://47.113.198.244/pre/checkLogin',
+      url: 'http://47.113.198.244:8080/pre/checkLogin',
       params: {
         phoneNumber: sjhm.value,
         code: yzm.value
@@ -181,7 +181,7 @@ login.addEventListener('click', (e) => {
   else if (yzm.value == varifyToBack && flag === true && flagOfSpecial === false) {
     login.disabled = true;
     axios({
-      url: 'http://47.113.198.244/pre/checkLogin',
+      url: 'http://47.113.198.244:8080/pre/checkLogin',
       params: {
         phoneNumber: sjhm.value,
         code: yzm.value

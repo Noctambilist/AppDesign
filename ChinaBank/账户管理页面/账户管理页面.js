@@ -45,7 +45,7 @@ function getaccount() {
   let token = localStorage.getItem('token');
   console.log(token);
   axios({
-    url: 'http://47.113.198.244/user/getRelatedCard',
+    url: 'http://47.113.198.244:8080/user/getRelatedCard',
     headers: {
       token
     }
@@ -117,7 +117,7 @@ function refresh() {
   let token = localStorage.getItem('token');
   console.log(token);
   axios({
-    url: 'http://47.113.198.244/user/getRelatedCard',
+    url: 'http://47.113.198.244:8080/user/getRelatedCard',
     headers: {
       token
     }

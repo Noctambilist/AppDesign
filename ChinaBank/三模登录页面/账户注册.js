@@ -123,7 +123,7 @@ document.querySelector('.box3-2').addEventListener('click', () => {
   const username = document.querySelector('.txt003').value
   const ID = document.querySelector('.txt004').value
   axios({
-    url: 'http://47.113.198.244/pre/signup',
+    url: 'http://47.113.198.244:8080/pre/signup',
     method: 'PUT',
     data: {
       customerName:username,
