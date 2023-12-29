@@ -17,6 +17,7 @@ exitButton.addEventListener('click', () => {
   document.body.style.marginRight = "-15%";
   document.body.style.opacity = "0";
   setTimeout(function () {
+    localStorage.clear();
     location.href = '../三模登录页面/三模登录页面.html';
   }, 100);
 })
