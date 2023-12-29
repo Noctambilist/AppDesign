@@ -34,7 +34,7 @@ HuoQuYanZhengMaButton.addEventListener('click', () => {
   varifyToBack = +getRandomVarify();  //生成给后端的验证码
   console.log(varifyToBack);
   axios({
-    url: 'http://47.113.198.244/pre/send',
+    url: 'http://47.113.198.244:8080/pre/send',
     method:'POST',
     params:{
       phoneNumber:sjhm,
@@ -59,7 +59,7 @@ confirmPasswordButton.addEventListener('click', () => {
     document.body.style.marginRight = "-15%";
     document.body.style.opacity = "0";
     axios({
-      url: 'http://47.113.198.244/pre/checkLogin',
+      url: 'http://47.113.198.244:8080/pre/checkLogin',
       params:{
         phoneNumber:sjhm,
         code:varifyToBack

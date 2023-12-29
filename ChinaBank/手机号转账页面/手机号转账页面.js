@@ -93,7 +93,7 @@ confirmPasswordButton.addEventListener('click', () => {
 function getaccount() {
     let token = localStorage.getItem('token');
     axios({
-        url: 'http://47.113.198.244/user/getRelatedCard',
+        url: 'http://47.113.198.244:8080/user/getRelatedCard',
       headers: {
         token
       }
@@ -117,7 +117,7 @@ function pipei(){
     var phoneNumber=ShouKuanShouJiHao.value; 
     var token = localStorage.getItem('token');       
     axios({
-        url: 'http://47.113.198.244/user/verifyConnection2',
+        url: 'http://47.113.198.244:8080/user/verifyConnection2',
         headers: {
             token
           },
@@ -142,7 +142,7 @@ function mima(){
     var selectedValue = selectElement.value;
     var token = localStorage.getItem('token');
     axios({
-        url: 'http://47.113.198.244/user/getPaymentPassword',
+        url: 'http://47.113.198.244:8080/user/getPaymentPassword',
         headers: {
             token
           },
@@ -169,7 +169,7 @@ function transfer(){
     var money=ZhuanZhangJinE.value;
     var token = localStorage.getItem('token'); 
     axios({
-        url: 'http://47.113.198.244//user/transferByPhone',
+        url: 'http://47.113.198.244:8080/user/transferByPhone',
         method:'POST',
         headers: {
             token

@@ -49,7 +49,7 @@ login1.addEventListener('click', (e) => {
 
 
   axios({
-    url: 'http://47.113.198.244/pre/login',
+    url: 'http://47.113.198.244:8080/pre/login',
     method: 'POST',
     data: {
       phoneNumber: sjhm2.value,

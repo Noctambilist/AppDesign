@@ -25,7 +25,7 @@ getVarifyButton.addEventListener('click', () => {
   varifyToBack = +getRandomVarify();  //生成给后端的验证码
   console.log(varifyToBack);
   axios({
-    url: 'http://47.113.198.244/pre/send',
+    url: 'http://47.113.198.244:8080/pre/send',
     method:'POST',
     params:{
       phoneNumber:phoneNumber.value,
@@ -45,7 +45,7 @@ getVarifyButton.addEventListener('click', () => {
 confirmButton.addEventListener('click', () => {
   if (Number(varifyNumber.value) === varifyToBack) {//直接前端做验证
     axios({
-      url: 'http://47.113.198.244/user/modifyPhoneNumber',
+      url: 'http://47.113.198.244:8080/user/modifyPhoneNumber',
       method:'PUT',
       headers: {
           token

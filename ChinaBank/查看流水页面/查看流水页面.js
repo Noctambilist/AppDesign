@@ -125,7 +125,7 @@ chooseButton.addEventListener('click', () => {
     console.log(chooseBoard.style.display)
     let token = localStorage.getItem('token');
     axios({
-      url: 'http://47.113.198.244/user/getRelatedCard',
+      url: 'http://47.113.198.244:8080/user/getRelatedCard',
     headers: {
       token
     }
@@ -182,7 +182,7 @@ if(ioe){
   var currentDate = new Date();
   var formattedCurrentDate = currentDate.toISOString().slice(0, 19);
   axios({
-    url: 'http://47.113.198.244/user/getRelatedCard',
+    url: 'http://47.113.198.244:8080/user/getRelatedCard',
     headers: {
       token
     }
@@ -190,7 +190,7 @@ if(ioe){
     var optionsData1 =result.data.data;
     cardIDs = optionsData1.map(option => option.cardID);
 axios({
-  url: 'http://47.113.198.244/user/getTradeRecord',
+  url: 'http://47.113.198.244:8080/user/getTradeRecord',
   headers: {
     token
   },
@@ -247,7 +247,7 @@ if(cardNumber){
   var formattedCurrentDate = currentDate.toISOString().slice(0, 19);
   
   axios({
-    url: 'http://47.113.198.244/user/getTradeRecord',
+    url: 'http://47.113.198.244:8080/user/getTradeRecord',
     headers: {
       token
     },
@@ -306,7 +306,7 @@ function filter(){
   if (selectedValue==114514) {
 
     axios({
-      url: 'http://47.113.198.244/user/getRelatedCard',
+      url: 'http://47.113.198.244:8080/user/getRelatedCard',
       headers: {
         token
       }
@@ -314,7 +314,7 @@ function filter(){
       var optionsData1 =result.data.data;
       cardIDs = optionsData1.map(option => option.cardID);
         axios({
-          url: 'http://47.113.198.244/user/getTradeRecord',
+          url: 'http://47.113.198.244:8080/user/getTradeRecord',
           headers: {
             token
           },
@@ -365,7 +365,7 @@ function filter(){
   })
   } else {
     axios({
-      url: 'http://47.113.198.244/user/getTradeRecord',
+      url: 'http://47.113.198.244:8080/user/getTradeRecord',
       headers: {
         token
       },

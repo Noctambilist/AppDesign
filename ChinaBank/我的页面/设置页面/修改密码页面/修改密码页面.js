@@ -21,7 +21,7 @@ confirmButton.addEventListener('click', () => {
   if (passWordOne.value === passWordTwo.value) {
     let token = localStorage.getItem('token');
     axios({
-      url: 'http://47.113.198.244/user/modifyPassword',
+      url: 'http://47.113.198.244:8080/user/modifyPassword',
       method:'PUT',
       headers: {
           token

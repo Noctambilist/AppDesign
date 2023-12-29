@@ -18,7 +18,7 @@ exitButton.addEventListener('click', () => {
 })
 
 axios({
-  url: 'http://47.113.198.244/user/getPayCard',
+  url: 'http://47.113.198.244:8080/user/getPayCard',
   method: 'GET',
   params: {
     phoneNumber: sjhm,

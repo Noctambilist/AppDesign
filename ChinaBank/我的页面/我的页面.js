@@ -79,7 +79,7 @@ function getaccountInfo() {
   var formattedCurrentDate = currentDate.toISOString().slice(0, 19);
 
   axios({
-      url: 'http://47.113.198.244/user/getRelatedCard',
+      url: 'http://47.113.198.244:8080/user/getRelatedCard',
       headers: {
         token
       }
@@ -106,7 +106,7 @@ function getaccountInfo() {
         }
 
         axios({
-          url: 'http://47.113.198.244/user/getFinance',
+          url: 'http://47.113.198.244:8080/user/getFinance',
           headers: {
             token
           },

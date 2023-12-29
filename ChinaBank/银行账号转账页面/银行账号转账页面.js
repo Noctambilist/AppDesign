@@ -91,7 +91,7 @@ confirmPasswordButton.addEventListener('click', () => {
 function getaccount() {
     let token = localStorage.getItem('token');
     axios({
-        url: 'http://47.113.198.244/user/getRelatedCard',
+        url: 'http://47.113.198.244:8080/user/getRelatedCard',
       headers: {
         token
       }
@@ -117,7 +117,7 @@ function guasiInfo(){
     var cardIDII=ShouKuanShouJiHao.value;
     var token = localStorage.getItem('token');
     axios({
-        url: 'http://47.113.198.244/user/verifyLoss',
+        url: 'http://47.113.198.244:8080/user/verifyLoss',
         headers: {
           token
         },
@@ -138,7 +138,7 @@ function pipei(){
     var cardIDII=ShouKuanShouJiHao.value; 
     var token = localStorage.getItem('token');       
     axios({
-        url: 'http://47.113.198.244/user/verifyConnection1',
+        url: 'http://47.113.198.244:8080/user/verifyConnection1',
         headers: {
             token
           },
@@ -160,7 +160,7 @@ function mima(){
     var selectedValue = selectElement.value;
     var token = localStorage.getItem('token');
     axios({
-        url: 'http://47.113.198.244/user/getPaymentPassword',
+        url: 'http://47.113.198.244:8080/user/getPaymentPassword',
         headers: {
             token
           },
@@ -187,7 +187,7 @@ function transfer(){
     var money=ZhuanZhangJinE.value;
     var token = localStorage.getItem('token'); 
     axios({
-        url: 'http://47.113.198.244/user/transfer',
+        url: 'http://47.113.198.244:8080/user/transfer',
         method:'POST',
         headers: {
             token
